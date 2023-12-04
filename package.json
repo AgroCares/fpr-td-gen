@@ -17,7 +17,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "test": "vitest",
+    "test": "vitest run",
     "prepare": "husky install"
   },
   "devDependencies": {
