@@ -2,6 +2,16 @@
   "name": "@nmi/fpr-td-gen",
   "private": true,
   "version": "0.0.0",
+  "description": "A generator for the Technical Documentation of the EU Fertilizer Product Regulation",
+  "keywords": ["EU", "FPR"],
+  "homepage": "https://github.com/AgroCares/fpr-td-gen",
+  "bugs": "https://github.com/AgroCares/fpr-td-gen/issues/new",  
+  "license": "SEE LICENSE IN LICENSE",
+  "contributors": [{
+    "name": "Sven Verweij",
+    "email": "37927107+SvenVw@users.noreply.github.com",
+    "url": "https://github.com/SvenVw"
+  }],
   "type": "module",
   "main": "./dist/fpr-td-gen.umd.cjs",
   "module": "./dist/fpr-td-gen.js",
@@ -11,6 +21,10 @@
       "import": "./dist/fpr-td-gen.js",
       "require": "./dist/fpr-td-gen.umd.cjs"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AgroCares/fpr-td-gen.git"
   },
   "scripts": {
     "dev": "vite",

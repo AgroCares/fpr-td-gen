@@ -8,8 +8,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: "my-lib",
-      fileName: "my-lib",
+      name: "@nmi/fpr-td-gen",
+      fileName: "fpr-td-gen",
     },
   },
   plugins: [dts()],
