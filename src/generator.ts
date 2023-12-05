@@ -1,4 +1,4 @@
-class FprTdGen {
+class Generator {
   name: string
   constructor (name: string) {
     this.name = name
@@ -16,4 +16,4 @@ class FprTdGen {
   }
 }
 
-export default FprTdGen
+export default Generator

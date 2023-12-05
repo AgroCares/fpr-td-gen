@@ -1,1 +1,1 @@
-export { default as FprTdGen } from './fpr-td-gen'
+export { default as Generator } from './generator'
