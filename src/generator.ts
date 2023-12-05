@@ -1,18 +1,31 @@
+import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType } from './shared.types'
+
+import { Question } from './question'
+
 class Generator {
-  name: string
-  constructor (name: string) {
-    this.name = name
+  locale: localesType
+  fprVersion: fprVersionType = 'FPR 2019/1009'
+  constructor (locale: localesType) {
+    this.locale = locale
   }
 
-  getName (): string {
-    return this.name
+  getNextQuestion (): questionType {
+    const nextQuestionId = this.identifyNextQuestion()
+    const nextQuestion = new Question(this.locale, nextQuestionId).getQuestion()
+    return nextQuestion
   }
 
-  getTd (): object {
+  getTechnicalDocumentation (): technicalDocumentationType {
     return {
-      name: this.name,
-      version: 'FPR/2022'
+      locale: this.locale,
+      fprVersion: this.fprVersion
     }
+  }
+
+  // Internal functions
+  identifyNextQuestion (): idType {
+    const nextQuestionId = 'Q1'
+    return nextQuestionId
   }
 }
 

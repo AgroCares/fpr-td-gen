@@ -2,38 +2,40 @@ import { describe, it, expect } from 'vitest'
 import { Question } from './question'
 
 describe('Question', () => {
-  it('should create an instance', () => {
-    const question = new Question('id', 'text', 'ask', [])
-    expect(question).toBeDefined()
+  it('should create a question with the given locale and id', () => {
+    const question = new Question('en', 'Q1')
+
+    expect(question.locale).toBe('en')
+    expect(question.id).toBe('Q1')
   })
 
-  it('should have the correct id', () => {
-    const question = new Question('id', 'text', 'ask', [])
-    expect(question.id).toEqual('id')
+  it('should get the question set for the given id', () => {
+    const question = new Question('en', 'Q1')
+
+    expect(question.question).toEqual({
+      id: 'Q1',
+      type: 'text',
+      ask: 'What is the name of your product?',
+      placeholder: 'Product name',
+      help: 'This is the name of the product.',
+      options: null
+    })
   })
 
-  it('should have the correct type', () => {
-    const question = new Question('id', 'text', 'ask', [])
-    expect(question.type).toEqual('text')
+  it('should throw an error if the question set is not found', () => {
+    expect(() => new Question('en', '2')).toThrowError('Question with id 2 not found')
   })
 
-  it('should have the correct ask', () => {
-    const question = new Question('id', 'text', 'ask', [])
-    expect(question.ask).toEqual('ask')
-  })
+  it('should get the question', () => {
+    const question = new Question('en', 'Q1')
 
-  it('should have the correct placeholder', () => {
-    const question = new Question('id', 'text', 'ask', [])
-    expect(question.placeholder).toEqual('')
-  })
-
-  it('should have the correct help', () => {
-    const question = new Question('id', 'text', 'ask', [])
-    expect(question.help).toEqual('')
-  })
-
-  it('should have the correct options', () => {
-    const question = new Question('id', 'text', 'ask', [])
-    expect(question.options).toEqual([])
+    expect(question.getQuestion()).toEqual({
+      id: 'Q1',
+      type: 'text',
+      ask: 'What is the name of your product?',
+      placeholder: 'Product name',
+      help: 'This is the name of the product.',
+      options: null
+    })
   })
 })

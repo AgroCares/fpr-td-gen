@@ -1,38 +1,40 @@
-export class Question {
-  id: string
-  type: types
-  ask: string
-  placeholder: string
-  help: string
-  options: string[]
-  constructor (id: string, type: types, ask: string, options: string[]) {
-    this.id = id
-    this.type = type
-    this.ask = ask
-    this.placeholder = ''
-    this.help = ''
-    this.options = options
-  }
+import type { localesType, idType, questionType, questionSetType } from './shared.types'
+import questionSets from './question_sets'
 
-  getQuestion (): question {
-    return {
+export class Question {
+  locale: localesType
+  id: idType
+  questionSet: questionSetType
+  question: questionType
+
+  constructor (locale: localesType, id: idType) {
+    this.locale = locale
+    this.id = id
+
+    // Get set from questionSets that has the id of this question
+    const questionSet = questionSets.find(x => x.id === this.id)
+
+    if (questionSet === undefined) {
+      throw new Error(`Question with id ${this.id} not found`)
+    } else {
+      this.questionSet = questionSet
+    }
+
+    this.question = {
       id: this.id,
-      type: this.type,
-      ask: this.ask,
-      placeholder: this.placeholder,
-      help: this.help,
-      options: this.options
+      type: this.questionSet.type,
+      ask: this.questionSet.ask[this.locale],
+      placeholder: this.questionSet.placeholder[this.locale],
+      help: this.questionSet.help[this.locale],
+      options: null
+    }
+
+    if (this.questionSet.options !== null) {
+      this.question.options = this.questionSet.options[this.locale]
     }
   }
-}
 
-type types = 'text' | 'select' | 'checkbox'
-
-interface question {
-  id: string
-  type: types
-  ask: string
-  placeholder: string
-  help: string
-  options: string[]
+  getQuestion (): questionType {
+    return this.question
+  }
 }
