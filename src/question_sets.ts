@@ -21,7 +21,7 @@ const questionSets: questionSetsType =
     },
     {
       id: 'Q2',
-      type: 'text',
+      type: 'select',
       ask: {
         nl: 'Wat is de product functie categorie (PFC) van uw product?',
         en: 'What is the product function category (PFC) of your product?'
@@ -60,6 +60,23 @@ const questionSets: questionSetsType =
           'PFC 6.A Microbial plant biostimulant', 'PFC 6.B Non-microbial plant biostimulant',
           'PFC 7 Fertilising product blend']
       }
+    },
+    {
+      id: 'Q3',
+      type: 'text',
+      ask: {
+        nl: 'Wat is de naam van dit component',
+        en: 'What is the name of this component'
+      },
+      placeholder: {
+        nl: 'bijvoorbeeld "urea" of "gehydrolyseerd plantaardig eiwit"',
+        en: 'e.g. "urea" or "hydrolised plant protein"'
+      },
+      help: {
+        nl: 'Een naam waarmee u de/het component(en) in uw bemestingsproduct kunt herkennen zoals "urea" of "gehydrolyseerd plantaardig eiwit".',
+        en: 'A name with which you are able to destinguish the component(s) in your fertilising product such as "urea" or "hydrolised plant protein".'
+      },
+      options: null
     }
   ]
 
