@@ -153,6 +153,43 @@ const questionSets: questionSetsType =
           'Not applicable', 'Chelating agent', 'Complexing agent', 'Nitrification inhibitor', 'Denitrification inhibitor', 'Urease inhibitor'
         ]
       }
+    },
+    {
+      id: 'Q5.2',
+      type: 'checkbox',
+      ask: {
+        nl: 'Is het bestandsdeel of één van de materialen waarmee het bestandsdeel gemaakt wordt een dierlijkbijproduct?',
+        en: 'Is the component or one of its input materials an animal byproduct?'
+      },
+      placeholder: {
+        nl: '',
+        en: ''
+      },
+      help: {
+        nl: '',
+        en: ''
+      },
+      options: null
+    },
+    {
+      id: 'Q6',
+      type: 'select',
+      ask: {
+        nl: 'Wilt u nog een bestandsdeel toevoegen?',
+        en: 'Would you like to enter another component?'
+      },
+      placeholder: {
+        nl: 'ja',
+        en: 'nee'
+      },
+      help: {
+        nl: 'Alle bestandsdelen van uw bemestingsproduct moeten worden ingevuld, samen moeten de bestandsdelen 100% van het product uitmaken.',
+        en: 'All components of the fertilising product must be entered, together the components must make up 100% of the product'
+      },
+      options: {
+        nl: ['ja', 'nee'],
+        en: ['yes', 'no']
+      }
     }
   ]
 
