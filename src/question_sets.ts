@@ -129,6 +129,30 @@ const questionSets: questionSetsType =
           'CMC 15: Recovered high purity materials'
         ]
       }
+    },
+    {
+      id: 'Q5.1',
+      type: 'select',
+      ask: {
+        nl: 'Is dit bestandsdeel een chelaatvormer of een complexvormer, of bestemd als nitrificatie-, denitrificatie- of ureaseremmer?',
+        en: 'Is the component intended as chelating agent or complexing agent, or intended as a nitrification, a denitrification, or a urease inhibiting compound?'
+      },
+      placeholder: {
+        nl: 'Niet van toepassing',
+        en: 'Not applicable'
+      },
+      help: {
+        nl: 'Op chelaat- en complexvormende bestandsdelen en op remmende bestandsdelen zijn extra vereisten van toepassing. Indien dit bestandsdeel niet één van deze functies heeft kun u "Niet van toepassing" opgeven.',
+        en: 'Additional requirements apply to chelating and complexing agents and to inhibiting compounds. If this component does not have any of these functions please specify "Not applicable".'
+      },
+      options: {
+        nl: [
+          'Niet van toepassing', 'Chelaatvormer', 'Complexvormer', 'Nitrificatieremmer', 'Denitrificatieremmer', 'Ureaseremmer'
+        ],
+        en: [
+          'Not applicable', 'Chelating agent', 'Complexing agent', 'Nitrification inhibitor', 'Denitrification inhibitor', 'Urease inhibitor'
+        ]
+      }
     }
   ]
 
