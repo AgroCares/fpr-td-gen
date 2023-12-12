@@ -65,18 +65,70 @@ const questionSets: questionSetsType =
       id: 'Q3',
       type: 'text',
       ask: {
-        nl: 'Wat is de naam van dit component',
-        en: 'What is the name of this component'
+        nl: 'Wat is de naam van dit bestandsdeel?',
+        en: 'What is the name of this component?'
       },
       placeholder: {
         nl: 'bijvoorbeeld "urea" of "gehydrolyseerd plantaardig eiwit"',
         en: 'e.g. "urea" or "hydrolised plant protein"'
       },
       help: {
-        nl: 'Een naam waarmee u de/het component(en) in uw bemestingsproduct kunt herkennen zoals "urea" of "gehydrolyseerd plantaardig eiwit".',
+        nl: 'Een naam waarmee u het bestandsdeel in uw bemestingsproduct kunt herkennen zoals "urea" of "gehydrolyseerd plantaardig eiwit".',
         en: 'A name with which you are able to destinguish the component(s) in your fertilising product such as "urea" or "hydrolised plant protein".'
       },
       options: null
+    },
+    {
+      id: 'Q4',
+      type: 'select',
+      ask: {
+        nl: 'Wat is de bestandsdeel categorie (CMC) van dit bestandsdeel?',
+        en: 'What is the component material category (CMC) of this component?'
+      },
+      placeholder: {
+        nl: 'CMC 1: stoffen en mengsels als primair materiaal',
+        en: 'CMC 1: Virgin material substances and mixtures'
+      },
+      help: {
+        nl: 'Elk bestanddeel moet voldoen aan de vereisten van één van bestandsdeel categorieën, kies de categorie waartoe uw bestandsdeel behoort.',
+        en: 'Each component must meet the criteria of one component material category, pick the category to which your component belongs.'
+      },
+      options: {
+        nl: [
+          'CMC 1: stoffen en mengsels als primair materiaal',
+          'CMC 2: planten, delen van planten of plantenextracten',
+          'CMC 3: compost',
+          'CMC 4: digestaat van verse gewassen',
+          'CMC 5: ander digestaat dan digestaat van verse gewassen',
+          'CMC 6: bijproducten van de levensmiddelenindustrie',
+          'CMC 7: micro-organismen',
+          'CMC 8: nutriëntenpolymeren',
+          'CMC 9: andere polymeren dan nutriëntenpolymeren',
+          'CMC 10: afgeleide producten in de zin van Verordening (EG) nr. 1069/2009',
+          'CMC 11: bijproducten in de zin van Richtlijn 2008/98/EG',
+          'CMC 12: neergeslagen fosfaatzouten en derivaten daarvan',
+          'CMC 13: thermische-oxidatiematerialen en derivaten daarvan',
+          'CMC 14: via pyrolyse en vergassing verkregen materialen',
+          'CMC 15: teruggewonnen zeer zuivere materialen'
+        ],
+        en: [
+          'CMC 1: Virgin material substances and mixtures',
+          'CMC 2: Plants, plant parts or plant extracts',
+          'CMC 3: Compost',
+          'CMC 4: Fresh crop digestate',
+          'CMC 5: Digestate other than fresh crop digestate',
+          'CMC 6: Food industry by-products',
+          'CMC 7: Micro-organisms',
+          'CMC 8: Nutrient polymers',
+          'CMC 9: Polymers other than nutrient polymers',
+          'CMC 10: Derived products within the meaning of Regulation (EC) No 1069/2009',
+          'CMC 11: By-products within the meaning of Directive 2008/98/EC',
+          'CMC 12: Precipitated phosphate salts and derivates',
+          'CMC 13: Thermal oxidation materials and derivates',
+          'CMC 14: Pyrolysis and gasification materials',
+          'CMC 15: Recovered high purity materials'
+        ]
+      }
     }
   ]
 
