@@ -1,11 +1,29 @@
+/**
+ * The question to be asked
+ * @public
+ */
 export type askType = string
 
+/**
+ * The version of the FPR to be used
+ * @remarks Currently only `FPR 2019/100` is allowed
+ * @beta
+ */
 export type fprVersionType = 'FPR 2019/1009'
 
+/**
+ * The id of the question
+ * @beta
+ */
 export type idType = string
 
 export type help = string
 
+/**
+ * The language selected to be used
+ * @remarks Currently only English ('en') and Dutch are available ('nl')
+ * @public
+ */
 export type localesType = 'en' | 'nl'
 
 export type placeholder = string
