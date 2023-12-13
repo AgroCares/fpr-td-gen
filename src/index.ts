@@ -4,7 +4,7 @@
  * A library to generate the Technical Documentation for the EU Fertilizer Product Regulation
  *
  * @remarks
- * The `fpr-td-gen` defines the {@Link Generator} class to generate the Technical Documentation for a EU fertilizing product
+ * The `fpr-td-gen` defines the {@link Generator} class to generate the Technical Documentation for a EU fertilizing product
  *
  * @packageDocumentation
  */

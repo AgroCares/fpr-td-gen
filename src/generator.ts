@@ -5,18 +5,19 @@ import { Question } from './question'
 class Generator {
   /**
   * Class of generator to generate the Technical Documentation for a EU fertilizing product
-  * @param locale - {@Link localeType}
-  * @param fprVersion - {@Link fprVersionType}
+  * @param locale - {@link "localesType"}
+  * @param fprVersion - {@link fprVersionType}
   * @beta
   */
   locale: localesType
   fprVersion: fprVersionType = 'FPR 2019/1009'
   constructor (locale: localesType) {
     this.locale = locale
+    this.fprVersion = 'FPR 2019/1009'
   }
 
   /** Returns the next question
-   * @returns The question object for the next question
+   * @returns The question object {@link questionType} for the next question
    * @beta
    */
   getNextQuestion (): questionType {
@@ -38,7 +39,7 @@ class Generator {
 
   /**
    * Identify the next question
-   * @returns The id of the next question {@Link idType}
+   * @returns The id of the next question {@link idType}
    * @internal
    */
   identifyNextQuestion (): idType {
