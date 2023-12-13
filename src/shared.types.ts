@@ -41,8 +41,7 @@ export type optionsType = string[]
 /**
  * The question to be asked
  *
- * @interface questionType - The question to be asked
- *
+ * @typeParam questionType - The question to be asked
  * @public
  */
 export interface questionType {
