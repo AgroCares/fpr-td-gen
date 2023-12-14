@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/indent */
 import type { questionSetsType } from './shared.types'
 
 const questionSets: questionSetsType =
@@ -17,7 +18,8 @@ const questionSets: questionSetsType =
         nl: 'Dit is de naam van het product.',
         en: 'This is the name of the product.'
       },
-      options: null
+      options: null,
+      optionsid: null
     },
     {
       id: 'Q2',
@@ -42,7 +44,7 @@ const questionSets: questionSetsType =
           'PFC 1.C.I.b.i Enkelvoudige vloeibare anorganische macronutriëntenmeststof', 'PFC 1.C.I.b.ii Samengestelde vloeibare anorganische macronutriëntenmeststof',
           'PFC 1.C.II.a Enkelvoudige anorganische micronutriënten meststof', 'PFC 1.C.II.b Samengestelde anorganische micronutriëntenmeststof',
           'PFC 2 Kalkmeststof',
-          'PFC 3.A Organische bodemverbeteraar', 'PFC.3.B Anorganische bodemverbeteraar',
+          'PFC 3.A Organische bodemverbeteraar', 'PFC 3.B Anorganische bodemverbeteraar',
           'PFC 4 Groeimedium',
           'PFC 5.A Nitrificatieremmer', 'PFC 5.B Denitrificatieremmer', 'PFC 5.C Ureaseremmer',
           'PFC 6.A Microbiële biostimulant voor planten', 'PFC 6.B Niet-microbiële biostimulant voor planten',
@@ -54,12 +56,24 @@ const questionSets: questionSetsType =
           'PFC 1.C.I.b.i Straight liquid inorganic macronutrient fertiliser', 'PFC 1.C.I.b.ii Compound liquid inorganic macronutrient fertiliser',
           'PFC 1.C.II.a Straight inorganic micronutrient fertiliser', 'PFC 1.C.II.b Compound inorganic micronutrient fertiliser',
           'PFC 2 Liming material',
-          'PFC 3.A Organic soil improver', 'PFC.3.B Inorganic soil improver',
+          'PFC 3.A Organic soil improver', 'PFC 3.B Inorganic soil improver',
           'PFC 4 Growing medium',
           'PFC 5.A Nitrification inhibitor', 'PFC 5.B denitrification inhibitor', 'PFC 5.C urease inhibitor',
           'PFC 6.A Microbial plant biostimulant', 'PFC 6.B Non-microbial plant biostimulant',
           'PFC 7 Fertilising product blend']
-      }
+      },
+      optionsid: ['PFC 1.A.I', 'PFC 1.A.II',
+      'PFC 1.B.I', 'PFC 1.B.II',
+      'PFC 1.C.I.a.i', 'PFC 1.C.I.a.i.A',
+      'PFC 1.C.I.a.ii', 'PFC 1.C.I.a.ii.A',
+      'PFC 1.C.I.b.i',
+      'PFC 1.C.II.a',
+      'PFC 2',
+      'PFC 3.A', 'PFC 3.B',
+      'PFC 4',
+      'PFC 5.A', 'PFC 5.B', 'PFC 5.C',
+      'PFC 6.A', 'PFC 6.B',
+      'PFC 7']
     },
     {
       id: 'Q3',
@@ -76,7 +90,8 @@ const questionSets: questionSetsType =
         nl: 'Een naam waarmee u het bestandsdeel in uw bemestingsproduct kunt herkennen zoals "urea" of "gehydrolyseerd plantaardig eiwit".',
         en: 'A name with which you are able to destinguish the component(s) in your fertilising product such as "urea" or "hydrolised plant protein".'
       },
-      options: null
+      options: null,
+      optionsid: null
     },
     {
       id: 'Q4',
@@ -128,7 +143,24 @@ const questionSets: questionSetsType =
           'CMC 14: Pyrolysis and gasification materials',
           'CMC 15: Recovered high purity materials'
         ]
-      }
+      },
+      optionsid: [
+        'CMC 1',
+        'CMC 2',
+        'CMC 3',
+        'CMC 4',
+        'CMC 5',
+        'CMC 6',
+        'CMC 7',
+        'CMC 8',
+        'CMC 9',
+        'CMC 10',
+        'CMC 11',
+        'CMC 12',
+        'CMC 13',
+        'CMC 14',
+        'CMC 15'
+      ]
     },
     {
       id: 'Q5.1',
@@ -152,13 +184,16 @@ const questionSets: questionSetsType =
         en: [
           'Not applicable', 'Chelating agent', 'Complexing agent', 'Nitrification inhibitor', 'Denitrification inhibitor', 'Urease inhibitor'
         ]
-      }
+      },
+      optionsid: [
+        'Not applicable', 'Chelating agent', 'Complexing agent', 'Nitrification inhibitor', 'Denitrification inhibitor', 'Urease inhibitor'
+      ]
     },
     {
       id: 'Q5.2',
       type: 'checkbox',
       ask: {
-        nl: 'Is het bestandsdeel of één van de materialen waarmee het bestandsdeel gemaakt wordt een dierlijkbijproduct?',
+        nl: 'Is het bestandsdeel of één van de materialen waarmee het bestandsdeel gemaakt wordt een dierlijk bijproduct?',
         en: 'Is the component or one of its input materials an animal byproduct?'
       },
       placeholder: {
@@ -169,7 +204,8 @@ const questionSets: questionSetsType =
         nl: '',
         en: ''
       },
-      options: null
+      options: null,
+      optionsid: ['true', 'false']
     },
     {
       id: 'Q6',
@@ -189,7 +225,8 @@ const questionSets: questionSetsType =
       options: {
         nl: ['ja', 'nee'],
         en: ['yes', 'no']
-      }
+      },
+      optionsid: ['true', 'false']
     }
   ]
 

@@ -28,6 +28,7 @@ export interface questionSetType {
   placeholder: Record<localesType, string>
   help: Record<localesType, string>
   options: Record<localesType, optionsType> | null
+  optionsid: optionsIdType | null
 }
 
 export type questionSetsType = questionSetType[]
@@ -38,3 +39,5 @@ export interface technicalDocumentationType {
 }
 
 export type typesType = 'text' | 'select' | 'checkbox' | undefined
+
+export type optionsIdType = string[] | undefined
