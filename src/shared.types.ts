@@ -10,7 +10,7 @@ export type localesType = 'en' | 'nl'
 
 export type placeholder = string
 
-export type optionsType = string[]
+export type optionsType = Record<string, localesType>
 
 export interface questionType {
   id: idType
@@ -27,8 +27,7 @@ export interface questionSetType {
   ask: Record<localesType, string>
   placeholder: Record<localesType, string>
   help: Record<localesType, string>
-  options: Record<localesType, optionsType> | null
-  optionsid: optionsIdType | null
+  options: optionsType[] | null
 }
 
 export type questionSetsType = questionSetType[]
