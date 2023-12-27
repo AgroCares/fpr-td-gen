@@ -437,6 +437,217 @@ const questionSets: questionSetsType =
           }
         }
       ]
+    },
+    {
+      id: 'Q7',
+      type: 'text',
+      ask: {
+        nl: 'Wat is de naam van dit bestandsdeel EU-bemestingsproduct?',
+        en: 'What is the name of this component EU fertilising product?'
+      },
+      placeholder: {
+        nl: 'ProductEU-x',
+        en: 'ProductEU-x'
+      },
+      help: {
+        nl: 'Een EU-bemestingsproduct in PFC 7 bestaat uit meerdere EU-bemestingsproducten van PFC 1 tot en met PFC 6. Geef hier de naam van een EU-bemestingsproduct in uw PFC 7 bemestingsproductenblend op',
+        en: 'An EU fertilising product in PFC 7 concsist out of multiple EU fertiling products in categories PFC 1 to PFC 6. Give the name of an EU fertilising product composing your PFC 7 fertilising product blend'
+      },
+      options: null
+    },
+    {
+      id: 'Q7.1.',
+      type: 'select',
+      ask: {
+        nl: 'Wat is de type aanduiding van dit bestandsdeel EU-bemestingsproduct?',
+        en: 'What is the type designation of this component EU-fertilising product'
+      },
+      placeholder: null,
+      help: {
+        nl: 'Een EU-bemestingsproduct in PFC 7 bestaat uit meerdere EU-bemestingsproducten van PFC 1 tot en met PFC 6, geef hier aan welke PFC aanduiding dit bestandsdeel heeft.',
+        en: 'An EU fertilising product in PFC 7 concsist out of multiple EU fertiling products in categories PFC 1 to PFC 6, indicate the PFC designation of this component.'
+      },
+      options: [
+        {
+          value: 'PFC 1.A.I',
+          locale: {
+            nl: 'PFC 1.A.I Vaste organische meststof',
+            en: 'PFC 1.A.I Solid organic fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.A.II',
+          locale: {
+            nl: 'PFC 1.A.II vloeibare organische meststof',
+            en: 'PFC 1.A.II Liquid organic fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.B.I',
+          locale: {
+            nl: 'PFC 1.B.I Vaste organo-minerale meststof',
+            en: 'PFC 1.B.I Solid organo-mineral fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.B.II',
+          locale: {
+            nl: 'PFC 1.B.II Vloeibare organo-minerale meststof',
+            en: 'PFC 1.B.II Liquid organo-mineral fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.C.I.a.i',
+          locale: {
+            nl: 'PFC 1.C.I.a.i Enkelvoudige vaste anorganische macronutriëntenmeststof',
+            en: 'PFC 1.C.I.a.i Straight solid inorganic macronutrient fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.C.I.a.i.A',
+          locale: {
+            nl: 'PFC 1.C.I.a.i.A Enkelvoudige vaste anorganische macronutriëntenmeststof op basis van ammoniumnitraat en met een hoog stikstofgehalte',
+            en: 'PFC 1.C.I.a.i.A Straight solid inorganic macronutrient ammonium nitrate fertiliser of high nitrogen content'
+          }
+        },
+        {
+          value: 'PFC 1.C.I.a.ii',
+          locale: {
+            nl: 'PFC 1.C.I.a.ii Samengestelde vaste anorganische macronutriëntenmeststof',
+            en: 'PFC 1.C.I.a.ii Compound solid inorganic macronutrient fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.C.I.a.ii.A',
+          locale: {
+            nl: 'PFC 1.C.I.a.ii.A Samengestelde vaste anorganische macronutriëntenmeststof op basis van ammoniumnitraat en met een hoog stikstofgehalte',
+            en: 'PFC 1.C.I.a.ii.A Compound solid inorganic macronutrient ammonium nitrate fertiliser of high nitrogen content'
+          }
+        },
+        {
+          value: 'PFC 1.C.I.b.i',
+          locale: {
+            nl: 'PFC 1.C.I.b.i Enkelvoudige vloeibare anorganische macronutriëntenmeststof',
+            en: 'PFC 1.C.I.b.i Straight liquid inorganic macronutrient fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.C.I.b.ii',
+          locale: {
+            nl: 'PFC 1.C.I.b.ii Samengestelde vloeibare anorganische macronutriëntenmeststof',
+            en: 'PFC 1.C.I.b.ii Compound liquid inorganic macronutrient fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.C.II.a',
+          locale: {
+            nl: 'PFC 1.C.II.a Enkelvoudige anorganische micronutriënten meststof',
+            en: 'PFC 1.C.II.a Straight inorganic micronutrient fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.C.II.b',
+          locale: {
+            nl: 'PFC 1.C.II.b Samengestelde anorganische micronutriëntenmeststof',
+            en: 'PFC 1.C.II.b Compound inorganic micronutrient fertiliser'
+          }
+        },
+        {
+          value: 'PFC 2',
+          locale: {
+            nl: 'PFC 2 Kalkmeststof',
+            en: 'PFC 2 Liming material'
+          }
+        },
+        {
+          value: 'PFC 3.A',
+          locale: {
+            nl: 'PFC 3.A Organische bodemverbeteraar',
+            en: 'PFC 3.A Organic soil improver'
+          }
+        },
+        {
+          value: 'PFC 3.B',
+          locale: {
+            nl: 'PFC 3.B Anorganische bodemverbeteraar',
+            en: 'PFC 3.B Inorganic soil improver'
+          }
+        },
+        {
+          value: 'PFC 4',
+          locale: {
+            nl: 'PFC 4 Groeimedium',
+            en: 'PFC 4 Growing medium'
+          }
+        },
+        {
+          value: 'PFC 5.A',
+          locale: {
+            nl: 'PFC 5.A Nitrificatieremmer',
+            en: 'PFC 5.A Nitrification inhibitor'
+          }
+        },
+        {
+          value: 'PFC 5.B',
+          locale: {
+            nl: 'PFC 5.B Denitrificatieremmer',
+            en: 'PFC 5.B Denitrification inhibitor'
+          }
+        },
+        {
+          value: 'PFC 5.C',
+          locale: {
+            nl: 'PFC 5.C Ureaseremmer',
+            en: 'PFC 5.C Urease inhibitor'
+          }
+        },
+        {
+          value: 'PFC 6.A',
+          locale: {
+            nl: 'PFC 6.A Microbiële biostimulant voor planten',
+            en: 'PFC 6.A Microbial plant biostimulant'
+          }
+        },
+        {
+          value: 'PFC 6.B',
+          locale: {
+            nl: 'PFC 6.B Niet-microbiële biostimulant voor planten',
+            en: 'PFC 6.B Non-microbial plant biostimulant'
+          }
+        }
+      ]
+    },
+    {
+      id: 'Q7.2.',
+      type: 'select',
+      ask: {
+        nl: 'Wilt u nog een EU-bemestingsproduct bestandsdeel toevoegen?',
+        en: 'Would you like to enter another component EU fertilising product?'
+      },
+      placeholder: {
+        nl: 'ja',
+        en: 'nee'
+      },
+      help: {
+        nl: 'Alle EU-bemestingsproduct bestandsdelen van uw PFC 7 bemestingsproductenblend moeten worden ingevuld, samen moeten de bestandsdelen 100% van de blend uitmaken.',
+        en: 'All component EU fertilisingproducts of the fertilising product blend must be entered, together the components must make up 100% of the fertilising product blend'
+      },
+      options: [
+        {
+          value: 'Yes',
+          locale: {
+            nl: 'Ja',
+            en: 'Yes'
+          }
+        },
+        {
+          value: 'No',
+          locale: {
+            nl: 'Nee',
+            en: 'No'
+          }
+        }
+      ]
     }
   ]
 
