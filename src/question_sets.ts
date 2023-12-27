@@ -18,8 +18,7 @@ const questionSets: questionSetsType =
         nl: 'Dit is de naam van het product.',
         en: 'This is the name of the product.'
       },
-      options: null,
-      optionsid: null
+      options: null
     },
     {
       id: 'Q2',
@@ -36,44 +35,162 @@ const questionSets: questionSetsType =
         nl: 'Dit is de PFC van het product.',
         en: 'This is the PFC of the product.'
       },
-      options: {
-        nl: ['PFC 1.A.I Vaste organische meststof', 'PFC 1.A.II vloeibare organische meststof',
-          'PFC 1.B.I Vaste organo-minerale meststof', 'PFC 1.B.II Vloeibare organo-minerale meststof',
-          'PFC 1.C.I.a.i Enkelvoudige vaste anorganische macronutriëntenmeststof', 'PFC 1.C.I.a.i.A Enkelvoudige vaste anorganische macronutriëntenmeststof op basis van ammoniumnitraat en met een hoog stikstofgehalte',
-          'PFC 1.C.I.a.ii Samengestelde vaste anorganische macronutriëntenmeststof', 'PFC 1.C.I.a.ii.A Samengestelde vaste anorganische macronutriëntenmeststof op basis van ammoniumnitraat en met een hoog stikstofgehalte',
-          'PFC 1.C.I.b.i Enkelvoudige vloeibare anorganische macronutriëntenmeststof', 'PFC 1.C.I.b.ii Samengestelde vloeibare anorganische macronutriëntenmeststof',
-          'PFC 1.C.II.a Enkelvoudige anorganische micronutriënten meststof', 'PFC 1.C.II.b Samengestelde anorganische micronutriëntenmeststof',
-          'PFC 2 Kalkmeststof',
-          'PFC 3.A Organische bodemverbeteraar', 'PFC 3.B Anorganische bodemverbeteraar',
-          'PFC 4 Groeimedium',
-          'PFC 5.A Nitrificatieremmer', 'PFC 5.B Denitrificatieremmer', 'PFC 5.C Ureaseremmer',
-          'PFC 6.A Microbiële biostimulant voor planten', 'PFC 6.B Niet-microbiële biostimulant voor planten',
-          'PFC 7 Bemestingsprodcutenblend'],
-        en: ['PFC 1.A.I Solid organic fertiliser', 'PFC 1.A.II Liquid organic fertiliser',
-          'PFC 1.B.I Solid organo-mineral fertiliser', 'PFC 1.B.II Liquid organo-mineral fertiliser',
-          'PFC 1.C.I.a.i Straight solid inorganic macronutrient fertiliser', 'PFC 1.C.I.a.i.A Straight solid inorganic macronutrient ammonium nitrate fertiliser of high nitrogen content',
-          'PFC 1.C.I.a.ii Compound solid inorganic macronutrient fertiliser', 'PFC 1.C.I.a.ii.A Compound solid inorganic macronutrient ammonium nitrate fertiliser of high nitrogen content',
-          'PFC 1.C.I.b.i Straight liquid inorganic macronutrient fertiliser', 'PFC 1.C.I.b.ii Compound liquid inorganic macronutrient fertiliser',
-          'PFC 1.C.II.a Straight inorganic micronutrient fertiliser', 'PFC 1.C.II.b Compound inorganic micronutrient fertiliser',
-          'PFC 2 Liming material',
-          'PFC 3.A Organic soil improver', 'PFC 3.B Inorganic soil improver',
-          'PFC 4 Growing medium',
-          'PFC 5.A Nitrification inhibitor', 'PFC 5.B denitrification inhibitor', 'PFC 5.C urease inhibitor',
-          'PFC 6.A Microbial plant biostimulant', 'PFC 6.B Non-microbial plant biostimulant',
-          'PFC 7 Fertilising product blend']
-      },
-      optionsid: ['PFC 1.A.I', 'PFC 1.A.II',
-      'PFC 1.B.I', 'PFC 1.B.II',
-      'PFC 1.C.I.a.i', 'PFC 1.C.I.a.i.A',
-      'PFC 1.C.I.a.ii', 'PFC 1.C.I.a.ii.A',
-      'PFC 1.C.I.b.i',
-      'PFC 1.C.II.a',
-      'PFC 2',
-      'PFC 3.A', 'PFC 3.B',
-      'PFC 4',
-      'PFC 5.A', 'PFC 5.B', 'PFC 5.C',
-      'PFC 6.A', 'PFC 6.B',
-      'PFC 7']
+      options: [
+        {
+          value: 'PFC 1.A.I',
+          locale: {
+            nl: 'PFC 1.A.I Vaste organische meststof',
+            en: 'PFC 1.A.I Solid organic fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.A.II',
+          locale: {
+            nl: 'PFC 1.A.II vloeibare organische meststof',
+            en: 'PFC 1.A.II Liquid organic fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.B.I',
+          locale: {
+            nl: 'PFC 1.B.I Vaste organo-minerale meststof',
+            en: 'PFC 1.B.I Solid organo-mineral fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.B.II',
+          locale: {
+            nl: 'PFC 1.B.II Vloeibare organo-minerale meststof',
+            en: 'PFC 1.B.II Liquid organo-mineral fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.C.I.a.i',
+          locale: {
+            nl: 'PFC 1.C.I.a.i Enkelvoudige vaste anorganische macronutriëntenmeststof',
+            en: 'PFC 1.C.I.a.i Straight solid inorganic macronutrient fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.C.I.a.i.A',
+          locale: {
+            nl: 'PFC 1.C.I.a.i.A Enkelvoudige vaste anorganische macronutriëntenmeststof op basis van ammoniumnitraat en met een hoog stikstofgehalte',
+            en: 'PFC 1.C.I.a.i.A Straight solid inorganic macronutrient ammonium nitrate fertiliser of high nitrogen content'
+          }
+        },
+        {
+          value: 'PFC 1.C.I.a.ii',
+          locale: {
+            nl: 'PFC 1.C.I.a.ii Samengestelde vaste anorganische macronutriëntenmeststof',
+            en: 'PFC 1.C.I.a.ii Compound solid inorganic macronutrient fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.C.I.a.ii.A',
+          locale: {
+            nl: 'PFC 1.C.I.a.ii.A Samengestelde vaste anorganische macronutriëntenmeststof op basis van ammoniumnitraat en met een hoog stikstofgehalte',
+            en: 'PFC 1.C.I.a.ii.A Compound solid inorganic macronutrient ammonium nitrate fertiliser of high nitrogen content'
+          }
+        },
+        {
+          value: 'PFC 1.C.I.b.i',
+          locale: {
+            nl: 'PFC 1.C.I.b.i Enkelvoudige vloeibare anorganische macronutriëntenmeststof',
+            en: 'PFC 1.C.I.b.i Straight liquid inorganic macronutrient fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.C.I.b.ii',
+          locale: {
+            nl: 'PFC 1.C.I.b.ii Samengestelde vloeibare anorganische macronutriëntenmeststof',
+            en: 'PFC 1.C.I.b.ii Compound liquid inorganic macronutrient fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.C.II.a',
+          locale: {
+            nl: 'PFC 1.C.II.a Enkelvoudige anorganische micronutriënten meststof',
+            en: 'PFC 1.C.II.a Straight inorganic micronutrient fertiliser'
+          }
+        },
+        {
+          value: 'PFC 1.C.II.b',
+          locale: {
+            nl: 'PFC 1.C.II.b Samengestelde anorganische micronutriëntenmeststof',
+            en: 'PFC 1.C.II.b Compound inorganic micronutrient fertiliser'
+          }
+        },
+        {
+          value: 'PFC 2',
+          locale: {
+            nl: 'PFC 2 Kalkmeststof',
+            en: 'PFC 2 Liming material'
+          }
+        },
+        {
+          value: 'PFC 3.A',
+          locale: {
+            nl: 'PFC 3.A Organische bodemverbeteraar',
+            en: 'PFC 3.A Organic soil improver'
+          }
+        },
+        {
+          value: 'PFC 3.B',
+          locale: {
+            nl: 'PFC 3.B Anorganische bodemverbeteraar',
+            en: 'PFC 3.B Inorganic soil improver'
+          }
+        },
+        {
+          value: 'PFC 4',
+          locale: {
+            nl: 'PFC 4 Groeimedium',
+            en: 'PFC 4 Growing medium'
+          }
+        },
+        {
+          value: 'PFC 5.A',
+          locale: {
+            nl: 'PFC 5.A Nitrificatieremmer',
+            en: 'PFC 5.A Nitrification inhibitor'
+          }
+        },
+        {
+          value: 'PFC 5.B',
+          locale: {
+            nl: 'PFC 5.B Denitrificatieremmer',
+            en: 'PFC 5.B Denitrification inhibitor'
+          }
+        },
+        {
+          value: 'PFC 5.C',
+          locale: {
+            nl: 'PFC 5.C Ureaseremmer',
+            en: 'PFC 5.C Urease inhibitor'
+          }
+        },
+        {
+          value: 'PFC 6.A',
+          locale: {
+            nl: 'PFC 6.A Microbiële biostimulant voor planten',
+            en: 'PFC 6.A Microbial plant biostimulant'
+          }
+        },
+        {
+          value: 'PFC 6.B',
+          locale: {
+            nl: 'PFC 6.B Niet-microbiële biostimulant voor planten',
+            en: 'PFC 6.B Non-microbial plant biostimulant'
+          }
+        },
+        {
+          value: 'PFC 7',
+          locale: {
+            nl: 'PFC 7 Bemestingsprodcutenblend',
+            en: 'PFC 7 Fertilising product blend'
+          }
+        }
+      ]
     },
     {
       id: 'Q3',
@@ -90,8 +207,7 @@ const questionSets: questionSetsType =
         nl: 'Een naam waarmee u het bestandsdeel in uw bemestingsproduct kunt herkennen zoals "urea" of "gehydrolyseerd plantaardig eiwit".',
         en: 'A name with which you are able to destinguish the component(s) in your fertilising product such as "urea" or "hydrolised plant protein".'
       },
-      options: null,
-      optionsid: null
+      options: null
     },
     {
       id: 'Q4',
@@ -108,58 +224,112 @@ const questionSets: questionSetsType =
         nl: 'Elk bestanddeel moet voldoen aan de vereisten van één van bestandsdeel categorieën, kies de categorie waartoe uw bestandsdeel behoort.',
         en: 'Each component must meet the criteria of one component material category, pick the category to which your component belongs.'
       },
-      options: {
-        nl: [
-          'CMC 1: stoffen en mengsels als primair materiaal',
-          'CMC 2: planten, delen van planten of plantenextracten',
-          'CMC 3: compost',
-          'CMC 4: digestaat van verse gewassen',
-          'CMC 5: ander digestaat dan digestaat van verse gewassen',
-          'CMC 6: bijproducten van de levensmiddelenindustrie',
-          'CMC 7: micro-organismen',
-          'CMC 8: nutriëntenpolymeren',
-          'CMC 9: andere polymeren dan nutriëntenpolymeren',
-          'CMC 10: afgeleide producten in de zin van Verordening (EG) nr. 1069/2009',
-          'CMC 11: bijproducten in de zin van Richtlijn 2008/98/EG',
-          'CMC 12: neergeslagen fosfaatzouten en derivaten daarvan',
-          'CMC 13: thermische-oxidatiematerialen en derivaten daarvan',
-          'CMC 14: via pyrolyse en vergassing verkregen materialen',
-          'CMC 15: teruggewonnen zeer zuivere materialen'
-        ],
-        en: [
-          'CMC 1: Virgin material substances and mixtures',
-          'CMC 2: Plants, plant parts or plant extracts',
-          'CMC 3: Compost',
-          'CMC 4: Fresh crop digestate',
-          'CMC 5: Digestate other than fresh crop digestate',
-          'CMC 6: Food industry by-products',
-          'CMC 7: Micro-organisms',
-          'CMC 8: Nutrient polymers',
-          'CMC 9: Polymers other than nutrient polymers',
-          'CMC 10: Derived products within the meaning of Regulation (EC) No 1069/2009',
-          'CMC 11: By-products within the meaning of Directive 2008/98/EC',
-          'CMC 12: Precipitated phosphate salts and derivates',
-          'CMC 13: Thermal oxidation materials and derivates',
-          'CMC 14: Pyrolysis and gasification materials',
-          'CMC 15: Recovered high purity materials'
-        ]
-      },
-      optionsid: [
-        'CMC 1',
-        'CMC 2',
-        'CMC 3',
-        'CMC 4',
-        'CMC 5',
-        'CMC 6',
-        'CMC 7',
-        'CMC 8',
-        'CMC 9',
-        'CMC 10',
-        'CMC 11',
-        'CMC 12',
-        'CMC 13',
-        'CMC 14',
-        'CMC 15'
+      options: [
+        {
+          value: 'CMC 1',
+          locale: {
+            nl: 'CMC 1: Stoffen en mengsels als primair materiaal',
+            en: 'CMC 1: Virgin material substances and mixtures'
+          }
+        },
+        {
+          value: 'CMC 2',
+          locale: {
+            nl: 'CMC 2: Planten, delen van planten of plantenextracten',
+            en: 'CMC 2: Plants, plant parts or plant extracts'
+          }
+        },
+        {
+          value: 'CMC 3',
+          locale: {
+            nl: 'CMC 3: Compost',
+            en: 'CMC 3: Compost'
+          }
+        },
+        {
+          value: 'CMC 4',
+          locale: {
+            nl: 'CMC 4: Digestaat van verse gewassen',
+            en: 'CMC 4: Fresh crop digestate'
+          }
+        },
+        {
+          value: 'CMC 5',
+          locale: {
+            nl: 'CMC 5: Ander digestaat dan digestaat van verse gewassen',
+            en: 'CMC 5: Digestate other than fresh crop digestate'
+          }
+        },
+        {
+          value: 'CMC 6',
+          locale: {
+            nl: 'CMC 6: Bijproducten van de levensmiddelenindustrie',
+            en: 'CMC 6: Food industry by-products'
+          }
+        },
+        {
+          value: 'CMC 7',
+          locale: {
+            nl: 'CMC 7: Micro-organismen',
+            en: 'CMC 7: Micro-organisms'
+          }
+        },
+        {
+          value: 'CMC 8',
+          locale: {
+            nl: 'CMC 8: Nutriëntenpolymeren',
+            en: 'CMC 8: Nutrient polymers'
+          }
+        },
+        {
+          value: 'CMC 9',
+          locale: {
+            nl: 'CMC 9: Andere polymeren dan nutriëntenpolymeren',
+            en: 'CMC 9: Polymers other than nutrient polymers'
+          }
+        },
+        {
+          value: 'CMC 10',
+          locale: {
+            nl: 'CMC 10: Afgeleide producten in de zin van Verordening (EG) nr. 1069/2009',
+            en: 'CMC 10: Derived products within the meaning of Regulation (EC) No 1069/2009'
+          }
+        },
+        {
+          value: 'CMC 11',
+          locale: {
+            nl: 'CMC 11: Bijproducten in de zin van Richtlijn 2008/98/EG',
+            en: 'CMC 11: By-products within the meaning of Directive 2008/98/EC'
+          }
+        },
+        {
+          value: 'CMC 12',
+          locale: {
+            nl: 'CMC 12: Neergeslagen fosfaatzouten en derivaten daarvan',
+            en: 'CMC 12: Precipitated phosphate salts and derivatives'
+          }
+        },
+        {
+          value: 'CMC 13',
+          locale: {
+            nl: 'CMC 13: Thermische-oxidatiematerialen en derivaten daarvan',
+            en: 'CMC 13: Thermal oxidation materials and derivatives'
+          }
+        },
+        {
+          value: 'CMC 14',
+          locale: {
+            nl: 'CMC 14: Via pyrolyse en vergassing verkregen materialen',
+            en: 'CMC 14: Pyrolysis and gasification materials'
+          }
+        },
+        {
+          value: 'CMC 15',
+          locale: {
+            nl: 'CMC 15: Teruggewonnen zeer zuivere materialen',
+            en: 'CMC 15: Recovered high purity materials'
+          }
+        }
       ]
     },
     {
@@ -177,16 +347,49 @@ const questionSets: questionSetsType =
         nl: 'Op chelaat- en complexvormende bestandsdelen en op remmende bestandsdelen zijn extra vereisten van toepassing. Indien dit bestandsdeel niet één van deze functies heeft kun u "Niet van toepassing" opgeven.',
         en: 'Additional requirements apply to chelating and complexing agents and to inhibiting compounds. If this component does not have any of these functions please specify "Not applicable".'
       },
-      options: {
-        nl: [
-          'Niet van toepassing', 'Chelaatvormer', 'Complexvormer', 'Nitrificatieremmer', 'Denitrificatieremmer', 'Ureaseremmer'
-        ],
-        en: [
-          'Not applicable', 'Chelating agent', 'Complexing agent', 'Nitrification inhibitor', 'Denitrification inhibitor', 'Urease inhibitor'
-        ]
-      },
-      optionsid: [
-        'Not applicable', 'Chelating agent', 'Complexing agent', 'Nitrification inhibitor', 'Denitrification inhibitor', 'Urease inhibitor'
+      options: [
+        {
+          value: 'Not applicable',
+          locale: {
+            nl: 'Niet van toepassing',
+            en: 'Not applicable'
+          }
+        },
+        {
+          value: 'Chelating agent',
+          locale: {
+            nl: 'Chelaatvormer',
+            en: 'Chelating agent'
+          }
+        },
+        {
+          value: 'Complexing agent',
+          locale: {
+            nl: 'Complexvormer',
+            en: 'Complexing agent'
+          }
+        },
+        {
+          value: 'Nitrification inhibitor',
+          locale: {
+            nl: 'Nitrificatieremmer',
+            en: 'Nitrification inhibitor'
+          }
+        },
+        {
+          value: 'Denitrification inhibitor',
+          locale: {
+            nl: 'Denitirifcatieremmer',
+            en: 'Denitrification inhibitor'
+          }
+        },
+        {
+          value: 'Urease inhibitor',
+          locale: {
+            nl: 'Ureaseremmer',
+            en: 'Urease inhibitor'
+          }
+        }
       ]
     },
     {
@@ -196,16 +399,12 @@ const questionSets: questionSetsType =
         nl: 'Is het bestandsdeel of één van de materialen waarmee het bestandsdeel gemaakt wordt een dierlijk bijproduct?',
         en: 'Is the component or one of its input materials an animal byproduct?'
       },
-      placeholder: {
-        nl: '',
-        en: ''
-      },
+      placeholder: null,
       help: {
         nl: '',
         en: ''
       },
-      options: null,
-      optionsid: ['true', 'false']
+      options: null
     },
     {
       id: 'Q6',
@@ -222,11 +421,22 @@ const questionSets: questionSetsType =
         nl: 'Alle bestandsdelen van uw bemestingsproduct moeten worden ingevuld, samen moeten de bestandsdelen 100% van het product uitmaken.',
         en: 'All components of the fertilising product must be entered, together the components must make up 100% of the product'
       },
-      options: {
-        nl: ['ja', 'nee'],
-        en: ['yes', 'no']
-      },
-      optionsid: ['true', 'false']
+      options: [
+        {
+          value: 'Yes',
+          locale: {
+            nl: 'Ja',
+            en: 'Yes'
+          }
+        },
+        {
+          value: 'No',
+          locale: {
+            nl: 'Nee',
+            en: 'No'
+          }
+        }
+      ]
     }
   ]
 
