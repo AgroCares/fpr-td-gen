@@ -2,7 +2,7 @@
  * The question to be asked
  *
  * @typeParam askType - The question to be asked
- * @public
+ * @alpha
  */
 export type askType = string
 
@@ -19,7 +19,7 @@ export type fprVersionType = 'FPR 2019/1009'
  * The id of the question
  *
  * @typeParam idType - The id of the question
- * @beta
+ * @alpha
  */
 export type idType = string
 
@@ -30,7 +30,7 @@ export type help = string
  *
  * @typeParam localesType - The language selected to be used
  * @remarks Currently only English ('en') and Dutch are available ('nl')
- * @public
+ * @alpha
  */
 export type localesType = 'en' | 'nl'
 
@@ -42,7 +42,7 @@ export type optionsType = string[]
  * The question to be asked
  *
  * @typeParam questionType - The question to be asked
- * @public
+ * @alpha
  */
 export interface questionType {
   id: idType

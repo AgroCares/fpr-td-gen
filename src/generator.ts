@@ -7,7 +7,7 @@ class Generator {
   * Class of generator to generate the Technical Documentation for a EU fertilizing product
   * @param locale - {@link "localesType"}
   * @param fprVersion - {@link fprVersionType}
-  * @beta
+  * @alpha
   */
   locale: localesType
   fprVersion: fprVersionType = 'FPR 2019/1009'
@@ -18,7 +18,7 @@ class Generator {
 
   /** Returns the next question
    * @returns The question object {@link questionType} for the next question
-   * @beta
+   * @alpha
    */
   getNextQuestion (): questionType {
     const nextQuestionId = this.identifyNextQuestion()
@@ -28,7 +28,7 @@ class Generator {
 
   /** Returns the tecnhical documentation
    * @returns The technical documentation object for the fertilizing product
-   * @beta
+   * @alpha
    */
   getTechnicalDocumentation (): technicalDocumentationType {
     return {

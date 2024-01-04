@@ -6,6 +6,7 @@
  * @remarks
  * The `fpr-td-gen` defines the {@link Generator} class to generate the Technical Documentation for a EU fertilizing product
  *
+ * @alpha
  * @packageDocumentation
  */
 
