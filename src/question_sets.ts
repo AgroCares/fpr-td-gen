@@ -648,6 +648,77 @@ const questionSets: questionSetsType =
           }
         }
       ]
+    },
+    {
+      id: 'Q8.1',
+      type: 'select',
+      ask: {
+        nl: 'Welke conformiteitsbeoordelingsmodule gebruikt u?',
+        en: 'Which conformity assessment module do you use?'
+      },
+      placeholder: {
+        nl: 'Module D1',
+        en: 'Module D1'
+      },
+      help: {
+        nl: 'Kies de module waarmee u wilt aantonen dat uw product voldoent aan de vereisten van de bemestingsproducten verordening',
+        en: 'Choose the module which you want to use to demonstrate compliance with the requirements of the Fertilising product regulation'
+      },
+      options: [
+        {
+          value: 'Module A',
+          locale: {
+            nl: 'Module A',
+            en: 'Module A'
+          }
+        },
+        {
+          value: 'Module B+C',
+          locale: {
+            nl: 'Module B+C',
+            en: 'Module B+C'
+          }
+        },
+        {
+          value: 'Module D1',
+          locale: {
+            nl: 'Module D1',
+            en: 'Module D1'
+          }
+        }
+      ]
+    },
+    {
+      id: 'Q8.2',
+      type: 'select',
+      ask: {
+        nl: 'Welke conformiteitsbeoordelingsmodule gebruikt u?',
+        en: 'Which conformity assessment module do you use?'
+      },
+      placeholder: {
+        nl: 'Module D1',
+        en: 'Module D1'
+      },
+      help: {
+        nl: 'Kies de module waarmee u wilt aantonen dat uw product voldoent aan de vereisten van de bemestingsproducten verordening',
+        en: 'Choose the module which you want to use to demonstrate compliance with the requirements of the Fertilising product regulation'
+      },
+      options: [
+        {
+          value: 'Module B+C',
+          locale: {
+            nl: 'Module B+C',
+            en: 'Module B+C'
+          }
+        },
+        {
+          value: 'Module D1',
+          locale: {
+            nl: 'Module D1',
+            en: 'Module D1'
+          }
+        }
+      ]
     }
   ]
 
