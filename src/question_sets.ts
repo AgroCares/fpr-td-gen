@@ -194,18 +194,18 @@ const questionSets: questionSetsType =
     },
     {
       id: 'Q3',
-      type: 'text',
+      type: 'multitext',
       ask: {
-        nl: 'Wat is de naam van dit bestandsdeel?',
-        en: 'What is the name of this component?'
+        nl: 'Wat is de naam van elk bestandsdeel in uw product?',
+        en: 'What is the name of each component in your product?'
       },
       placeholder: {
         nl: 'bijvoorbeeld "urea" of "gehydrolyseerd plantaardig eiwit"',
         en: 'e.g. "urea" or "hydrolised plant protein"'
       },
       help: {
-        nl: 'Een naam waarmee u het bestandsdeel in uw bemestingsproduct kunt herkennen zoals "urea" of "gehydrolyseerd plantaardig eiwit".',
-        en: 'A name with which you are able to destinguish the component(s) in your fertilising product such as "urea" or "hydrolised plant protein".'
+        nl: 'Geef voor ieder bestandsdeel in uw product een naam op waarmee u het bestandsdeel kunt herkennen zoals "urea" of "gehydrolyseerd plantaardig eiwit".',
+        en: 'For each component in your product, enter a name with which you are able to destinguish the component in your fertilising product such as "urea" or "hydrolised plant protein".'
       },
       options: null
     },
@@ -406,7 +406,7 @@ const questionSets: questionSetsType =
       },
       options: null
     },
-    {
+/*    {
       id: 'Q6',
       type: 'select',
       ask: {
@@ -437,21 +437,21 @@ const questionSets: questionSetsType =
           }
         }
       ]
-    },
+        }, */
     {
       id: 'Q7',
-      type: 'text',
+      type: 'multitext',
       ask: {
-        nl: 'Wat is de naam van dit bestandsdeel EU-bemestingsproduct?',
-        en: 'What is the name of this component EU fertilising product?'
+        nl: 'Hoe heten de EU-bemestingsproducten in uw bemestingsproductenblend?',
+        en: 'What are the EU-fertilising products called which are contained in your fertilising product blend?'
       },
       placeholder: {
-        nl: 'ProductEU-x',
-        en: 'ProductEU-x'
+        nl: 'ProductEU-x; ProductEU-y',
+        en: 'ProductEU-x; ProductEU-y'
       },
       help: {
-        nl: 'Een EU-bemestingsproduct in PFC 7 bestaat uit meerdere EU-bemestingsproducten van PFC 1 tot en met PFC 6. Geef hier de naam van een EU-bemestingsproduct in uw PFC 7 bemestingsproductenblend op',
-        en: 'An EU fertilising product in PFC 7 concsist out of multiple EU fertiling products in categories PFC 1 to PFC 6. Give the name of an EU fertilising product composing your PFC 7 fertilising product blend'
+        nl: 'Een EU-bemestingsproduct in PFC 7 bestaat doorgaans uit meerdere EU-bemestingsproducten van PFC 1 tot en met PFC 6. Geef hier de naam voor ieder EU-bemestingsproduct in uw PFC 7 bemestingsproductenblend. Indien uw blend 1 product bevat welke meerdere product functie categorie aanwijzingen heeft, vul dan voor iedere categorie een naam in.',
+        en: 'An EU fertilising product in PFC 7 typically consists out of multiple EU fertiling products in categories PFC 1 to PFC 6. Give the name of each EU fertilising product composing your PFC 7 fertilising product blend. If your blend contains only one product which has multiple product function category designations, enter a name for each category.'
       },
       options: null
     },
@@ -617,7 +617,7 @@ const questionSets: questionSetsType =
         }
       ]
     },
-    {
+/*    {
       id: 'Q7.2.',
       type: 'select',
       ask: {
@@ -648,7 +648,7 @@ const questionSets: questionSetsType =
           }
         }
       ]
-    },
+    }, */
     {
       id: 'Q8.1',
       type: 'select',

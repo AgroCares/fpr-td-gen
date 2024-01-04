@@ -40,6 +40,6 @@ export interface technicalDocumentationType {
   fprVersion: fprVersionType
 }
 
-export type typesType = 'text' | 'select' | 'checkbox' | undefined
+export type typesType = 'text' | 'select' | 'checkbox' | 'multitext' | undefined
 
 export type optionsIdType = string[] | undefined
