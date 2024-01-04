@@ -5,7 +5,7 @@ import { Question } from './question'
 class Generator {
   /**
   * Class of Generator to generate the Technical Documentation for a EU fertilizing product
-  * @param locale - {@link "localesType"}
+  * @param locale - {@link localesType}
   * @param fprVersion - {@link fprVersionType}
   * @returns A Generator class with the functions {@link getNextQuestion} and {@link getTechnicalDocumentation}
   * @alpha
