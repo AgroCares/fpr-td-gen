@@ -4,9 +4,10 @@ import { Question } from './question'
 
 class Generator {
   /**
-  * Class of generator to generate the Technical Documentation for a EU fertilizing product
+  * Class of Generator to generate the Technical Documentation for a EU fertilizing product
   * @param locale - {@link "localesType"}
   * @param fprVersion - {@link fprVersionType}
+  * @returns A Generator class with the functions {@link getNextQuestion} and {@link getTechnicalDocumentation}
   * @alpha
   */
   locale: localesType
@@ -27,7 +28,7 @@ class Generator {
   }
 
   /** Returns the tecnhical documentation
-   * @returns The technical documentation object for the fertilizing product
+   * @returns The technical documentation {@link technicalDocumentationType} object for the fertilizing product
    * @alpha
    */
   getTechnicalDocumentation (): technicalDocumentationType {
