@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/indent */
 import type { questionSetsType } from './shared.types'
 
 const questionSets: questionSetsType =
@@ -406,7 +405,7 @@ const questionSets: questionSetsType =
       },
       options: null
     },
-/*    {
+    /*    {
       id: 'Q6',
       type: 'select',
       ask: {
@@ -617,7 +616,7 @@ const questionSets: questionSetsType =
         }
       ]
     },
-/*    {
+    /*    {
       id: 'Q7.2.',
       type: 'select',
       ask: {
