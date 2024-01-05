@@ -28,7 +28,7 @@ class Generator {
   }
 
   /** Returns the tecnhical documentation
-   * @returns The technical documentation {@link technicalDocumentationType} object for the fertilizing product
+   * @returns The technical documentation {@link technicalDocumentationType} object for the EU fertilizing product
    * @alpha
    */
   getTechnicalDocumentation (): technicalDocumentationType {
