@@ -12,6 +12,11 @@ export type placeholder = string
 
 export type optionsType = string[]
 
+export interface answerType {
+  questionId: idType
+  answerValue: string[]
+}
+
 export interface questionType {
   id: idType
   type: typesType
