@@ -660,7 +660,7 @@ const questionSets: questionSetsType =
         en: 'Module D1'
       },
       help: {
-        nl: 'Kies de module waarmee u wilt aantonen dat uw product voldoent aan de vereisten van de bemestingsproducten verordening',
+        nl: 'Kies de module waarmee u wilt aantonen dat uw product voldoet aan de vereisten van de bemestingsproducten verordening',
         en: 'Choose the module which you want to use to demonstrate compliance with the requirements of the Fertilising product regulation'
       },
       options: [
