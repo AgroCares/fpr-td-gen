@@ -1,5 +1,9 @@
 import type { questionSetsType } from './shared.types'
 
+/**
+ * Array with the questionsSets {@link questionSetsType}
+ * @internal
+ */
 const questionSets: questionSetsType =
   [
     {
