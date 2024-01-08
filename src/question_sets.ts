@@ -10,8 +10,8 @@ const questionSets: questionSetsType =
         en: 'What is the name of your product?'
       },
       placeholder: {
-        nl: 'Naam product',
-        en: 'Product name'
+        nl: 'bijv. Nmestof Ultra',
+        en: 'e.g. N fertiliser Ultra'
       },
       help: {
         nl: 'Dit is de naam van het product.',
@@ -27,8 +27,8 @@ const questionSets: questionSetsType =
         en: 'What is the product function category (PFC) of your product?'
       },
       placeholder: {
-        nl: 'PFC 1.A.I Vaste organische meststof',
-        en: 'PFC 1.A.I Solid organic fertiliser'
+        nl: '',
+        en: ''
       },
       help: {
         nl: 'Dit is de PFC van het product.',
@@ -216,8 +216,8 @@ const questionSets: questionSetsType =
         en: 'What is the component material category (CMC) of this component?'
       },
       placeholder: {
-        nl: 'CMC 1: stoffen en mengsels als primair materiaal',
-        en: 'CMC 1: Virgin material substances and mixtures'
+        nl: '',
+        en: ''
       },
       help: {
         nl: 'Elk bestanddeel moet voldoen aan de vereisten van één van bestandsdeel categorieën, kies de categorie waartoe uw bestandsdeel behoort.',
@@ -339,8 +339,8 @@ const questionSets: questionSetsType =
         en: 'Is the component intended as chelating agent or complexing agent, or intended as a nitrification, a denitrification, or a urease inhibiting compound?'
       },
       placeholder: {
-        nl: 'Niet van toepassing',
-        en: 'Not applicable'
+        nl: '',
+        en: ''
       },
       help: {
         nl: 'Op chelaat- en complexvormende bestandsdelen en op remmende bestandsdelen zijn extra vereisten van toepassing. Indien dit bestandsdeel niet één van deze functies heeft kun u "Niet van toepassing" opgeven.',
@@ -398,7 +398,10 @@ const questionSets: questionSetsType =
         nl: 'Is het bestandsdeel of één van de materialen waarmee het bestandsdeel gemaakt wordt een dierlijk bijproduct?',
         en: 'Is the component or one of its input materials an animal byproduct?'
       },
-      placeholder: null,
+      placeholder: {
+        nl: '',
+        en: ''
+      },
       help: {
         nl: '',
         en: ''
@@ -413,8 +416,8 @@ const questionSets: questionSetsType =
         en: 'Would you like to enter another component?'
       },
       placeholder: {
-        nl: 'ja',
-        en: 'nee'
+        nl: '',
+        en: ''
       },
       help: {
         nl: 'Alle bestandsdelen van uw bemestingsproduct moeten worden ingevuld, samen moeten de bestandsdelen 100% van het product uitmaken.',
@@ -445,8 +448,8 @@ const questionSets: questionSetsType =
         en: 'What are the EU-fertilising products called which are contained in your fertilising product blend?'
       },
       placeholder: {
-        nl: 'ProductEU-x; ProductEU-y',
-        en: 'ProductEU-x; ProductEU-y'
+        nl: 'bijv. ProductEU-x; ProductEU-y',
+        en: 'e.g. ProductEU-x; ProductEU-y'
       },
       help: {
         nl: 'Een EU-bemestingsproduct in PFC 7 bestaat doorgaans uit meerdere EU-bemestingsproducten van PFC 1 tot en met PFC 6. Geef hier de naam voor ieder EU-bemestingsproduct in uw PFC 7 bemestingsproductenblend. Indien uw blend 1 product bevat welke meerdere product functie categorie aanwijzingen heeft, vul dan voor iedere categorie een naam in.',
@@ -461,7 +464,10 @@ const questionSets: questionSetsType =
         nl: 'Wat is de type aanduiding van dit bestandsdeel EU-bemestingsproduct?',
         en: 'What is the type designation of this component EU-fertilising product'
       },
-      placeholder: null,
+      placeholder: {
+        nl: '',
+        en: ''
+      },
       help: {
         nl: 'Een EU-bemestingsproduct in PFC 7 bestaat uit meerdere EU-bemestingsproducten van PFC 1 tot en met PFC 6, geef hier aan welke PFC aanduiding dit bestandsdeel heeft.',
         en: 'An EU fertilising product in PFC 7 concsist out of multiple EU fertiling products in categories PFC 1 to PFC 6, indicate the PFC designation of this component.'
@@ -624,8 +630,8 @@ const questionSets: questionSetsType =
         en: 'Would you like to enter another component EU fertilising product?'
       },
       placeholder: {
-        nl: 'ja',
-        en: 'nee'
+        nl: '',
+        en: ''
       },
       help: {
         nl: 'Alle EU-bemestingsproduct bestandsdelen van uw PFC 7 bemestingsproductenblend moeten worden ingevuld, samen moeten de bestandsdelen 100% van de blend uitmaken.',
@@ -656,8 +662,8 @@ const questionSets: questionSetsType =
         en: 'Which conformity assessment module do you use?'
       },
       placeholder: {
-        nl: 'Module D1',
-        en: 'Module D1'
+        nl: '',
+        en: ''
       },
       help: {
         nl: 'Kies de module waarmee u wilt aantonen dat uw product voldoet aan de vereisten van de bemestingsproducten verordening',
@@ -695,8 +701,8 @@ const questionSets: questionSetsType =
         en: 'Which conformity assessment module do you use?'
       },
       placeholder: {
-        nl: 'Module D1',
-        en: 'Module D1'
+        nl: '',
+        en: ''
       },
       help: {
         nl: 'Kies de module waarmee u wilt aantonen dat uw product voldoent aan de vereisten van de bemestingsproducten verordening',

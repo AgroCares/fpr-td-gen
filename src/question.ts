@@ -24,13 +24,23 @@ export class Question {
       id: this.id,
       type: this.questionSet.type,
       ask: this.questionSet.ask[this.locale],
-      placeholder: this.questionSet.placeholder[this.locale],
+      placeholder: null,
       help: this.questionSet.help[this.locale],
       options: null
     }
 
     if (this.questionSet.options !== null) {
-      this.question.options = this.questionSet.options[this.locale]
+      const options = this.questionSet.options.map(option => {
+        return {
+          value: option.value,
+          label: option.locale[this.locale]
+        }
+      })
+      this.question.options = options
+    }
+
+    if (this.questionSet.placeholder !== null) {
+      this.question.placeholder = this.questionSet.placeholder[this.locale]
     }
   }
 
