@@ -9,3 +9,7 @@ npm install
 npm run watch
 
 ```
+The documentaton can generated using:
+````
+npm run document
+```
