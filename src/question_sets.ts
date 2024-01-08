@@ -621,7 +621,7 @@ const questionSets: questionSetsType =
           }
         }
       ]
-    },
+    }
     /*    {
       id: 'Q7.2.',
       type: 'select',
@@ -654,7 +654,7 @@ const questionSets: questionSetsType =
         }
       ]
     }, */
-    {
+  /* {
       id: 'Q8.1',
       type: 'select',
       ask: {
@@ -725,6 +725,7 @@ const questionSets: questionSetsType =
         }
       ]
     }
+    */
   ]
 
 export default questionSets
