@@ -46,15 +46,29 @@ export type localesType = 'en' | 'nl'
  * @typeParam placeholderType - Provides a placeholder for the answer of a question
  * @alpha
  */
-export type placeholderType = string
+export type placeholderType = string | null
+
+/**
+ * Available options set for a question
+ *
+ * @typeParam optionsSetType - The available options set available to answer a question
+ * @alpha
+ */
+export interface optionsSetType {
+  value: string
+  locale: Record<localesType, string>
+}
 
 /**
  * Available options for a question
+ * @typeParam optionsType - The available options available to answer a question
  *
- * @typeParam optionsType - The available optiosn available to answer a question
  * @alpha
  */
-export type optionsType = string[]
+export interface optionsType {
+  value: string
+  label: string
+}
 
 /**
  * The question to be asked
@@ -68,7 +82,7 @@ export interface questionType {
   ask: askType
   placeholder: placeholderType
   help: helpType
-  options: optionsType | null
+  options: optionsType[] | null
 }
 
 /**
@@ -81,9 +95,9 @@ export interface questionSetType {
   id: string
   type: typesType
   ask: Record<localesType, string>
-  placeholder: Record<localesType, string>
+  placeholder: Record<localesType, string> | null
   help: Record<localesType, string>
-  options: Record<localesType, optionsType> | null
+  options: optionsSetType[] | null
 }
 
 /**
@@ -109,7 +123,15 @@ export interface technicalDocumentationType {
  * The type of question
  *
  * @typeParam typesType - The type of question
- * @remarks Currently only `text`, `select` and `checkbox` are allowed
+ * @remarks Currently only `text`, `select`, `checkbox` and `multitext` are allowed
  * @alpha
  */
-export type typesType = 'text' | 'select' | 'checkbox' | undefined
+export type typesType = 'text' | 'select' | 'checkbox' | 'multitext' | undefined
+
+/**
+ * The id of the option from a `select` question
+ *
+ * @typeParam optionsIdType - The id of the option
+ * @alpha
+ */
+export type optionsIdType = string[] | undefined

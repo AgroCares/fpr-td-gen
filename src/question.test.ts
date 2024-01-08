@@ -16,7 +16,7 @@ describe('Question', () => {
       id: 'Q1',
       type: 'text',
       ask: 'What is the name of your product?',
-      placeholder: 'Product name',
+      placeholder: 'e.g. N fertiliser Ultra',
       help: 'This is the name of the product.',
       options: null
     })
@@ -33,7 +33,7 @@ describe('Question', () => {
       id: 'Q1',
       type: 'text',
       ask: 'What is the name of your product?',
-      placeholder: 'Product name',
+      placeholder: 'e.g. N fertiliser Ultra',
       help: 'This is the name of the product.',
       options: null
     })
