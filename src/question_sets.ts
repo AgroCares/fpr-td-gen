@@ -26,10 +26,7 @@ const questionSets: questionSetsType =
         nl: 'Wat is de product functie categorie (PFC) van uw product?',
         en: 'What is the product function category (PFC) of your product?'
       },
-      placeholder: {
-        nl: '',
-        en: ''
-      },
+      placeholder: null,
       help: {
         nl: 'Dit is de PFC van het product.',
         en: 'This is the PFC of the product.'
@@ -215,10 +212,7 @@ const questionSets: questionSetsType =
         nl: 'Wat is de bestandsdeel categorie (CMC) van dit bestandsdeel?',
         en: 'What is the component material category (CMC) of this component?'
       },
-      placeholder: {
-        nl: '',
-        en: ''
-      },
+      placeholder: null,
       help: {
         nl: 'Elk bestanddeel moet voldoen aan de vereisten van één van bestandsdeel categorieën, kies de categorie waartoe uw bestandsdeel behoort.',
         en: 'Each component must meet the criteria of one component material category, pick the category to which your component belongs.'
@@ -338,10 +332,7 @@ const questionSets: questionSetsType =
         nl: 'Is dit bestandsdeel een chelaatvormer of een complexvormer, of bestemd als nitrificatie-, denitrificatie- of ureaseremmer?',
         en: 'Is the component intended as chelating agent or complexing agent, or intended as a nitrification, a denitrification, or a urease inhibiting compound?'
       },
-      placeholder: {
-        nl: '',
-        en: ''
-      },
+      placeholder: null,
       help: {
         nl: 'Op chelaat- en complexvormende bestandsdelen en op remmende bestandsdelen zijn extra vereisten van toepassing. Indien dit bestandsdeel niet één van deze functies heeft kun u "Niet van toepassing" opgeven.',
         en: 'Additional requirements apply to chelating and complexing agents and to inhibiting compounds. If this component does not have any of these functions please specify "Not applicable".'
@@ -398,10 +389,7 @@ const questionSets: questionSetsType =
         nl: 'Is het bestandsdeel of één van de materialen waarmee het bestandsdeel gemaakt wordt een dierlijk bijproduct?',
         en: 'Is the component or one of its input materials an animal byproduct?'
       },
-      placeholder: {
-        nl: '',
-        en: ''
-      },
+      placeholder: null,
       help: {
         nl: '',
         en: ''
@@ -415,10 +403,7 @@ const questionSets: questionSetsType =
         nl: 'Wilt u nog een bestandsdeel toevoegen?',
         en: 'Would you like to enter another component?'
       },
-      placeholder: {
-        nl: '',
-        en: ''
-      },
+     placeholder: null
       help: {
         nl: 'Alle bestandsdelen van uw bemestingsproduct moeten worden ingevuld, samen moeten de bestandsdelen 100% van het product uitmaken.',
         en: 'All components of the fertilising product must be entered, together the components must make up 100% of the product'
@@ -464,10 +449,7 @@ const questionSets: questionSetsType =
         nl: 'Wat is de type aanduiding van dit bestandsdeel EU-bemestingsproduct?',
         en: 'What is the type designation of this component EU-fertilising product'
       },
-      placeholder: {
-        nl: '',
-        en: ''
-      },
+      placeholder: null,
       help: {
         nl: 'Een EU-bemestingsproduct in PFC 7 bestaat uit meerdere EU-bemestingsproducten van PFC 1 tot en met PFC 6, geef hier aan welke PFC aanduiding dit bestandsdeel heeft.',
         en: 'An EU fertilising product in PFC 7 concsist out of multiple EU fertiling products in categories PFC 1 to PFC 6, indicate the PFC designation of this component.'
@@ -629,10 +611,7 @@ const questionSets: questionSetsType =
         nl: 'Wilt u nog een EU-bemestingsproduct bestandsdeel toevoegen?',
         en: 'Would you like to enter another component EU fertilising product?'
       },
-      placeholder: {
-        nl: '',
-        en: ''
-      },
+     placeholder: null
       help: {
         nl: 'Alle EU-bemestingsproduct bestandsdelen van uw PFC 7 bemestingsproductenblend moeten worden ingevuld, samen moeten de bestandsdelen 100% van de blend uitmaken.',
         en: 'All component EU fertilisingproducts of the fertilising product blend must be entered, together the components must make up 100% of the fertilising product blend'
@@ -654,78 +633,72 @@ const questionSets: questionSetsType =
         }
       ]
     }, */
-  /* {
-      id: 'Q8.1',
-      type: 'select',
-      ask: {
-        nl: 'Welke conformiteitsbeoordelingsmodule gebruikt u?',
-        en: 'Which conformity assessment module do you use?'
-      },
-      placeholder: {
-        nl: '',
-        en: ''
-      },
-      help: {
-        nl: 'Kies de module waarmee u wilt aantonen dat uw product voldoet aan de vereisten van de bemestingsproducten verordening',
-        en: 'Choose the module which you want to use to demonstrate compliance with the requirements of the Fertilising product regulation'
-      },
-      options: [
-        {
-          value: 'Module A',
-          locale: {
-            nl: 'Module A',
-            en: 'Module A'
-          }
+    /* {
+        id: 'Q8.1',
+        type: 'select',
+        ask: {
+          nl: 'Welke conformiteitsbeoordelingsmodule gebruikt u?',
+          en: 'Which conformity assessment module do you use?'
         },
-        {
-          value: 'Module B+C',
-          locale: {
-            nl: 'Module B+C',
-            en: 'Module B+C'
-          }
+       placeholder: null
+        help: {
+          nl: 'Kies de module waarmee u wilt aantonen dat uw product voldoet aan de vereisten van de bemestingsproducten verordening',
+          en: 'Choose the module which you want to use to demonstrate compliance with the requirements of the Fertilising product regulation'
         },
-        {
-          value: 'Module D1',
-          locale: {
-            nl: 'Module D1',
-            en: 'Module D1'
+        options: [
+          {
+            value: 'Module A',
+            locale: {
+              nl: 'Module A',
+              en: 'Module A'
+            }
+          },
+          {
+            value: 'Module B+C',
+            locale: {
+              nl: 'Module B+C',
+              en: 'Module B+C'
+            }
+          },
+          {
+            value: 'Module D1',
+            locale: {
+              nl: 'Module D1',
+              en: 'Module D1'
+            }
           }
-        }
-      ]
-    },
-    {
-      id: 'Q8.2',
-      type: 'select',
-      ask: {
-        nl: 'Welke conformiteitsbeoordelingsmodule gebruikt u?',
-        en: 'Which conformity assessment module do you use?'
+        ]
       },
-      placeholder: {
-        nl: '',
-        en: ''
-      },
-      help: {
-        nl: 'Kies de module waarmee u wilt aantonen dat uw product voldoent aan de vereisten van de bemestingsproducten verordening',
-        en: 'Choose the module which you want to use to demonstrate compliance with the requirements of the Fertilising product regulation'
-      },
-      options: [
-        {
-          value: 'Module B+C',
-          locale: {
-            nl: 'Module B+C',
-            en: 'Module B+C'
-          }
+      {
+        id: 'Q8.2',
+        type: 'select',
+        ask: {
+          nl: 'Welke conformiteitsbeoordelingsmodule gebruikt u?',
+          en: 'Which conformity assessment module do you use?'
         },
-        {
-          value: 'Module D1',
-          locale: {
-            nl: 'Module D1',
-            en: 'Module D1'
+       placeholder: null
+        help: {
+          nl: 'Kies de module waarmee u wilt aantonen dat uw product voldoent aan de vereisten van de bemestingsproducten verordening',
+          en: 'Choose the module which you want to use to demonstrate compliance with the requirements of the Fertilising product regulation'
+        },
+        options: [
+          {
+            value: 'Module B+C',
+            locale: {
+              nl: 'Module B+C',
+              en: 'Module B+C'
+            }
+          },
+          {
+            value: 'Module D1',
+            locale: {
+              nl: 'Module D1',
+              en: 'Module D1'
+            }
           }
-        }
-      ]
-    }
-    */
+        ]
+      }
+      */
   ]
 
 export default questionSets
