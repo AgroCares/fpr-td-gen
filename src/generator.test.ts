@@ -12,7 +12,9 @@ describe('Generator', () => {
   it('should get the next question', () => {
     const generator = new Generator('en')
 
-    const nextQuestion = generator.getNextQuestion()
+    const previousQuestionId = ''
+
+    const nextQuestion = generator.getNextQuestion(previousQuestionId)
 
     expect(nextQuestion).toEqual({
       id: 'Q1',

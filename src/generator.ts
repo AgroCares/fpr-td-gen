@@ -21,8 +21,8 @@ class Generator {
    * @returns The question object {@link questionType} for the next question
    * @alpha
    */
-  getNextQuestion (): questionType {
-    const nextQuestionId = this.identifyNextQuestion()
+  getNextQuestion (previousQuestionId): questionType {
+    const nextQuestionId = this.identifyNextQuestion(previousQuestionId)
     const nextQuestion = new Question(this.locale, nextQuestionId).getQuestion()
     return nextQuestion
   }
@@ -43,8 +43,17 @@ class Generator {
    * @returns The id of the next question {@link idType}
    * @internal
    */
-  identifyNextQuestion (): idType {
-    const nextQuestionId = 'Q1'
+  identifyNextQuestion (previousQuestionId = ''): idType {
+    let nextQuestionId: idType = ''
+    if (previousQuestionId === '') {
+      nextQuestionId = 'Q1'
+    } else if (previousQuestionId === 'Q1') {
+      nextQuestionId = 'Q2'
+    } else if (previousQuestionId === 'Q2') {
+      nextQuestionId = 'Q3'
+    } else {
+      alert('Generator does not know the next question')
+    }
     return nextQuestionId
   }
 }
