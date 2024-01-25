@@ -1,4 +1,4 @@
-import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType } from './shared.types'
+import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, cmcType } from './shared.types'
 
 import { Question } from './question'
 
@@ -13,10 +13,12 @@ class Generator {
   locale: localesType
   fprVersion: fprVersionType = 'FPR 2019/1009'
   pfcDesignation: pfcType = undefined
+  cmcDesignation: cmcType = ''
   constructor (locale: localesType) {
     this.locale = locale
     this.fprVersion = 'FPR 2019/1009'
     this.pfcDesignation = undefined
+    this.cmcDesignation = ''
   }
 
   /** Returns the next question
@@ -24,7 +26,7 @@ class Generator {
    * @alpha
    */
   getNextQuestion (previousQuestionId: idType): questionType {
-    const nextQuestionId = this.identifyNextQuestion(previousQuestionId, this.pfcDesignation)
+    const nextQuestionId = this.identifyNextQuestion(previousQuestionId, this.pfcDesignation, this.cmcDesignation)
     const nextQuestion = new Question(this.locale, nextQuestionId).getQuestion()
     return nextQuestion
   }
@@ -46,7 +48,7 @@ class Generator {
    * @returns The id of the next question {@link idType}
    * @internal
    */
-  identifyNextQuestion (previousQuestionId = '', pfcDesignation: pfcType): idType {
+  identifyNextQuestion (previousQuestionId = '', pfcDesignation: pfcType, cmcDesignation: cmcType): idType {
     let nextQuestionId: idType = ''
     if (previousQuestionId === '') {
       nextQuestionId = 'Q1'
@@ -62,6 +64,12 @@ class Generator {
       nextQuestionId = 'Q7.1'
     } else if (previousQuestionId === 'Q3') {
       nextQuestionId = 'Q4'
+    } else if (previousQuestionId === 'Q4') {
+      if (cmcDesignation.includes('PFC 1')) {
+        nextQuestionId = 'Q5.1'
+      } else if (cmcDesignation.includes('CMC 3') || cmcDesignation.includes('CMC 5') || cmcDesignation.includes('CMC 11')) {
+        nextQuestionId = 'Q5.2'
+      }
     } else {
       alert('Generator does not know the next question')
     }
