@@ -1,4 +1,4 @@
-import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType } from './shared.types'
+import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType } from './shared.types'
 
 import { Question } from './question'
 
@@ -12,17 +12,19 @@ class Generator {
   */
   locale: localesType
   fprVersion: fprVersionType = 'FPR 2019/1009'
+  pfcDesignation: pfcType = undefined
   constructor (locale: localesType) {
     this.locale = locale
     this.fprVersion = 'FPR 2019/1009'
+    this.pfcDesignation = undefined
   }
 
   /** Returns the next question
    * @returns The question object {@link questionType} for the next question
    * @alpha
    */
-  getNextQuestion (previousQuestionId): questionType {
-    const nextQuestionId = this.identifyNextQuestion(previousQuestionId)
+  getNextQuestion (previousQuestionId: idType): questionType {
+    const nextQuestionId = this.identifyNextQuestion(previousQuestionId, this.pfcDesignation)
     const nextQuestion = new Question(this.locale, nextQuestionId).getQuestion()
     return nextQuestion
   }
@@ -34,7 +36,8 @@ class Generator {
   getTechnicalDocumentation (): technicalDocumentationType {
     return {
       locale: this.locale,
-      fprVersion: this.fprVersion
+      fprVersion: this.fprVersion,
+      pfcDesignation: this.pfcDesignation
     }
   }
 
@@ -43,14 +46,22 @@ class Generator {
    * @returns The id of the next question {@link idType}
    * @internal
    */
-  identifyNextQuestion (previousQuestionId = ''): idType {
+  identifyNextQuestion (previousQuestionId = '', pfcDesignation: pfcType): idType {
     let nextQuestionId: idType = ''
     if (previousQuestionId === '') {
       nextQuestionId = 'Q1'
     } else if (previousQuestionId === 'Q1') {
       nextQuestionId = 'Q2'
     } else if (previousQuestionId === 'Q2') {
-      nextQuestionId = 'Q3'
+      if (pfcDesignation !== 'PFC 7') {
+        nextQuestionId = 'Q3'
+      } else {
+        nextQuestionId = 'Q7'
+      }
+    } else if (previousQuestionId === 'Q7') {
+      nextQuestionId = 'Q7.1'
+    } else if (previousQuestionId === 'Q3') {
+      nextQuestionId = 'Q4'
     } else {
       alert('Generator does not know the next question')
     }

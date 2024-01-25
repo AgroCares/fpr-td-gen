@@ -117,6 +117,7 @@ export type questionSetsType = questionSetType[]
 export interface technicalDocumentationType {
   locale: localesType
   fprVersion: fprVersionType
+  pfcDesignation: pfcType
 }
 
 /**
@@ -135,3 +136,5 @@ export type typesType = 'text' | 'select' | 'checkbox' | 'multitext' | undefined
  * @alpha
  */
 export type optionsIdType = string[] | undefined
+
+export type pfcType = undefined | 'PFC 1.A.I' | 'PFC 1.A.II' | 'PFC 1.B.I' | 'PFC 1.B.II' | 'PFC 1.C.I.a.i' | 'PFC 1.C.I.a.i.A' | 'PFC 1.C.I.a.ii' | 'PFC 1.C.I.a.ii.A' | 'PFC 1.C.I.b.i' | 'PFC 1.C.I.b.ii' | 'PFC 1.C.II.a' | 'PFC 1.C.II.b' | 'PFC 2' | 'PFC 3.A' | 'PFC 3.B' | 'PFC 4' | 'PFC 5.A' | 'PFC 5.B' | 'PFC 5.C' | 'PFC 6.A' | 'PFC 6.B' | 'PFC 7'
