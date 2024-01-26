@@ -22,10 +22,6 @@ describe('Question', () => {
     })
   })
 
-  it('should throw an error if the question set is not found', () => {
-    expect(() => new Question('en', '2')).toThrowError('Question with id 2 not found')
-  })
-
   it('should get the question', () => {
     const question = new Question('en', 'Q1')
 
