@@ -2,6 +2,13 @@ import type { localesType, idType, questionType, questionSetType } from './share
 import questionSets from './question_sets'
 
 export class Question {
+  /**
+* Class of Question used to collect a question
+* @param locale - {@link localesType}
+* @param id - {@link idType}
+* @returns A Question class with the function {@link getQuestion}
+* @alpha
+*/
   locale: localesType
   id: idType
   questionSet: questionSetType
@@ -24,16 +31,31 @@ export class Question {
       id: this.id,
       type: this.questionSet.type,
       ask: this.questionSet.ask[this.locale],
-      placeholder: this.questionSet.placeholder[this.locale],
+      placeholder: null,
       help: this.questionSet.help[this.locale],
       options: null
     }
 
     if (this.questionSet.options !== null) {
-      this.question.options = this.questionSet.options[this.locale]
+      const options = this.questionSet.options.map(option => {
+        return {
+          value: option.value,
+          label: option.locale[this.locale]
+        }
+      })
+      this.question.options = options
+    }
+
+    if (this.questionSet.placeholder !== null) {
+      this.question.placeholder = this.questionSet.placeholder[this.locale]
     }
   }
 
+  /**
+* Returns a question object
+* @returns A question object {@link questionType}
+* @alpha
+*/
   getQuestion (): questionType {
     return this.question
   }
