@@ -9,12 +9,12 @@ describe('Generator', () => {
     expect(generator.locale).toBe('en')
   })
 
-  it('should get the next question', () => {
+  it('should ask the first question', () => {
     const generator = new Generator('en')
 
-    const previousQuestionId = ''
+    generator.previousQuestionId = undefined
 
-    const nextQuestion = generator.getNextQuestion(previousQuestionId)
+    const nextQuestion = generator.getNextQuestion()
 
     expect(nextQuestion).toEqual({
       id: 'Q1',
