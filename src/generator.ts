@@ -13,20 +13,21 @@ class Generator {
   locale: localesType
   fprVersion: fprVersionType = 'FPR 2019/1009'
   pfcDesignation: pfcType = undefined
-  cmcDesignation: cmcType = ''
+  cmcDesignation: cmcType = undefined
+  previousQuestionId: idType = undefined
   constructor (locale: localesType) {
     this.locale = locale
     this.fprVersion = 'FPR 2019/1009'
     this.pfcDesignation = undefined
-    this.cmcDesignation = ''
+    this.cmcDesignation = undefined
   }
 
   /** Returns the next question
    * @returns The question object {@link questionType} for the next question
    * @alpha
    */
-  getNextQuestion (previousQuestionId: idType): questionType {
-    const nextQuestionId = this.identifyNextQuestion(previousQuestionId, this.pfcDesignation, this.cmcDesignation)
+  getNextQuestion (): questionType {
+    const nextQuestionId = this.identifyNextQuestion(this.previousQuestionId, this.pfcDesignation, this.cmcDesignation)
     const nextQuestion = new Question(this.locale, nextQuestionId).getQuestion()
     return nextQuestion
   }
@@ -48,9 +49,10 @@ class Generator {
    * @returns The id of the next question {@link idType}
    * @internal
    */
-  identifyNextQuestion (previousQuestionId = '', pfcDesignation: pfcType, cmcDesignation: cmcType): idType {
+  identifyNextQuestion (previousQuestionId: idType, pfcDesignation: pfcType, cmcDesignation: cmcType): idType {
+    previousQuestionId = this.previousQuestionId
     let nextQuestionId: idType = ''
-    if (previousQuestionId === '') {
+    if (previousQuestionId === undefined) {
       nextQuestionId = 'Q1'
     } else if (previousQuestionId === 'Q1') {
       nextQuestionId = 'Q2'
@@ -65,13 +67,15 @@ class Generator {
     } else if (previousQuestionId === 'Q3') {
       nextQuestionId = 'Q4'
     } else if (previousQuestionId === 'Q4') {
-      if (cmcDesignation.includes('PFC 1')) {
+      if (cmcDesignation !== undefined && cmcDesignation.includes('PFC 1')) {
         nextQuestionId = 'Q5.1'
-      } else if (cmcDesignation.includes('CMC 3') || cmcDesignation.includes('CMC 5') || cmcDesignation.includes('CMC 11')) {
+      } else if (cmcDesignation !== undefined && (cmcDesignation.includes('CMC 3') || cmcDesignation.includes('CMC 5') || cmcDesignation.includes('CMC 11'))) {
         nextQuestionId = 'Q5.2'
       }
+    } else if (previousQuestionId === 'Q5.1' || previousQuestionId === 'Q5.2' || previousQuestionId === 'Q7.1') {
+      nextQuestionId = 'END'
     } else {
-      alert('Generator does not know the next question')
+      throw new Error('Generator does not know the next question')
     }
     return nextQuestionId
   }

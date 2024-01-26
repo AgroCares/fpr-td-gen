@@ -21,7 +21,7 @@ export type fprVersionType = 'FPR 2019/1009'
  * @typeParam idType - The id of the question
  * @alpha
  */
-export type idType = string
+export type idType = string | undefined
 
 /**
  * Helper text of a question
@@ -139,4 +139,4 @@ export type optionsIdType = string[] | undefined
 
 export type pfcType = undefined | 'PFC 1.A.I' | 'PFC 1.A.II' | 'PFC 1.B.I' | 'PFC 1.B.II' | 'PFC 1.C.I.a.i' | 'PFC 1.C.I.a.i.A' | 'PFC 1.C.I.a.ii' | 'PFC 1.C.I.a.ii.A' | 'PFC 1.C.I.b.i' | 'PFC 1.C.I.b.ii' | 'PFC 1.C.II.a' | 'PFC 1.C.II.b' | 'PFC 2' | 'PFC 3.A' | 'PFC 3.B' | 'PFC 4' | 'PFC 5.A' | 'PFC 5.B' | 'PFC 5.C' | 'PFC 6.A' | 'PFC 6.B' | 'PFC 7'
 
-export type cmcType = string
+export type cmcType = undefined | 'CMC 1' | 'CMC 2' | 'CMC 3' | 'CMC 4' | 'CMC 5' | 'CMC 6' | 'CMC 7'
