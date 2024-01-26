@@ -27,7 +27,8 @@ class Generator {
    * @alpha
    */
   getNextQuestion (): questionType {
-    const nextQuestionId = this.identifyNextQuestion(this.previousQuestionId, this.pfcDesignation, this.cmcDesignation)
+  /*  const nextQuestionId = this.identifyNextQuestion(this.previousQuestionId, this.pfcDesignation, this.cmcDesignation) */
+    const nextQuestionId = this.identifyNextQuestion()
     const nextQuestion = new Question(this.locale, nextQuestionId).getQuestion()
     this.previousQuestionId = nextQuestionId
     return nextQuestion
@@ -50,36 +51,39 @@ class Generator {
    * @returns The id of the next question {@link idType}
    * @internal
    */
-  identifyNextQuestion (previousQuestionId: idType, pfcDesignation: pfcType, cmcDesignation: cmcType): idType {
+  identifyNextQuestion (): idType {
+    return 'Q1' /* Mockup implementation, actual implementation will follow in later PR */
+  }
+
+  /** identifyNextQuestion (previousQuestionId: idType, pfcDesignation: pfcType, cmcDesignation: cmcType): idType \{
     previousQuestionId = this.previousQuestionId
     let nextQuestionId: idType
-    if (previousQuestionId === undefined) {
+    if (previousQuestionId === undefined) \{
       nextQuestionId = 'Q1'
-    } else if (previousQuestionId === 'Q1') {
+    \} else if (previousQuestionId === 'Q1') \{
       nextQuestionId = 'Q2'
-    } else if (previousQuestionId === 'Q2') {
-      if (pfcDesignation !== 'PFC 7') {
+    \} else if (previousQuestionId === 'Q2') \{
+      if (pfcDesignation !== 'PFC 7') \{
         nextQuestionId = 'Q3'
-      } else {
+      \} else \{
         nextQuestionId = 'Q7'
-      }
-    } else if (previousQuestionId === 'Q7') {
+      \}
+    \} else if (previousQuestionId === 'Q7') \{
       nextQuestionId = 'Q7.1'
-    } else if (previousQuestionId === 'Q3') {
+    \} else if (previousQuestionId === 'Q3') \{
       nextQuestionId = 'Q4'
-    } else if (previousQuestionId === 'Q4') {
-      if (cmcDesignation !== undefined && cmcDesignation.includes('PFC 1')) {
+    \} else if (previousQuestionId === 'Q4') \{
+      if (cmcDesignation !== undefined && cmcDesignation.includes('PFC 1')) \{
         nextQuestionId = 'Q5.1'
-      } else if (cmcDesignation !== undefined && (cmcDesignation.includes('CMC 3') || cmcDesignation.includes('CMC 5') || cmcDesignation.includes('CMC 11'))) {
+      \} else if (cmcDesignation !== undefined && (cmcDesignation.includes('CMC 3') || cmcDesignation.includes('CMC 5') || cmcDesignation.includes('CMC 11'))) \{
         nextQuestionId = 'Q5.2'
-      }
-    } else if (previousQuestionId === 'Q5.1' || previousQuestionId === 'Q5.2' || previousQuestionId === 'Q7.1') {
+      \}
+    \} else if (previousQuestionId === 'Q5.1' || previousQuestionId === 'Q5.2' || previousQuestionId === 'Q7.1') \{
       nextQuestionId = 'END'
-    } else {
+    \} else \{
       throw new Error('Generator does not know the next question')
-    }
+    \}
     return nextQuestionId
-  }
+  \} */
 }
-
 export default Generator
