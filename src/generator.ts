@@ -51,7 +51,7 @@ class Generator {
    */
   identifyNextQuestion (previousQuestionId: idType, pfcDesignation: pfcType, cmcDesignation: cmcType): idType {
     previousQuestionId = this.previousQuestionId
-    let nextQuestionId: idType = ''
+    let nextQuestionId: idType
     if (previousQuestionId === undefined) {
       nextQuestionId = 'Q1'
     } else if (previousQuestionId === 'Q1') {

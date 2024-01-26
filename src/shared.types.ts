@@ -21,7 +21,7 @@ export type fprVersionType = 'FPR 2019/1009'
  * @typeParam idType - The id of the question
  * @alpha
  */
-export type idType = string | undefined
+export type idType = undefined | 'Q1' | 'Q2' | 'Q3' | 'Q4' | 'Q5.1' | 'Q5.2' | 'Q7' | 'Q7.1'
 
 /**
  * Helper text of a question
