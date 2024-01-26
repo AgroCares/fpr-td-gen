@@ -29,6 +29,7 @@ class Generator {
   getNextQuestion (): questionType {
     const nextQuestionId = this.identifyNextQuestion(this.previousQuestionId, this.pfcDesignation, this.cmcDesignation)
     const nextQuestion = new Question(this.locale, nextQuestionId).getQuestion()
+    this.previousQuestionId = nextQuestionId
     return nextQuestion
   }
 
