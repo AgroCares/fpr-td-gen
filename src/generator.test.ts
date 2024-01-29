@@ -14,8 +14,6 @@ describe('Generator', () => {
   it('should ask the first question', () => {
     const generator = new Generator('en')
 
-    generator.previousQuestionId = undefined
-
     const nextQuestion = generator.getNextQuestion()
 
     expect(nextQuestion).toEqual({
