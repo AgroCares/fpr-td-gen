@@ -199,3 +199,7 @@ export const cmcDesginations = [undefined, 'CMC 1', 'CMC 2', 'CMC 3', 'CMC 4', '
  * @alpha
  */
 export type cmcType = typeof cmcDesginations[number]
+
+export type answerSet = [idType, answer] | undefined
+
+export type answer = string | string[] | undefined

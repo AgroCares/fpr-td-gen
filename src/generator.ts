@@ -1,4 +1,4 @@
-import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, cmcType } from './shared.types'
+import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, cmcType, answerSet } from './shared.types'
 
 import { Question } from './question'
 
@@ -20,6 +20,8 @@ class Generator {
     this.pfcDesignation = undefined
     this.cmcDesignation = undefined
   }
+
+  allAnswers: answerSet = undefined
 
   /** Returns the next question
    * @returns The question object {@link questionType} for the next question
