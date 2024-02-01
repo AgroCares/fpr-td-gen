@@ -21,7 +21,8 @@ export type fprVersionType = 'FPR 2019/1009'
  * @typeParam idType - The id of the question
  * @alpha
  */
-export type idType = string
+export const idTypes = [undefined, 'END', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5.1', 'Q5.2', 'Q7', 'Q7.1'] as const
+export type idType = typeof idTypes[number]
 
 /**
  * Helper text of a question
@@ -117,6 +118,7 @@ export type questionSetsType = questionSetType[]
 export interface technicalDocumentationType {
   locale: localesType
   fprVersion: fprVersionType
+  pfcDesignation: pfcType
 }
 
 /**
@@ -135,3 +137,65 @@ export type typesType = 'text' | 'select' | 'checkbox' | 'multitext' | undefined
  * @alpha
  */
 export type optionsIdType = string[] | undefined
+
+/**
+ * Array of values allowed for PFCs
+ *
+ * @see {@link pfcType}
+ */
+export const pfcDesignations = [undefined, 'PFC 1.A.I', 'PFC 1.A.II', 'PFC 1.B.I', 'PFC 1.B.II', 'PFC 1.C.I.a.i', 'PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii', 'PFC 1.C.I.a.ii.A', 'PFC 1.C.I.b.i', 'PFC 1.C.I.b.ii', 'PFC 1.C.II.a', 'PFC 1.C.II.b', 'PFC 2', 'PFC 3.A', 'PFC 3.B', 'PFC 4', 'PFC 5.A', 'PFC 5.B', 'PFC 5.C', 'PFC 6.A', 'PFC 6.B', 'PFC 7'] as const
+/**
+ * The PFC designation
+ *
+ * @typeParam pfcType - The PFC designation
+ * @remarks The possible values are:
+ *   * `undefined`
+ *   * `PFC 1.A.I`
+ *   * `PFC 1.A.II`
+ *   * `PFC 1.B.I`
+ *   * `PFC 1.B.II`
+ *   * `PFC 1.C.I.a.i`
+ *   * `PFC 1.C.I.a.i.A`
+ *   * `PFC 1.C.I.a.ii`
+ *   * `PFC 1.C.I.a.ii.A`
+ *   * `PFC 1.C.I.b.i`
+ *   * `PFC 1.C.I.b.ii`
+ *   * `PFC 1.C.II.a`
+ *   * `PFC 1.C.II.b`
+ *   * `PFC 2`
+ *   * `PFC 3.A`
+ *   * `PFC 3.B`
+ *   * `PFC 4`
+ *   * `PFC 5.A`
+ *   * `PFC 5.B`
+ *   * `PFC 5.C`
+ *   * `PFC 6.A`
+ *   * `PFC 6.B`
+ *   * `PFC 7`
+ * @alpha
+ */
+export type pfcType = typeof pfcDesignations[number]
+
+/**
+ * Array of values allowed for CMCs
+ *
+ * @see {@link cmcType}
+ */
+export const cmcDesginations = [undefined, 'CMC 1', 'CMC 2', 'CMC 3', 'CMC 4', 'CMC 5', 'CMC 6', 'CMC 7'] as const
+
+/**
+ * The CMC designation
+ *
+ * @typeParam cmcType - The CMC designation
+ * @remarks The possible values are:
+ *   * `undefined`
+ *   * `CMC 1`
+ *   * `CMC 2`
+ *   * `CMC 3`
+ *   * `CMC 4`
+ *   * `CMC 5`
+ *   * `CMC 6`
+ *   * `CMC 7`
+ * @alpha
+ */
+export type cmcType = typeof cmcDesginations[number]

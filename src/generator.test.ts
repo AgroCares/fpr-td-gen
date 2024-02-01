@@ -9,7 +9,7 @@ describe('Generator', () => {
     expect(generator.locale).toBe('en')
   })
 
-  it('should get the next question', () => {
+  it('should ask the first question', () => {
     const generator = new Generator('en')
 
     const nextQuestion = generator.getNextQuestion()

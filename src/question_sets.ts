@@ -447,7 +447,7 @@ const questionSets: questionSetsType =
       options: null
     },
     {
-      id: 'Q7.1.',
+      id: 'Q7.1',
       type: 'select',
       ask: {
         nl: 'Wat is de type aanduiding van dit bestandsdeel EU-bemestingsproduct?',

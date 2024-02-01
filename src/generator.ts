@@ -1,4 +1,4 @@
-import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType } from './shared.types'
+import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, cmcType } from './shared.types'
 
 import { Question } from './question'
 
@@ -12,9 +12,13 @@ class Generator {
   */
   locale: localesType
   fprVersion: fprVersionType = 'FPR 2019/1009'
+  pfcDesignation: pfcType = undefined
+  cmcDesignation: cmcType = undefined
   constructor (locale: localesType) {
     this.locale = locale
     this.fprVersion = 'FPR 2019/1009'
+    this.pfcDesignation = undefined
+    this.cmcDesignation = undefined
   }
 
   /** Returns the next question
@@ -34,7 +38,8 @@ class Generator {
   getTechnicalDocumentation (): technicalDocumentationType {
     return {
       locale: this.locale,
-      fprVersion: this.fprVersion
+      fprVersion: this.fprVersion,
+      pfcDesignation: this.pfcDesignation
     }
   }
 
@@ -44,9 +49,7 @@ class Generator {
    * @internal
    */
   identifyNextQuestion (): idType {
-    const nextQuestionId = 'Q1'
-    return nextQuestionId
+    return 'Q1' /* Mockup implementation, actual implementation will follow in later PR */
   }
 }
-
 export default Generator
