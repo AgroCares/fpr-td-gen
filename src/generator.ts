@@ -60,8 +60,9 @@ class Generator {
     return theAnswer
   }
 
-  saveAnswer (answer: answerType): undefined {
+  saveAnswer (answer: answerType): boolean {
     this.allAnswers.set(this.identifyNextQuestion(), answer)
+    return true
   }
 }
 export default Generator
