@@ -54,13 +54,32 @@ class Generator {
     return 'Q1' /* Mockup implementation, actual implementation will follow in later PR */
   }
 
+  /**
+ * Asks the user a question and returns the answer.
+ *
+ * The question is generated based on the current state of the generator.
+ *
+ * @returns The answer to the question.
+ * @alpha
+ */
   askQuestion (): answerType {
     const theAnswer: answerType = 'My productname'
 
     return theAnswer
   }
 
+  /**
+ * Saves the answer to the current question.
+ *
+ * The answer is stored in the `allAnswers` property of the generator.
+ *
+ * @param answer - The answer to the question of type {@link answerType}.
+ * @returns `true` if the answer was successfully saved, and `false` otherwise.
+ * @alpha
+ */
   saveAnswer (answer: answerType): boolean {
+
+    
     this.allAnswers.set(this.identifyNextQuestion(), answer)
     return true
   }
