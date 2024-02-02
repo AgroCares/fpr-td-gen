@@ -84,25 +84,25 @@ class Generator {
     const question = new Question('en', this.identifyNextQuestion())
     if (question.question.type === 'text') {
       if (typeof answer !== 'string') {
-        return false
+        throw new Error('Answer is not of type "string" which is expected for question of type "text"')
       }
     } else if (question.question.type === 'multitext') {
       if (!Array.isArray(answer)) {
-        return false
+        throw new Error('Answer is not an array which is expected for question of type "multitext"')
       }
     } else if (question.question.type === 'checkbox') {
       if (typeof answer !== 'boolean') {
-        return false
+        throw new Error('Answer is not of type "boolean" which is expected for question of type "checkbox"')
       }
-    } else if (question.question.type === 'select') {
+    } else if (question.question.type === 'select') { /** check that a select question indeed has options */
       if (question.question.options === null) {
-        return false
+        throw new Error('Question has no options whilst this is required for question of type "select", if you see this error, something is wrong in the question definition.')
       }
-      const options = question.question.options.map(x => x.value)
+      const options = question.question.options.map(x => x.value) /** retrieve the valid values */
       if (typeof answer !== 'string') {
-        return false
+        throw new Error('Invalid answer type, expected "string" but got "' + typeof answer + '"')
       } else if (!options.includes(answer)) {
-        return false
+        throw new Error('Invalid answer, expected one of "' + options.join(', ') + '" but got "' + answer + '"')
       }
     }
     this.allAnswers.set(this.identifyNextQuestion(), answer)
