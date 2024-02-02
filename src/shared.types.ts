@@ -209,4 +209,4 @@ export type answerSet = Map<idType, answerType>
  * @alpha
  */
 
-export type answerType = string
+export type answerType = string | string[]

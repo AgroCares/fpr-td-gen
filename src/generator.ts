@@ -14,7 +14,7 @@ class Generator {
   fprVersion: fprVersionType = 'FPR 2019/1009'
   pfcDesignation: pfcType = undefined
   cmcDesignation: cmcType = undefined
-  allAnswers!: answerSet
+  allAnswers: answerSet
   constructor (locale: localesType) {
     this.locale = locale
     this.fprVersion = 'FPR 2019/1009'
