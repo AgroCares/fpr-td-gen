@@ -23,6 +23,30 @@ describe('Generator', () => {
       options: null
     })
   })
+  it('should return property ask of the first question', () => {
+    const generator = new Generator('en')
+
+    const nextQuestion = generator.getNextQuestion()
+
+    expect(nextQuestion.ask).toEqual(
+      'What is the name of your product?'
+    )
+  })
+
+  it('should identify the next question', () => {
+    const generator = new Generator('en')
+
+    expect(generator.identifyNextQuestion()).toEqual('Q1')
+  })
+  it('should store and answer to a question in allAnswers', () => {
+    const generator = new Generator('en')
+
+    const answer = generator.askQuestion()
+
+    generator.saveAnswer(answer)
+
+    expect(generator.allAnswers.get('Q1')).toEqual('My productname')
+  })
 
   it('should get the technical documentation', () => {
     const generator = new Generator('en')

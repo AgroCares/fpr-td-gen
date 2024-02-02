@@ -21,8 +21,7 @@ export type fprVersionType = 'FPR 2019/1009'
  * @typeParam idType - The id of the question
  * @alpha
  */
-export const idTypes = [undefined, 'END', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5.1', 'Q5.2', 'Q7', 'Q7.1'] as const
-export type idType = typeof idTypes[number]
+export type idType = string
 
 /**
  * Helper text of a question
@@ -199,3 +198,15 @@ export const cmcDesginations = [undefined, 'CMC 1', 'CMC 2', 'CMC 3', 'CMC 4', '
  * @alpha
  */
 export type cmcType = typeof cmcDesginations[number]
+
+export type answerSet = Map<idType, answerType>
+
+/**
+ * The answer to a question
+ *
+ * @typeParam answerType - The answer to a question
+ * @remarks Currently only `string` and `string[]` are allowed
+ * @alpha
+ */
+
+export type answerType = string | string[]

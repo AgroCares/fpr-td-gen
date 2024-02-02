@@ -1,4 +1,4 @@
-import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, cmcType } from './shared.types'
+import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, cmcType, answerSet, answerType } from './shared.types'
 
 import { Question } from './question'
 
@@ -14,11 +14,13 @@ class Generator {
   fprVersion: fprVersionType = 'FPR 2019/1009'
   pfcDesignation: pfcType = undefined
   cmcDesignation: cmcType = undefined
+  allAnswers: answerSet
   constructor (locale: localesType) {
     this.locale = locale
     this.fprVersion = 'FPR 2019/1009'
     this.pfcDesignation = undefined
     this.cmcDesignation = undefined
+    this.allAnswers = new Map<idType, answerType>()
   }
 
   /** Returns the next question
@@ -50,6 +52,16 @@ class Generator {
    */
   identifyNextQuestion (): idType {
     return 'Q1' /* Mockup implementation, actual implementation will follow in later PR */
+  }
+
+  askQuestion (): answerType {
+    const theAnswer: answerType = 'My productname'
+
+    return theAnswer
+  }
+
+  saveAnswer (answer: answerType): undefined {
+    this.allAnswers.set(this.identifyNextQuestion(), answer)
   }
 }
 export default Generator
