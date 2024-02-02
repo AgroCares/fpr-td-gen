@@ -78,8 +78,33 @@ class Generator {
  * @alpha
  */
   saveAnswer (answer: answerType): boolean {
-
-    
+    /**
+     * validate the answer
+     */
+    const question = new Question('en', this.identifyNextQuestion())
+    if (question.question.type === 'text') {
+      if (typeof answer !== 'string') {
+        return false
+      }
+    } else if (question.question.type === 'multitext') {
+      if (!Array.isArray(answer)) {
+        return false
+      }
+    } else if (question.question.type === 'checkbox') {
+      if (typeof answer !== 'boolean') {
+        return false
+      }
+    } else if (question.question.type === 'select') {
+      if (question.question.options === null) {
+        return false
+      }
+      const options = question.question.options.map(x => x.value)
+      if (typeof answer !== 'string') {
+        return false
+      } else if (!options.includes(answer)) {
+        return false
+      }
+    }
     this.allAnswers.set(this.identifyNextQuestion(), answer)
     return true
   }
