@@ -51,7 +51,20 @@ class Generator {
    * @internal
    */
   identifyNextQuestion (): idType {
-    return 'Q1' /* Mockup implementation, actual implementation will follow in later PR */
+    let nextQId: idType
+    const lastKey = [...this.allAnswers.keys()].pop()
+    if (this.allAnswers.size === 0) {
+      nextQId = 'Q1'
+    } else if (lastKey === 'Q1') {
+      nextQId = 'Q2'
+    } else if (lastKey === 'Q2') {
+      nextQId = 'Q3'
+    } else if (lastKey === 'Q3') {
+      nextQId = 'Q5.2'
+    } else {
+      nextQId = 'Q1'
+    }
+    return nextQId /* Mockup implementation, actual implementation will follow in later PR */
   }
 
   /**
@@ -81,10 +94,11 @@ class Generator {
     /**
      * validate the answer
      */
+    console.log(answer)
     const question = new Question('en', this.identifyNextQuestion())
     if (question.question.type === 'text') {
       if (typeof answer !== 'string') {
-        throw new Error('Answer is not of type "string" which is expected for question of type "text"')
+        throw new Error('Answer is not of type "string" which is expected for question of type "text", the question is: ' + question.question.id + '.')
       }
     } else if (question.question.type === 'multitext') {
       if (!Array.isArray(answer)) {

@@ -58,4 +58,24 @@ describe('Generator', () => {
       fprVersion: 'FPR 2019/1009'
     })
   })
+
+  it('should save answers of different types without throwing errors', () => {
+    const generator = new Generator('en')
+
+    generator.getNextQuestion()
+    /* questionId == 'Q1', so answer.type must be text of value string */
+    expect(generator.saveAnswer('Bananas')).toBeTruthy()
+
+    generator.getNextQuestion()
+    /* questionId == 'Q2', so answer.type must be a string of a select number of values */
+    expect(generator.saveAnswer('PFC 1.A.II')).toBeTruthy()
+
+    generator.getNextQuestion()
+    /* questionId == 'Q3', so answer.type must be a multitext e.g. an array of strings */
+    expect(generator.saveAnswer(['I', 'love', 'the', 'R', 'programming', 'language'])).toBeTruthy()
+
+    generator.getNextQuestion()
+    /* questionId == 'Q5.2', so answer.type must be a boolean */
+    expect(generator.saveAnswer(true)).toBeTruthy()
+  })
 })
