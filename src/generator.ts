@@ -88,6 +88,11 @@ class Generator {
     } else if (question.question.type === 'multitext') {
       if (!Array.isArray(answer)) {
         throw new Error('Answer is not an array which is expected for question of type "multitext"')
+      } else {
+        const arrayEntries = answer.map(x => typeof x)
+        if (!arrayEntries.every(x => x === 'string')) {
+          throw new Error('Answer is not an array of strings which is expected for question of type "multitext"')
+        }
       }
     } else if (question.question.type === 'checkbox') {
       if (typeof answer !== 'boolean') {
