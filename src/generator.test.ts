@@ -64,7 +64,7 @@ describe('Generator', () => {
 
     generator.getNextQuestion()
     /* questionId == 'Q1', so answer.type must be text of value string */
-    expect(generator.saveAnswer('`My productname`')).toBeTruthy()
+    expect(generator.saveAnswer('My productname')).toBeTruthy()
 
     generator.getNextQuestion()
     /* questionId == 'Q2', so answer.type must be a string of a select number of values */
