@@ -68,20 +68,6 @@ class Generator {
   }
 
   /**
- * Asks the user a question and returns the answer.
- *
- * The question is generated based on the current state of the generator.
- *
- * @returns The answer to the question.
- * @alpha
- */
-  askQuestion (): answerType {
-    const theAnswer: answerType = 'My productname'
-
-    return theAnswer
-  }
-
-  /**
  * Saves the answer to the current question.
  *
  * The answer is stored in the `allAnswers` property of the generator.

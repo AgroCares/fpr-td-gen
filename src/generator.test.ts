@@ -41,9 +41,9 @@ describe('Generator', () => {
   it('should store and answer to a question in allAnswers', () => {
     const generator = new Generator('en')
 
-    const answer = generator.askQuestion()
+    generator.getNextQuestion()
 
-    generator.saveAnswer(answer)
+    generator.saveAnswer('My productname')
 
     expect(generator.allAnswers.get('Q1')).toEqual('My productname')
   })
