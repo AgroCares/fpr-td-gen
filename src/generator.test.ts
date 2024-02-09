@@ -64,7 +64,7 @@ describe('Generator', () => {
 
     generator.getNextQuestion()
     /* questionId == 'Q1', so answer.type must be text of value string */
-    expect(generator.saveAnswer('Bananas')).toBeTruthy()
+    expect(generator.saveAnswer('`My productname`')).toBeTruthy()
 
     generator.getNextQuestion()
     /* questionId == 'Q2', so answer.type must be a string of a select number of values */
@@ -72,7 +72,7 @@ describe('Generator', () => {
 
     generator.getNextQuestion()
     /* questionId == 'Q3', so answer.type must be a multitext e.g. an array of strings */
-    expect(generator.saveAnswer(['I', 'love', 'the', 'R', 'programming', 'language'])).toBeTruthy()
+    expect(generator.saveAnswer(['Urea', 'biochar', 'rhizobium strain 101', 'another component material name'])).toBeTruthy()
 
     generator.getNextQuestion()
     /* questionId == 'Q5.2', so answer.type must be a boolean */
