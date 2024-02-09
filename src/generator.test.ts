@@ -76,6 +76,6 @@ describe('Generator', () => {
 
     generator.getNextQuestion()
     /* questionId == 'Q5.2', so answer.type must be a boolean */
-    expect(generator.saveAnswer(true)).toBeTruthy()
+    expect(generator.saveAnswer(true)).toBe(true)
   })
 })
