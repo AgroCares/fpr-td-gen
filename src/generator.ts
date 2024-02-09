@@ -94,7 +94,6 @@ class Generator {
     /**
      * validate the answer
      */
-    console.log(answer)
     const question = new Question('en', this.identifyNextQuestion())
     if (question.question.type === 'text') {
       if (typeof answer !== 'string') {
