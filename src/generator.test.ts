@@ -41,9 +41,9 @@ describe('Generator', () => {
   it('should store and answer to a question in allAnswers', () => {
     const generator = new Generator('en')
 
-    const answer = generator.askQuestion()
+    generator.getNextQuestion()
 
-    generator.saveAnswer(answer)
+    generator.saveAnswer('My productname')
 
     expect(generator.allAnswers.get('Q1')).toEqual('My productname')
   })
@@ -57,5 +57,25 @@ describe('Generator', () => {
       locale: 'en',
       fprVersion: 'FPR 2019/1009'
     })
+  })
+
+  it('should save answers of different types without throwing errors', () => {
+    const generator = new Generator('en')
+
+    generator.getNextQuestion()
+    /* questionId == 'Q1', so answer.type must be text of value string */
+    expect(generator.saveAnswer('My productname')).toBe(true)
+
+    generator.getNextQuestion()
+    /* questionId == 'Q2', so answer.type must be a string of a select number of values */
+    expect(generator.saveAnswer('PFC 1.A.II')).toBe(true)
+
+    generator.getNextQuestion()
+    /* questionId == 'Q3', so answer.type must be a multitext e.g. an array of strings */
+    expect(generator.saveAnswer(['Urea', 'biochar', 'rhizobium strain 101', 'another component material name'])).toBe(true)
+
+    generator.getNextQuestion()
+    /* questionId == 'Q5.2', so answer.type must be a boolean */
+    expect(generator.saveAnswer(true)).toBe(true)
   })
 })
