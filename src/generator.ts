@@ -1,4 +1,4 @@
-import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, cmcType, answerSet, answerType } from './shared.types'
+import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, answerSet, answerType } from './shared.types'
 
 import { Question } from './question'
 
@@ -13,13 +13,11 @@ class Generator {
   locale: localesType
   fprVersion: fprVersionType = 'FPR 2019/1009'
   pfcDesignation: pfcType = undefined
-  cmcDesignation: cmcType = undefined
   allAnswers: answerSet
   constructor (locale: localesType) {
     this.locale = locale
     this.fprVersion = 'FPR 2019/1009'
     this.pfcDesignation = undefined
-    this.cmcDesignation = undefined
     this.allAnswers = new Map<idType, answerType>()
   }
 
@@ -46,23 +44,37 @@ class Generator {
   }
 
   /**
-   * Identify the next question
-   * @returns The id of the next question {@link idType}
-   * @internal
-   */
+ * Identify the next question
+ * @returns The id of the next question {@link idType}
+ * @internal
+ */
   identifyNextQuestion (): idType {
     let nextQId: idType
     const lastKey = [...this.allAnswers.keys()].pop()
-    if (this.allAnswers.size === 0) {
-      nextQId = 'Q1'
-    } else if (lastKey === 'Q1') {
-      nextQId = 'Q2'
-    } else if (lastKey === 'Q2') {
-      nextQId = 'Q3'
-    } else if (lastKey === 'Q3') {
-      nextQId = 'Q5.2'
-    } else {
-      nextQId = 'Q1'
+    if (this.fprVersion === 'FPR 2019/1009') {
+      if (this.allAnswers.size === 0) {
+        nextQId = 'Q1'
+      } else if (lastKey === 'Q1') {
+        nextQId = 'Q2'
+      } else if (lastKey === 'Q2') {
+        if (this.allAnswers.get('Q2') !== 'PFC 7') {
+          nextQId = 'Q3'
+        } else {
+          nextQId = 'Q7'
+        }
+      } else if (lastKey === 'Q3') {
+        nextQId = 'Q4'
+      } else if (lastKey === 'Q4') {
+        nextQId = 'Q5.1'
+      } else if (lastKey === 'Q5.1') {
+        nextQId = 'Q5.2'
+      } else if (lastKey === 'Q7') {
+        nextQId = 'Q7.1'
+      } else if (lastKey === 'Q7.1' || lastKey === 'Q5.2') {
+        nextQId = 'END'
+      } else {
+        throw new Error('No next questionD point or END found, pleas contact the maintainers')
+      }
     }
     return nextQId /* Mockup implementation, actual implementation will follow in later PR */
   }
@@ -104,7 +116,7 @@ class Generator {
       }
       const options = question.question.options.map(x => x.value) /** retrieve the valid values */
       if (typeof answer !== 'string') {
-        throw new Error('Invalid answer type, expected "string" but got "' + typeof answer + '"')
+        throw new Error('Invalid answer type for question ' + question.question.id + ', expected "string" but got "' + typeof answer + '"')
       } else if (!options.includes(answer)) {
         throw new Error('Invalid answer, expected one of "' + options.join(', ') + '" but got "' + answer + '"')
       }

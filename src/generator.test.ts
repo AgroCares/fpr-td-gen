@@ -75,6 +75,14 @@ describe('Generator', () => {
     expect(generator.saveAnswer(['Urea', 'biochar', 'rhizobium strain 101', 'another component material name'])).toBe(true)
 
     generator.getNextQuestion()
+    /* questionId == 'Q4', so answer.type must be a string */
+    expect(generator.saveAnswer('CMC 1')).toBe(true)
+
+    generator.getNextQuestion()
+
+    expect(generator.saveAnswer('Not applicable')).toBe(true)
+
+    generator.getNextQuestion()
     /* questionId == 'Q5.2', so answer.type must be a boolean */
     expect(generator.saveAnswer(true)).toBe(true)
   })
