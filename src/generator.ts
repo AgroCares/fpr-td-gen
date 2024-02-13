@@ -73,7 +73,7 @@ class Generator {
       } else if (lastKey === 'Q7.1' || lastKey === 'Q5.2') {
         nextQId = 'END'
       } else {
-        throw new Error('No next questionD point or END found, pleas contact the maintainers')
+        throw new Error('No next questionId point or END found, please contact the maintainers, lastKey: ' + lastKey + '')
       }
     }
     return nextQId /* Mockup implementation, actual implementation will follow in later PR */
