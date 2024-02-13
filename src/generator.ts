@@ -67,6 +67,45 @@ class Generator {
   }
 
   /**
+ * Helper function for {@link identifyNextQuestion}
+ * @returns The id of the next question {@link idType}
+ * @internal
+ */
+  iterateComponentQuestions (questionToIterate: idType, questionWhenDone: idType): string {
+    /** setup */
+    let nextQId: string
+    const lastKey = [...this.allAnswers.keys()].pop()
+
+    /** check how many components there are and the component nr of the last answered question */
+    if (this.allAnswers.has('Q3')) {
+      const listOfComponents = this.allAnswers.get('Q3')
+      if (Array.isArray(listOfComponents)) {
+        this.nrOfComponents = listOfComponents.length
+        if (lastKey === undefined) {
+          throw new Error('No last key found, please contact the maintainers while Q3 has been answered already.')
+        } else {
+          this.lastKeyComponentNr = parseInt(lastKey.split('-')[1])
+        }
+      }
+    }
+
+    /** decide whether the same question should be asked for the next component, or that this question has been answered for all components and that we should move to the next question, aka questionWhenDone */
+    if (this.lastKeyComponentNr === undefined || this.nrOfComponents === undefined) {
+      throw new Error('No component number is defined while question three has been answered, please contact the maintainers.')
+    }
+    if (this.lastKeyComponentNr === undefined || this.nrOfComponents === undefined) {
+      throw new Error('No component number is defined while question three has been answered, please contact the maintainers.')
+    } else if (this.lastKeyComponentNr < this.nrOfComponents) {
+      nextQId = questionToIterate + '-' + (this.lastKeyComponentNr + 1)
+    } else if (questionWhenDone === 'END') {
+      nextQId = 'END'
+    } else {
+      nextQId = questionWhenDone + '-' + 1
+    }
+    return nextQId
+  }
+
+  /**
  * Identify the next question
  * @returns The id of the next question {@link idType}
  * @internal
@@ -91,32 +130,12 @@ class Generator {
       } else if (lastKey === 'Q3') {
         nextQId = 'Q4' + '-' + 1
       } else if (lastKey !== undefined) {
-        this.idPreviousComponent()
         if (lastKey.startsWith('Q4-')) {
-          if (this.lastKeyComponentNr === undefined || this.nrOfComponents === undefined) {
-            throw new Error('No component number is defined while question three has been answered, please contact the maintainers.')
-          } else if (this.lastKeyComponentNr < this.nrOfComponents) {
-            nextQId = 'Q4-' + (this.lastKeyComponentNr + 1)
-          } else {
-            nextQId = 'Q5.1' + '-' + 1
-          }
+          nextQId = this.iterateComponentQuestions('Q4', 'Q5.1')
         } else if (lastKey.startsWith('Q5.1-')) {
-          this.idPreviousComponent()
-          if (this.lastKeyComponentNr === undefined || this.nrOfComponents === undefined) {
-            throw new Error('No component number is defined while question three has been answered, please contact the maintainers.')
-          } else if (this.lastKeyComponentNr < this.nrOfComponents) {
-            nextQId = 'Q5.1-' + (this.lastKeyComponentNr + 1)
-          } else {
-            nextQId = 'Q5.2' + '-' + 1
-          }
+          nextQId = this.iterateComponentQuestions('Q5.1', 'Q5.2')
         } else if (lastKey.startsWith('Q5.2-')) {
-          if (this.lastKeyComponentNr === undefined || this.nrOfComponents === undefined) {
-            throw new Error('No component number is defined while question three has been answered, please contact the maintainers.')
-          } else if (this.lastKeyComponentNr < this.nrOfComponents) {
-            nextQId = 'Q5.2-' + (this.lastKeyComponentNr + 1)
-          } else {
-            nextQId = 'END'
-          }
+          nextQId = this.iterateComponentQuestions('Q5.2', 'END')
         }
       } else if (lastKey === 'Q7') { /** Questioning on products of PFC 7 is not implemented and tested yet */
         nextQId = 'Q7.1'
@@ -126,6 +145,7 @@ class Generator {
         throw new Error('No next questionId point or END found, please contact the maintainers, lastKey: ' + lastKey + '')
       }
     }
+
     return nextQId
   }
 
