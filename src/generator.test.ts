@@ -72,18 +72,34 @@ describe('Generator', () => {
 
     generator.getNextQuestion()
     /* questionId == 'Q3', so answer.type must be a multitext e.g. an array of strings */
-    expect(generator.saveAnswer(['Urea', 'biochar', 'rhizobium strain 101', 'another component material name'])).toBe(true)
+    expect(generator.saveAnswer(['Urea', 'biochar', 'another component material name'])).toBe(true)
 
+    generator.getNextQuestion()
+    /* questionId == 'Q4', so answer.type must be a string, Q4 is asked once for every value in the answer to Q3 */
+    expect(generator.saveAnswer('CMC 1')).toBe(true)
     generator.getNextQuestion()
     /* questionId == 'Q4', so answer.type must be a string */
-    expect(generator.saveAnswer('CMC 1')).toBe(true)
+    expect(generator.saveAnswer('CMC 14')).toBe(true)
+    generator.getNextQuestion()
+    /* questionId == 'Q4', so answer.type must be a string */
+    expect(generator.saveAnswer('CMC 2')).toBe(true)
 
     generator.getNextQuestion()
-
+    /* questionId == 'Q5.1', so answer.type must be a boolean and is asked once for every item in Q3 */
+    expect(generator.saveAnswer('Not applicable')).toBe(true)
+    generator.getNextQuestion()
+    expect(generator.saveAnswer('Not applicable')).toBe(true)
+    generator.getNextQuestion()
     expect(generator.saveAnswer('Not applicable')).toBe(true)
 
     generator.getNextQuestion()
-    /* questionId == 'Q5.2', so answer.type must be a boolean */
-    expect(generator.saveAnswer(true)).toBe(true)
+    /* questionId == 'Q5.2', so answer.type must be a boolean and is asked once for every item in Q3 */
+    expect(generator.saveAnswer(false)).toBe(true)
+    generator.getNextQuestion()
+    expect(generator.saveAnswer(false)).toBe(true)
+    generator.getNextQuestion()
+    expect(generator.saveAnswer(false)).toBe(true)
+
+    expect(generator.identifyNextQuestion()).toEqual('END')
   })
 })
