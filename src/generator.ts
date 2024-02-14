@@ -50,22 +50,6 @@ class Generator {
     }
   }
 
-  /** Identify which component number was last dealt with if the component question has been answered */
-  idPreviousComponent (): void {
-    const lastKey = [...this.allAnswers.keys()].pop()
-    if (this.allAnswers.has('Q3')) {
-      const listOfComponents = this.allAnswers.get('Q3')
-      if (Array.isArray(listOfComponents)) {
-        this.nrOfComponents = listOfComponents.length
-        if (lastKey === undefined) {
-          throw new Error('No last key found, please contact the maintainers while Q3 has been answered already.')
-        } else {
-          this.lastKeyComponentNr = parseInt(lastKey.split('-')[1])
-        }
-      }
-    }
-  }
-
   /**
  * Helper function for {@link identifyNextQuestion}
  * @param questionToIterate - the component related question to iterate over for each component mentioned in question 3
