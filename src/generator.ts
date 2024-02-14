@@ -105,16 +105,18 @@ class Generator {
     return nextQId
   }
 
-  /**
- * Identify the next question
- * @returns The id of the next question {@link idType}
- * @internal
- */
-  identifyNextQuestion (): idType {
-    /** setup variables and constants to be used in the function */
-    let nextQId: idType = 'Q1'
-    const lastKey = [...this.allAnswers.keys()].pop()
+  generalQuestionsIncommplete (): boolean {
+    let returnValue: boolean
+    if (this.allAnswers.has('Q3') || this.allAnswers.has('Q7')) {
+      returnValue = false
+    } else {
+      returnValue = true
+    }
+    return returnValue
+  }
 
+  identifyNextQuestionProductLevel (lastKey: string | undefined): idType {
+    let nextQId: idType = 'Q1'
     /** actual question ID identifying */
     if (this.fprVersion === 'FPR 2019/1009') {
       if (this.allAnswers.size === 0) {
@@ -127,25 +129,41 @@ class Generator {
         } else {
           nextQId = 'Q7'
         }
-      } else if (lastKey === 'Q3') {
-        nextQId = 'Q4' + '-' + 1
-      } else if (lastKey !== undefined) {
-        if (lastKey.startsWith('Q4-')) {
-          nextQId = this.iterateComponentQuestions('Q4', 'Q5.1')
-        } else if (lastKey.startsWith('Q5.1-')) {
-          nextQId = this.iterateComponentQuestions('Q5.1', 'Q5.2')
-        } else if (lastKey.startsWith('Q5.2-')) {
-          nextQId = this.iterateComponentQuestions('Q5.2', 'END')
-        }
-      } else if (lastKey === 'Q7') { /** Questioning on products of PFC 7 is not implemented and tested yet */
-        nextQId = 'Q7.1'
-      } else if (lastKey === 'Q7.1') {
-        nextQId = 'END'
-      } else {
-        throw new Error('No next questionId point or END found, please contact the maintainers, lastKey: ' + lastKey + '')
       }
     }
+    return nextQId
+  }
 
+  /**
+ * Identify the next question
+ * @returns The id of the next question {@link idType}
+ * @internal
+ */
+  identifyNextQuestion (): idType {
+    /** setup variables and constants to be used in the function */
+    let nextQId: idType = 'Q1'
+    const lastKey = [...this.allAnswers.keys()].pop()
+
+    /** actual question ID identifying */
+    if (this.generalQuestionsIncommplete()) {
+      nextQId = this.identifyNextQuestionProductLevel(lastKey)
+    } else if (lastKey === 'Q3') {
+      nextQId = 'Q4' + '-' + 1
+    } else if (lastKey !== undefined) {
+      if (lastKey.startsWith('Q4-')) {
+        nextQId = this.iterateComponentQuestions('Q4', 'Q5.1')
+      } else if (lastKey.startsWith('Q5.1-')) {
+        nextQId = this.iterateComponentQuestions('Q5.1', 'Q5.2')
+      } else if (lastKey.startsWith('Q5.2-')) {
+        nextQId = this.iterateComponentQuestions('Q5.2', 'END')
+      }
+    } else if (lastKey === 'Q7') { /** Questioning on products of PFC 7 is not implemented and tested yet */
+      nextQId = 'Q7.1'
+    } else if (lastKey === 'Q7.1') {
+      nextQId = 'END'
+    } else {
+      throw new Error('No next questionId point or END found, please contact the maintainers, lastKey: ' + lastKey + '')
+    }
     return nextQId
   }
 
@@ -165,7 +183,7 @@ class Generator {
     const question = new Question('en', this.identifyNextQuestion().split('-')[0])
     if (question.question.type === 'text') {
       if (typeof answer !== 'string') {
-        throw new Error('Answer is not of type "string" which is expected for question of type "text", the question is: ' + question.question.id + '.')
+        throw new Error('Answer is not of type "string" which is expected for question of type "text", the question is: ')
       }
     } else if (question.question.type === 'multitext') {
       if (!Array.isArray(answer)) {
