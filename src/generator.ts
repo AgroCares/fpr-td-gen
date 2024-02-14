@@ -68,6 +68,8 @@ class Generator {
 
   /**
  * Helper function for {@link identifyNextQuestion}
+ * @param questionToIterate - the component related question to iterate over for each component mentioned in question 3
+ * @param questionWhenDone - the next question when the questionToIterate over has been answered for all components
  * @returns The id of the next question {@link idType}
  * @internal
  */
@@ -105,6 +107,15 @@ class Generator {
     return nextQId
   }
 
+  /**
+   * Check completeness of general product questions
+   *
+   * The general product questions include its name in Q1, PFC designation in Q2 and either a list of component names (Q3) or component product names (Q7)
+   * If Q3 or Q7 has been answered, this question returns true.
+   * @returns boolean
+   * @internal
+   * @alpha
+   */
   generalQuestionsIncommplete (): boolean {
     let returnValue: boolean
     if (this.allAnswers.has('Q3') || this.allAnswers.has('Q7')) {
@@ -115,6 +126,13 @@ class Generator {
     return returnValue
   }
 
+  /**
+   * Identify which of the general product level questions must be answered next
+   * @param lastKey - the last key entered into the answer object {@link allAnswers}
+   * @returns the id of the next question to be answered {@link idType}
+   * @internal
+   * @alpha
+   */
   identifyNextQuestionProductLevel (lastKey: string | undefined): idType {
     let nextQId: idType = 'Q1'
     /** actual question ID identifying */
