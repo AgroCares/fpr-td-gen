@@ -51,6 +51,8 @@ class Generator {
   }
 
   /**
+ * Get questionId for component questions
+ *
  * Helper function for {@link identifyNextQuestion}
  * @param questionToIterate - the component related question to iterate over for each component mentioned in question 3
  * @param questionWhenDone - the next question when the questionToIterate over has been answered for all components
@@ -94,6 +96,8 @@ class Generator {
   /**
    * Check completeness of general product questions
    *
+   * A helper function to {@link identifyNextQuestion}
+   *
    * The general product questions include its name in Q1, PFC designation in Q2 and either a list of component names (Q3) or component product names (Q7)
    * If Q3 or Q7 has been answered, this question returns true.
    * @returns boolean
@@ -112,6 +116,8 @@ class Generator {
 
   /**
    * Identify which of the general product level questions must be answered next
+   *
+   * Helper function for {@link identifyNextQuestion}
    * @param lastKey - the last key entered into the answer object {@link allAnswers}
    * @returns the id of the next question to be answered {@link idType}
    * @internal
