@@ -98,6 +98,7 @@ export interface questionSetType {
   placeholder: Record<localesType, string> | null
   help: Record<localesType, string>
   options: optionsSetType[] | null
+  cmcQuestion: boolean
 }
 
 /**

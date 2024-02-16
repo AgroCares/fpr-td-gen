@@ -21,7 +21,8 @@ const questionSets: questionSetsType =
         nl: 'Dit is de naam van het product.',
         en: 'This is the name of the product.'
       },
-      options: null
+      options: null,
+      cmcQuestion: false
     },
     {
       id: 'Q2',
@@ -190,7 +191,8 @@ const questionSets: questionSetsType =
             en: 'PFC 7 Fertilising product blend'
           }
         }
-      ]
+      ],
+      cmcQuestion: false
     },
     {
       id: 'Q3',
@@ -207,7 +209,8 @@ const questionSets: questionSetsType =
         nl: 'Geef voor ieder bestandsdeel in uw product een naam op waarmee u het bestandsdeel kunt herkennen zoals "urea" of "gehydrolyseerd plantaardig eiwit".',
         en: 'For each component in your product, enter a name with which you are able to destinguish the component in your fertilising product such as "urea" or "hydrolised plant protein".'
       },
-      options: null
+      options: null,
+      cmcQuestion: false
     },
     {
       id: 'Q4',
@@ -327,7 +330,8 @@ const questionSets: questionSetsType =
             en: 'CMC 15: Recovered high purity materials'
           }
         }
-      ]
+      ],
+      cmcQuestion: false
     },
     {
       id: 'Q5.1',
@@ -384,7 +388,8 @@ const questionSets: questionSetsType =
             en: 'Urease inhibitor'
           }
         }
-      ]
+      ],
+      cmcQuestion: true
     },
     {
       id: 'Q5.2',
@@ -398,7 +403,8 @@ const questionSets: questionSetsType =
         nl: '',
         en: ''
       },
-      options: null
+      options: null,
+      cmcQuestion: true
     },
     /*    {
       id: 'Q6',
@@ -444,7 +450,8 @@ const questionSets: questionSetsType =
         nl: 'Een EU-bemestingsproduct in PFC 7 bestaat doorgaans uit meerdere EU-bemestingsproducten van PFC 1 tot en met PFC 6. Geef hier de naam voor ieder EU-bemestingsproduct in uw PFC 7 bemestingsproductenblend. Indien uw blend 1 product bevat welke meerdere product functie categorie aanwijzingen heeft, vul dan voor iedere categorie een naam in.',
         en: 'An EU fertilising product in PFC 7 typically consists out of multiple EU fertiling products in categories PFC 1 to PFC 6. Give the name of each EU fertilising product composing your PFC 7 fertilising product blend. If your blend contains only one product which has multiple product function category designations, enter a name for each category.'
       },
-      options: null
+      options: null,
+      cmcQuestion: false
     },
     {
       id: 'Q7.1',
@@ -606,7 +613,8 @@ const questionSets: questionSetsType =
             en: 'PFC 6.B Non-microbial plant biostimulant'
           }
         }
-      ]
+      ],
+      cmcQuestion: false
     }
     /*    {
       id: 'Q7.2.',
