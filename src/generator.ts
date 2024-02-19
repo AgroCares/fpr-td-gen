@@ -123,34 +123,6 @@ class Generator {
   }
 
   /**
-   * Identify which of the general product level questions must be answered next
-   *
-   * Helper function for {@link identifyNextQuestion}
-   * @param lastKey - the last key entered into the answer object {@link allAnswers}
-   * @returns the id of the next question to be answered {@link idType}
-   * @internal
-   * @alpha
-   */
-  identifyNextQuestionProductLevel (lastKey: string | undefined): idType {
-    let nextQId: idType = 'Q1'
-    /** actual question ID identifying */
-    if (this.fprVersion === 'FPR 2019/1009') {
-      if (this.allAnswers.size === 0) {
-        nextQId = 'Q1'
-      } else if (lastKey === 'Q1') {
-        nextQId = 'Q2'
-      } else if (lastKey === 'Q2') {
-        if (this.allAnswers.get('Q2') !== 'PFC 7') {
-          nextQId = 'Q3'
-        } else {
-          nextQId = 'Q7'
-        }
-      }
-    }
-    return nextQId
-  }
-
-  /**
  * Identify the next question
  * @returns The id of the next question {@link idType}
  * @internal
@@ -161,8 +133,8 @@ class Generator {
     const lastKey = [...this.allAnswers.keys()].pop()
 
     /** actual question ID identifying */
-    if (this.generalQuestionsIncommplete()) {
-      nextQId = this.identifyNextQuestionProductLevel(lastKey)
+    if (!this.generalProductQuestions.every(questionId => this.allAnswers.has(questionId))) { /* Check whether all questions in generalProductQuestions have an answer in allAnswers */
+      nextQId = this.generalProductQuestions.filter(questionId => !this.allAnswers.has(questionId))[0] /* if not, ask the first question in generalProductQuestions which is not in allAnswers */
     } else if (lastKey === 'Q3') {
       nextQId = 'Q4' + '-' + 1
     } else if (lastKey !== undefined) {
