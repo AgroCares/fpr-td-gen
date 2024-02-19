@@ -331,7 +331,7 @@ const questionSets: questionSetsType =
           }
         }
       ],
-      cmcQuestion: false
+      cmcQuestion: true
     },
     {
       id: 'Q5.1',

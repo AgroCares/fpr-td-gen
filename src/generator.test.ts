@@ -4,13 +4,13 @@ import Generator from './generator.ts'
 
 describe('Generator', () => {
   it('should create a generator with the given locale', () => {
-    const generator = new Generator('en')
+    const generator = new Generator('en', 'FPR 2019/1009')
 
     expect(generator.locale).toBe('en')
   })
 
   it('should ask the first question', () => {
-    const generator = new Generator('en')
+    const generator = new Generator('en', 'FPR 2019/1009')
 
     const nextQuestion = generator.getNextQuestion()
 
@@ -24,7 +24,7 @@ describe('Generator', () => {
     })
   })
   it('should return property ask of the first question', () => {
-    const generator = new Generator('en')
+    const generator = new Generator('en', 'FPR 2019/1009')
 
     const nextQuestion = generator.getNextQuestion()
 
@@ -34,12 +34,12 @@ describe('Generator', () => {
   })
 
   it('should identify the next question', () => {
-    const generator = new Generator('en')
+    const generator = new Generator('en', 'FPR 2019/1009')
 
     expect(generator.identifyNextQuestion()).toEqual('Q1')
   })
   it('should store and answer to a question in allAnswers', () => {
-    const generator = new Generator('en')
+    const generator = new Generator('en', 'FPR 2019/1009')
 
     generator.getNextQuestion()
 
@@ -49,7 +49,7 @@ describe('Generator', () => {
   })
 
   it('should get the technical documentation', () => {
-    const generator = new Generator('en')
+    const generator = new Generator('en', 'FPR 2019/1009')
 
     const technicalDocumentation = generator.getTechnicalDocumentation()
 
@@ -60,7 +60,7 @@ describe('Generator', () => {
   })
 
   it('should save answers of different types without throwing errors', () => {
-    const generator = new Generator('en')
+    const generator = new Generator('en', 'FPR 2019/1009')
 
     generator.getNextQuestion()
     /* questionId == 'Q1', so answer.type must be text of value string */

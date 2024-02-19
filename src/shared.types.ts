@@ -15,6 +15,11 @@ export type askType = string
  */
 export type fprVersionType = 'FPR 2019/1009'
 
+export interface fprType {
+  fprVersion: fprVersionType
+  generalProductQuestions: idType[]
+}
+
 /**
  * The id of the question
  *

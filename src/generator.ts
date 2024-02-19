@@ -1,5 +1,7 @@
 import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, answerSet, answerType } from './shared.types'
 
+import fprVersionSets from './fprVersionSets'
+
 import { Question } from './question'
 
 class Generator {
@@ -11,18 +13,20 @@ class Generator {
   * @alpha
   */
   locale: localesType
-  fprVersion: fprVersionType = 'FPR 2019/1009'
+  fprVersion: fprVersionType
   pfcDesignation: pfcType = undefined
   allAnswers: answerSet
   nrOfComponents: number
   lastKeyComponentNr: number
-  constructor (locale: localesType) {
+  generalProductQuestions: idType[]
+  constructor (locale: localesType, fprVersion: fprVersionType) {
     this.locale = locale
-    this.fprVersion = 'FPR 2019/1009'
+    this.fprVersion = fprVersion
     this.pfcDesignation = undefined
     this.allAnswers = new Map<idType, answerType>()
     this.nrOfComponents = -999
     this.lastKeyComponentNr = -999
+    this.generalProductQuestions = fprVersionSets.filter(x => x.fprVersion === fprVersion)[0].generalProductQuestions
   }
 
   /** Returns the next question
