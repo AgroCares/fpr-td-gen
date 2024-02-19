@@ -19,6 +19,8 @@ class Generator {
   nrOfComponents: number
   lastKeyComponentNr: number
   generalProductQuestions: idType[]
+  cmcQuestions: idType[]
+  blendQuestions: idType[]
   constructor (locale: localesType, fprVersion: fprVersionType) {
     this.locale = locale
     this.fprVersion = fprVersion
@@ -27,6 +29,8 @@ class Generator {
     this.nrOfComponents = -999
     this.lastKeyComponentNr = -999
     this.generalProductQuestions = fprVersionSets.filter(x => x.fprVersion === fprVersion)[0].generalProductQuestions
+    this.cmcQuestions = fprVersionSets.filter(x => x.fprVersion === fprVersion)[0].cmcQuestions
+    this.blendQuestions = fprVersionSets.filter(x => x.fprVersion === fprVersion)[0].blendQuestions
   }
 
   /** Returns the next question
