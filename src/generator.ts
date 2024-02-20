@@ -20,6 +20,7 @@ class Generator {
   lastKeyComponentNr: number
   generalProductQuestions: idType[]
   cmcQuestions: idType[]
+  cmcAnswers: idType[] /** an ordered array where for each component, the question ids that are expected as answers are included */
   blendQuestions: idType[]
   constructor (locale: localesType, fprVersion: fprVersionType) {
     this.locale = locale
@@ -30,6 +31,7 @@ class Generator {
     this.lastKeyComponentNr = -999
     this.generalProductQuestions = fprVersionSets.filter(x => x.fprVersion === fprVersion)[0].generalProductQuestions
     this.cmcQuestions = fprVersionSets.filter(x => x.fprVersion === fprVersion)[0].cmcQuestions
+    this.cmcAnswers = []
     this.blendQuestions = fprVersionSets.filter(x => x.fprVersion === fprVersion)[0].blendQuestions
   }
 
@@ -61,44 +63,20 @@ class Generator {
   /**
  * Get questionId for component questions
  *
- * Helper function for {@link identifyNextQuestion}
- * @param questionToIterate - the component related question to iterate over for each component mentioned in question 3
- * @param questionWhenDone - the next question when the questionToIterate over has been answered for all components
+ * Helper function for {@link identifyNextQuestion} finds the first component where not all {@link cmcQuestions} have been answered.
  * @returns The id of the next question {@link idType}
  * @internal
  */
-  iterateComponentQuestions (questionToIterate: idType, questionWhenDone: idType): string {
-    /** setup */
-    let nextQId: string
-    const lastKey = [...this.allAnswers.keys()].pop()
+  iterateComponentQuestions (): string {
+    /** find first this.cmcAnswers not in this.allAnswers */
+    const nextCmcQuestionId = this.cmcAnswers.find(cmcAnswer => !this.allAnswers.has(cmcAnswer))
 
-    /** check how many components there are and the component nr of the last answered question */
-    if (this.allAnswers.has('Q3')) {
-      const listOfComponents = this.allAnswers.get('Q3')
-      if (Array.isArray(listOfComponents)) {
-        this.nrOfComponents = listOfComponents.length
-        if (lastKey === undefined) {
-          throw new Error('No last key found, please contact the maintainers while Q3 has been answered already.')
-        } else {
-          this.lastKeyComponentNr = parseInt(lastKey.split('-')[1])
-        }
-      }
-    }
-
-    /** decide whether the same question should be asked for the next component, or that this question has been answered for all components and that we should move to the next question, aka questionWhenDone */
-    if (this.lastKeyComponentNr === undefined || this.nrOfComponents === undefined) {
-      throw new Error('No component number is defined while question three has been answered, please contact the maintainers.')
-    }
-    if (this.lastKeyComponentNr === undefined || this.nrOfComponents === undefined) {
-      throw new Error('No component number is defined while question three has been answered, please contact the maintainers.')
-    } else if (this.lastKeyComponentNr < this.nrOfComponents) {
-      nextQId = questionToIterate + '-' + (this.lastKeyComponentNr + 1)
-    } else if (questionWhenDone === 'END') {
-      nextQId = 'END'
+    /** return the questionId consisting of cmcQuestionNextQ '-' componentNrNextQ */
+    if (nextCmcQuestionId === undefined) {
+      return 'cmcDONE'
     } else {
-      nextQId = questionWhenDone + '-' + 1
+      return nextCmcQuestionId
     }
-    return nextQId
   }
 
   /**
@@ -130,27 +108,29 @@ class Generator {
   identifyNextQuestion (): idType {
     /** setup variables and constants to be used in the function */
     let nextQId: idType = 'Q1'
-    const lastKey = [...this.allAnswers.keys()].pop()
 
     /** actual question ID identifying */
     if (!this.generalProductQuestions.every(questionId => this.allAnswers.has(questionId))) { /* Check whether all questions in generalProductQuestions have an answer in allAnswers */
       nextQId = this.generalProductQuestions.filter(questionId => !this.allAnswers.has(questionId))[0] /* if not, ask the first question in generalProductQuestions which is not in allAnswers */
-    } else if (lastKey === 'Q3') {
-      nextQId = 'Q4' + '-' + 1
-    } else if (lastKey !== undefined) {
-      if (lastKey.startsWith('Q4-')) {
-        nextQId = this.iterateComponentQuestions('Q4', 'Q5.1')
-      } else if (lastKey.startsWith('Q5.1-')) {
-        nextQId = this.iterateComponentQuestions('Q5.1', 'Q5.2')
-      } else if (lastKey.startsWith('Q5.2-')) {
-        nextQId = this.iterateComponentQuestions('Q5.2', 'END')
+    } else if (this.allAnswers.has('Q3')) {
+      // If cmcAnswers has not been filled in yet, identify to which quesions we need answers
+      if (this.cmcAnswers.length === 0) {
+        const listOfComponents = this.allAnswers.get('Q3')
+        if (Array.isArray(listOfComponents)) {
+          this.nrOfComponents = listOfComponents.length
+          const cmcNumbers = Array.from({ length: this.nrOfComponents }, (_, i) => i + 1)
+          cmcNumbers.forEach(cmcNumber => {
+            this.cmcQuestions.forEach(cmcQuestion => {
+              this.cmcAnswers.push(`${cmcQuestion}-${cmcNumber}`)
+            })
+          })
+        }
       }
-    } else if (lastKey === 'Q7') { /** Questioning on products of PFC 7 is not implemented and tested yet */
-      nextQId = 'Q7.1'
-    } else if (lastKey === 'Q7.1') {
-      nextQId = 'END'
-    } else {
-      throw new Error('No next questionId point or END found, please contact the maintainers, lastKey: ' + lastKey + '')
+      // find next CMC questionId
+      nextQId = this.iterateComponentQuestions()
+      if (nextQId === 'cmcDONE') {
+        nextQId = 'END'
+      }
     }
     return nextQId
   }

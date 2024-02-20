@@ -59,6 +59,28 @@ describe('Generator', () => {
     })
   })
 
+  it('should store the answers of a simple product with one component', () => {
+    const generator = new Generator('en', 'FPR 2019/1009')
+
+    generator.getNextQuestion()
+    generator.saveAnswer('My productname')
+    generator.getNextQuestion()
+    generator.saveAnswer('PFC 2')
+    generator.getNextQuestion()
+    generator.saveAnswer(['calcium carbonate'])
+
+    const nextQuestion = generator.identifyNextQuestion()
+    expect(nextQuestion).toEqual('Q4-1')
+
+    generator.saveAnswer('CMC 1')
+    generator.getNextQuestion()
+    generator.saveAnswer('Not applicable')
+    generator.getNextQuestion()
+    generator.saveAnswer(false)
+
+    expect(generator.identifyNextQuestion()).toEqual('END')
+  })
+
   it('should save answers of different types without throwing errors', () => {
     const generator = new Generator('en', 'FPR 2019/1009')
 
@@ -74,30 +96,37 @@ describe('Generator', () => {
     /* questionId == 'Q3', so answer.type must be a multitext e.g. an array of strings */
     expect(generator.saveAnswer(['Urea', 'biochar', 'another component material name'])).toBe(true)
 
+    /** Urea */
     generator.getNextQuestion()
-    /* questionId == 'Q4', so answer.type must be a string, Q4 is asked once for every value in the answer to Q3 */
+    /* questionId == 'Q4', so answer.type must be a string, */
     expect(generator.saveAnswer('CMC 1')).toBe(true)
+    generator.getNextQuestion()
+    /* questionId == 'Q5.1', so answer.type must be a boolean */
+    expect(generator.saveAnswer('Not applicable')).toBe(true)
+    generator.getNextQuestion()
+    /* questionId == 'Q5.2', so answer.type must be a boolean */
+    expect(generator.saveAnswer(false)).toBe(true)
+
+    /** biochar */
+    expect(generator.identifyNextQuestion()).toEqual('Q4-2')
     generator.getNextQuestion()
     /* questionId == 'Q4', so answer.type must be a string */
     expect(generator.saveAnswer('CMC 14')).toBe(true)
     generator.getNextQuestion()
+    /* questionId == 'Q5.1', so answer.type must be a boolean */
+    expect(generator.saveAnswer('Not applicable')).toBe(true)
+    generator.getNextQuestion()
+    /* questionId == 'Q5.2', so answer.type must be a boolean */
+    expect(generator.saveAnswer(false)).toBe(true)
+
+    /** another component material */
+    generator.getNextQuestion()
     /* questionId == 'Q4', so answer.type must be a string */
     expect(generator.saveAnswer('CMC 2')).toBe(true)
-
-    generator.getNextQuestion()
-    /* questionId == 'Q5.1', so answer.type must be a boolean and is asked once for every item in Q3 */
-    expect(generator.saveAnswer('Not applicable')).toBe(true)
     generator.getNextQuestion()
     expect(generator.saveAnswer('Not applicable')).toBe(true)
     generator.getNextQuestion()
-    expect(generator.saveAnswer('Not applicable')).toBe(true)
-
-    generator.getNextQuestion()
-    /* questionId == 'Q5.2', so answer.type must be a boolean and is asked once for every item in Q3 */
-    expect(generator.saveAnswer(false)).toBe(true)
-    generator.getNextQuestion()
-    expect(generator.saveAnswer(false)).toBe(true)
-    generator.getNextQuestion()
+    /* questionId == 'Q5.2', so answer.type must be a boolean */
     expect(generator.saveAnswer(false)).toBe(true)
 
     expect(generator.identifyNextQuestion()).toEqual('END')
