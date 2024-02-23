@@ -41,9 +41,6 @@ class Generator {
    */
   getNextQuestion (): questionType {
     const nextQuestionId = this.identifyNextQuestion()
-    if (nextQuestionId === undefined) {
-      throw new Error('unable to identify next question, please contact the maintainers')
-    }
     const nextQuestion = new Question(this.locale, nextQuestionId.split('-')[0]).getQuestion()
     return nextQuestion
   }
