@@ -114,7 +114,11 @@ class Generator {
 
     /** actual question ID identifying */
     if (!this.generalProductQuestions.every(questionId => this.allAnswers.has(questionId))) { /* Check whether all questions in generalProductQuestions have an answer in allAnswers */
-      nextQId = this.generalProductQuestions.filter(questionId => !this.allAnswers.has(questionId))[0] /* if not, ask the first question in generalProductQuestions which is not in allAnswers */
+      const generalProductQuestion = this.generalProductQuestions.find(questionId => !this.allAnswers.has(questionId))
+      if (generalProductQuestion === undefined) {
+        throw new Error('unable to identify generalProductQuestion, please contact the maintainers')
+      }
+      nextQId = generalProductQuestion /* if not, ask the first question in generalProductQuestions which is not in allAnswers */
     } else if (this.allAnswers.has('Q3')) {
       // If cmcAnswers has not been filled in yet, identify to which quesions we need answers
       if (this.cmcAnswers.length === 0) {
