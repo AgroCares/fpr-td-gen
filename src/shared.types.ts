@@ -16,6 +16,19 @@ export type askType = string
 export type fprVersionType = 'FPR 2019/1009'
 
 /**
+ * Type for categorising questions per FPR version
+ * @remarks generalProductQuestions must be asked for all products,
+ * cmcQuestions are iterable questions which may be asked for each component,
+ * blendQuestions are questions specific for fertiling product blends (PFC 7) which do not need to give information on its component materials but on the fertiling products contained within the blend.
+ */
+export interface fprType {
+  fprVersion: fprVersionType
+  generalProductQuestions: idType[]
+  cmcQuestions: idType[]
+  blendQuestions: idType[]
+}
+
+/**
  * The id of the question
  *
  * @typeParam idType - The id of the question
@@ -98,6 +111,7 @@ export interface questionSetType {
   placeholder: Record<localesType, string> | null
   help: Record<localesType, string>
   options: optionsSetType[] | null
+  cmcQuestion: boolean
 }
 
 /**

@@ -1,4 +1,6 @@
-import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, cmcType, answerSet, answerType } from './shared.types'
+import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, answerSet, answerType, fprType } from './shared.types'
+
+import fprVersionSets from './fprVersionSets'
 
 import { Question } from './question'
 
@@ -11,16 +13,32 @@ class Generator {
   * @alpha
   */
   locale: localesType
-  fprVersion: fprVersionType = 'FPR 2019/1009'
+  fprVersion: fprVersionType
   pfcDesignation: pfcType = undefined
-  cmcDesignation: cmcType = undefined
   allAnswers: answerSet
-  constructor (locale: localesType) {
+  nrOfComponents: number
+  lastKeyComponentNr: number
+  fprVersionSet: fprType | undefined
+  generalProductQuestions: idType[]
+  cmcQuestions: idType[]
+  cmcAnswers: idType[] /** an ordered array where for each component, the question ids that are expected as answers are included */
+  blendQuestions: idType[]
+  constructor (locale: localesType, fprVersion: fprVersionType) {
     this.locale = locale
-    this.fprVersion = 'FPR 2019/1009'
+    this.fprVersion = fprVersion
     this.pfcDesignation = undefined
-    this.cmcDesignation = undefined
     this.allAnswers = new Map<idType, answerType>()
+    this.nrOfComponents = -999
+    this.lastKeyComponentNr = -999
+    this.fprVersionSet = fprVersionSets.find(x => x.fprVersion === fprVersion)
+    this.cmcAnswers = []
+
+    if (this.fprVersionSet === undefined) {
+      throw new Error('unable to identify fprVersionSet, please contact the maintainers')
+    }
+    this.generalProductQuestions = this.fprVersionSet.generalProductQuestions
+    this.cmcQuestions = this.fprVersionSet.cmcQuestions
+    this.blendQuestions = this.fprVersionSet.blendQuestions
   }
 
   /** Returns the next question
@@ -29,7 +47,7 @@ class Generator {
    */
   getNextQuestion (): questionType {
     const nextQuestionId = this.identifyNextQuestion()
-    const nextQuestion = new Question(this.locale, nextQuestionId).getQuestion()
+    const nextQuestion = new Question(this.locale, nextQuestionId.split('-')[0]).getQuestion()
     return nextQuestion
   }
 
@@ -46,25 +64,84 @@ class Generator {
   }
 
   /**
-   * Identify the next question
-   * @returns The id of the next question {@link idType}
+ * Get questionId for component questions
+ *
+ * Helper function for {@link identifyNextQuestion} finds the first component where not all {@link cmcQuestions} have been answered.
+ * @returns The id of the next question {@link idType}
+ * @internal
+ */
+  iterateComponentQuestions (): string {
+    /** find first this.cmcAnswers not in this.allAnswers */
+    const nextCmcQuestionId = this.cmcAnswers.find(cmcAnswer => !this.allAnswers.has(cmcAnswer))
+
+    /** return the questionId consisting of cmcQuestionNextQ '-' componentNrNextQ */
+    if (nextCmcQuestionId === undefined) {
+      return 'cmcDONE'
+    } else {
+      return nextCmcQuestionId
+    }
+  }
+
+  /**
+   * Check completeness of general product questions
+   *
+   * A helper function to {@link identifyNextQuestion}
+   *
+   * The general product questions include its name in Q1, PFC designation in Q2 and either a list of component names (Q3) or component product names (Q7)
+   * If Q3 or Q7 has been answered, this question returns true.
+   * @returns boolean
    * @internal
+   * @alpha
    */
+  generalQuestionsIncommplete (): boolean {
+    let returnValue: boolean
+    if (this.allAnswers.has('Q3') || this.allAnswers.has('Q7')) {
+      returnValue = false
+    } else {
+      returnValue = true
+    }
+    return returnValue
+  }
+
+  /**
+ * Identify the next question
+ * @returns The id of the next question {@link idType}
+ * @internal
+ */
   identifyNextQuestion (): idType {
+    /** setup variables and constants to be used in the function */
     let nextQId: idType
-    const lastKey = [...this.allAnswers.keys()].pop()
-    if (this.allAnswers.size === 0) {
-      nextQId = 'Q1'
-    } else if (lastKey === 'Q1') {
-      nextQId = 'Q2'
-    } else if (lastKey === 'Q2') {
-      nextQId = 'Q3'
-    } else if (lastKey === 'Q3') {
-      nextQId = 'Q5.2'
+
+    /** actual question ID identifying */
+    if (!this.generalProductQuestions.every(questionId => this.allAnswers.has(questionId))) { /* Check whether all questions in generalProductQuestions have an answer in allAnswers */
+      const generalProductQuestion = this.generalProductQuestions.find(questionId => !this.allAnswers.has(questionId))
+      if (generalProductQuestion === undefined) {
+        throw new Error('unable to identify generalProductQuestion, please contact the maintainers')
+      }
+      nextQId = generalProductQuestion /* if not, ask the first question in generalProductQuestions which is not in allAnswers */
+    } else if (this.allAnswers.has('Q3')) {
+      // If cmcAnswers has not been filled in yet, identify to which quesions we need answers
+      if (this.cmcAnswers.length === 0) {
+        const listOfComponents = this.allAnswers.get('Q3')
+        if (Array.isArray(listOfComponents)) {
+          this.nrOfComponents = listOfComponents.length
+          const cmcNumbers = Array.from({ length: this.nrOfComponents }, (_, i) => i + 1)
+          cmcNumbers.forEach(cmcNumber => {
+            this.cmcQuestions.forEach(cmcQuestion => {
+              this.cmcAnswers.push(`${cmcQuestion}-${cmcNumber}`)
+            })
+          })
+        }
+      }
+      // find next CMC questionId
+      nextQId = this.iterateComponentQuestions()
+      if (nextQId === 'cmcDONE') {
+        nextQId = 'END'
+      }
     } else {
       nextQId = 'Q1'
     }
-    return nextQId /* Mockup implementation, actual implementation will follow in later PR */
+    return nextQId
   }
 
   /**
@@ -80,10 +157,10 @@ class Generator {
     /**
      * validate the answer
      */
-    const question = new Question('en', this.identifyNextQuestion())
+    const question = new Question('en', this.identifyNextQuestion().split('-')[0])
     if (question.question.type === 'text') {
       if (typeof answer !== 'string') {
-        throw new Error('Answer is not of type "string" which is expected for question of type "text", the question is: ' + question.question.id + '.')
+        throw new Error('Answer is not of type "string" which is expected for question of type "text", the question is: ')
       }
     } else if (question.question.type === 'multitext') {
       if (!Array.isArray(answer)) {
@@ -104,9 +181,9 @@ class Generator {
       }
       const options = question.question.options.map(x => x.value) /** retrieve the valid values */
       if (typeof answer !== 'string') {
-        throw new Error('Invalid answer type, expected "string" but got "' + typeof answer + '"')
+        throw new Error('Invalid answer type for question ' + question.question.id + ', expected "string" but got "' + typeof answer + '"')
       } else if (!options.includes(answer)) {
-        throw new Error('Invalid answer, expected one of "' + options.join(', ') + '" but got "' + answer + '"')
+        throw new Error('Invalid answer, expected one of "' + options.join(', ') + '" but got "' + answer + '" for question ' + question.question.id + '')
       }
     }
     this.allAnswers.set(this.identifyNextQuestion(), answer)
