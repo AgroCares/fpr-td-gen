@@ -110,7 +110,7 @@ class Generator {
  */
   identifyNextQuestion (): idType {
     /** setup variables and constants to be used in the function */
-    let nextQId: idType = 'Q1'
+    let nextQId: idType
 
     /** actual question ID identifying */
     if (!this.generalProductQuestions.every(questionId => this.allAnswers.has(questionId))) { /* Check whether all questions in generalProductQuestions have an answer in allAnswers */
@@ -138,6 +138,8 @@ class Generator {
       if (nextQId === 'cmcDONE') {
         nextQId = 'END'
       }
+    } else {
+      nextQId = 'Q1'
     }
     return nextQId
   }
