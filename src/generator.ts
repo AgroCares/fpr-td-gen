@@ -1,4 +1,4 @@
-import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, answerSet, answerType } from './shared.types'
+import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, answerSet, answerType, fprType } from './shared.types'
 
 import fprVersionSets from './fprVersionSets'
 
@@ -18,6 +18,7 @@ class Generator {
   allAnswers: answerSet
   nrOfComponents: number
   lastKeyComponentNr: number
+  fprVersionSet: fprType | undefined
   generalProductQuestions: idType[]
   cmcQuestions: idType[]
   cmcAnswers: idType[] /** an ordered array where for each component, the question ids that are expected as answers are included */
@@ -29,10 +30,15 @@ class Generator {
     this.allAnswers = new Map<idType, answerType>()
     this.nrOfComponents = -999
     this.lastKeyComponentNr = -999
-    this.generalProductQuestions = fprVersionSets.filter(x => x.fprVersion === fprVersion)[0].generalProductQuestions
-    this.cmcQuestions = fprVersionSets.filter(x => x.fprVersion === fprVersion)[0].cmcQuestions
+    this.fprVersionSet = fprVersionSets.find(x => x.fprVersion === fprVersion)
     this.cmcAnswers = []
-    this.blendQuestions = fprVersionSets.filter(x => x.fprVersion === fprVersion)[0].blendQuestions
+
+    if (this.fprVersionSet === undefined) {
+      throw new Error('unable to identify fprVersionSet, please contact the maintainers')
+    }
+    this.generalProductQuestions = this.fprVersionSet.generalProductQuestions
+    this.cmcQuestions = this.fprVersionSet.cmcQuestions
+    this.blendQuestions = this.fprVersionSet.blendQuestions
   }
 
   /** Returns the next question
