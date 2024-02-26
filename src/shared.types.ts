@@ -245,3 +245,13 @@ export type answerSet = Map<idType, answerType>
  */
 
 export type answerType = string | string[] | boolean
+
+/**
+ * Type of the technicaldocumenatation task list
+ */
+export type technicalDocumentationTaskListType = technicalDocumentationTask[]
+
+export interface technicalDocumentationTask {
+  applicableElement: 'product' | string
+  task: string
+}

@@ -1,6 +1,7 @@
-import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, answerSet, answerType, fprType } from './shared.types'
+import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, answerSet, answerType, fprType, technicalDocumentationTask, technicalDocumentationTaskListType, tasklistSetType } from './shared.types'
 
 import fprVersionSets from './fprVersionSets'
+import tasklistSets from './tasklist_sets'
 
 import { Question } from './question'
 
@@ -188,6 +189,28 @@ class Generator {
     }
     this.allAnswers.set(this.identifyNextQuestion(), answer)
     return true
+  }
+
+  /** Returns the things that need to be included in the technical documentation of a product
+   * @returns The list of things that need to be included in the technical documentation of a product
+   * @internal
+   * @alpha
+   */
+  getTechnicalDocumentationTaskList (): technicalDocumentationTaskListType {
+    const tasklist: technicalDocumentationTask[] = []
+    const taskId = 1
+    const tasklistSet = tasklistSets.find(x => x.taskId === taskId) as tasklistSetType
+
+    if (tasklistSet === undefined) {
+      throw new Error('tasklistSet not found')
+    } else {
+      tasklist.push({
+        applicableElement: 'product',
+        task: tasklistSet.task[this.locale]
+      })
+    }
+
+    return tasklist
   }
 }
 export default Generator
