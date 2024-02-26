@@ -115,12 +115,31 @@ export interface questionSetType {
 }
 
 /**
+ * The items that need to be contained in the technical documentation
+ *
+ * @typeParam questionSetType - The question set that contains the details of a question
+ * @internal
+ */
+export interface tasklistSetType {
+  id: idType
+  task: Record<localesType, string>
+}
+
+/**
  * A collection of various entries for questionsSet
  *
  * @typeParam questionSetsType - A collection of various entries for questionsSet {@link questionSetType}
  * @internal
  */
 export type questionSetsType = questionSetType[]
+
+/**
+ * A collection of various entries for tasklist
+ *
+ * @typeParam tasklistSetsType - A collection of various entries for questionsSet {@link questionSetType}
+ * @internal
+ */
+export type tasklistSetsType = tasklistSetType[]
 
 /**
  * The technical documentation of the FPR
