@@ -1,4 +1,4 @@
-import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, answerSet, answerType, fprType, technicalDocumentationTask, technicalDocumentationTaskListType, tasklistSetType } from './shared.types'
+import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, answerSet, answerType, fprType, technicalDocumentationTaskListType, tasklistSetType } from './shared.types'
 
 import fprVersionSets from './fprVersionSets'
 import tasklistSets from './tasklist_sets'
@@ -24,6 +24,7 @@ class Generator {
   cmcQuestions: idType[]
   cmcAnswers: idType[] /** an ordered array where for each component, the question ids that are expected as answers are included */
   blendQuestions: idType[]
+  tasklist: technicalDocumentationTaskListType
   constructor (locale: localesType, fprVersion: fprVersionType) {
     this.locale = locale
     this.fprVersion = fprVersion
@@ -40,6 +41,8 @@ class Generator {
     this.generalProductQuestions = this.fprVersionSet.generalProductQuestions
     this.cmcQuestions = this.fprVersionSet.cmcQuestions
     this.blendQuestions = this.fprVersionSet.blendQuestions
+
+    this.tasklist = []
   }
 
   /** Returns the next question
@@ -196,15 +199,14 @@ class Generator {
    * @internal
    * @alpha
    */
-  getTechnicalDocumentationTaskList (): technicalDocumentationTaskListType {
-    const tasklist: technicalDocumentationTask[] = []
+  getTechnicalDocumentationTaskList (): boolean {
     const taskId = 1
     const tasklistSet = tasklistSets.find(x => x.taskId === taskId) as tasklistSetType
 
     // add all general tasks to the tasklist
     tasklistSets.forEach(x => {
       if (x.id === '') {
-        tasklist.push({
+        this.tasklist.push({
           applicableElement: 'product',
           task: x.task[this.locale]
         })
@@ -215,13 +217,13 @@ class Generator {
     if (tasklistSet === undefined) {
       throw new Error('tasklistSet not found')
     } else {
-      tasklist.push({
+      this.tasklist.push({
         applicableElement: 'product',
         task: tasklistSet.task[this.locale]
       })
     }
 
-    return tasklist
+    return true
   }
 }
 export default Generator

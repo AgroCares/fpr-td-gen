@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
 import Generator from './generator.ts'
+import type { technicalDocumentationTask } from './shared.types.ts'
 
 describe('Generator', () => {
   it('should create a generator with the given locale', () => {
@@ -130,5 +131,20 @@ describe('Generator', () => {
     expect(generator.saveAnswer(false)).toBe(true)
 
     expect(generator.identifyNextQuestion()).toEqual('END')
+  })
+
+  it('should add non-question specific tasks to the tasklist', () => {
+    const generator = new Generator('en', 'FPR 2019/1009')
+
+    generator.getTechnicalDocumentationTaskList()
+
+    const testTask: technicalDocumentationTask = {
+      applicableElement: 'product',
+      task: 'Include any other results, calculations, or studies carried out on the product related to compliance with requirements'
+    }
+
+    expect(generator.tasklist.find(task => task.task === testTask.task)).toHaveProperty('task')
+    expect(generator.tasklist.find(task => task.task === testTask.task)).toHaveProperty('applicableElement')
+    // expect(generator.tasklist.filter(x => x.applicableElement === 'product')).toContain(testTask)
   })
 })
