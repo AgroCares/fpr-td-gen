@@ -201,6 +201,17 @@ class Generator {
     const taskId = 1
     const tasklistSet = tasklistSets.find(x => x.taskId === taskId) as tasklistSetType
 
+    // add all general tasks to the tasklist
+    tasklistSets.forEach(x => {
+      if (x.id === '') {
+        tasklist.push({
+          applicableElement: 'product',
+          task: x.task[this.locale]
+        })
+      }
+    })
+
+    // add the specific task to the tasklist
     if (tasklistSet === undefined) {
       throw new Error('tasklistSet not found')
     } else {
