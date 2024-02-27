@@ -200,8 +200,7 @@ class Generator {
    * @alpha
    */
   getTechnicalDocumentationTaskList (): boolean {
-    const taskId = 1
-    const tasklistSet = tasklistSets.find(x => x.taskId === taskId) as tasklistSetType
+    let tasklistSet: tasklistSetType
 
     // add all general tasks to the tasklist
     tasklistSets.forEach(x => {
@@ -213,15 +212,45 @@ class Generator {
       }
     })
 
-    // add the specific task to the tasklist
-    if (tasklistSet === undefined) {
-      throw new Error('tasklistSet not found')
-    } else {
-      this.tasklist.push({
-        applicableElement: 'product',
-        task: tasklistSet.task[this.locale]
-      })
-    }
+    // add non-general tasks to the tasklist
+    this.allAnswers.forEach((value, key) => {
+      const questionId = key.split('-')[0]
+      const cmcNr = key.split('-')[1]
+
+      // for loop over sets in tasklistSets where id is questionId
+      for (tasklistSet of tasklistSets) {
+        if (tasklistSet.id === questionId) {
+          // check whether tasklistSet has answer
+          switch (typeof tasklistSet.answer) {
+            case 'undefined':
+              this.tasklist.push({
+                applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                task: tasklistSet.task[this.locale]
+              })
+              break
+            case 'boolean':
+              if (value === tasklistSet.answer) {
+                this.tasklist.push({
+                  applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                  task: tasklistSet.task[this.locale]
+                })
+              }
+              break
+            default:
+              if (typeof value === 'string' && Array.isArray(tasklistSet.answer)) {
+                if (tasklistSet.answer.includes(value)) {
+                  this.tasklist.push({
+                    applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                    task: tasklistSet.task[this.locale]
+                  })
+                }
+              } else {
+                throw new Error('Answer type ' + typeof tasklistSet.answer + ' is not supported')
+              }
+          }
+        }
+      }
+    })
 
     return true
   }
