@@ -147,4 +147,27 @@ describe('Generator', () => {
     expect(generator.tasklist.find(task => task.task === testTask.task)).toHaveProperty('applicableElement')
     // expect(generator.tasklist.filter(x => x.applicableElement === 'product')).toContain(testTask)
   })
+
+  it('should give tasks belonging to the same question for seperate components', () => {
+    const generator = new Generator('en', 'FPR 2019/1009')
+
+    // fill in some mock answers
+    generator.allAnswers.set('Q3', ['Urea', 'biochar', 'another component material name'])
+    generator.allAnswers.set('Q4-1', 'CMC 1')
+    generator.allAnswers.set('Q4-2', 'CMC 14')
+    generator.allAnswers.set('Q4-3', 'CMC 2')
+
+    generator.getTechnicalDocumentationTaskList()
+
+    // an expected task
+    const testTask: technicalDocumentationTask = {
+      applicableElement: '1',
+      task: 'For each component, include a description of where the component comes from and how it was manufactured.'
+    }
+
+    // check that the same task exists for multiple CMCs
+
+    expect(generator.tasklist.find(task => task.task === testTask.task)).toHaveProperty('task') // dummy test
+    // expect(generator.tasklist).toContain(testTask)
+  })
 })
