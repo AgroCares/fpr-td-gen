@@ -33,15 +33,6 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 7']
   },
   {
-    taskId: 3,
-    id: 'Q3',
-    task: {
-      nl: 'Voeg een lijst toe van alle bestanddelen van uw product',
-      en: 'Include a list of all components of your product'
-    },
-    answer: undefined
-  },
-  {
     taskId: 4,
     id: 'Q3',
     task: {
@@ -52,21 +43,12 @@ const tasklistSets: tasklistSetsType = [
   },
   {
     taskId: 5,
-    id: 'Q4',
+    id: 'Q2',
     task: {
-      nl: 'Geef een lijst op van alle bestandsdelen en geef hierbij voor ieder bestandsdeel aan tot welke bestandsdeelcategorie (CMC) het hoort.',
+      nl: 'Geef een lijst op van alle bestandsdelen en geef hierbij voor ieder bestanddeel aan tot welke bestanddeelcategorie (CMC) het hoort.',
       en: 'Include a list of components and to which component material category (CMC) they belong.'
     },
-    answer: undefined
-  },
-  {
-    taskId: 6,
-    id: 'Q4',
-    task: {
-      nl: 'Geef voor ieder bestandsdeel aan waar het vandaan komt en hoe het is geproduceerd',
-      en: 'For each component, include a description of where the component comes from and how it was manufactured.'
-    },
-    answer: ['CMC 1', 'CMC 2', 'CMC 3', 'CMC 4', 'CMC 5', 'CMC 6', 'CMC 7', 'CMC 8', 'CMC 9', 'CMC 10', 'CMC 11', 'CMC 12', 'CMC 13', 'CMC 14', 'CMC 15']
+    answer: ['PFC 1.A.I', 'PFC 1.A.II', 'PFC 1.B.I', 'PFC 1.B.II', 'PFC 1.C.I.a.i', 'PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii', 'PFC 1.C.I.a.ii.A', 'PFC 1.C.I.b.i', 'PFC 1.C.I.b.ii', 'PFC 1.C.II.a', 'PFC 1.C.II.b', 'PFC 2', 'PFC 3.A', 'PFC 3.B', 'PFC 4', 'PFC 5.A', 'PFC 5.B', 'PFC 5.C', 'PFC 6.A', 'PFC 6.B']
   },
   {
     taskId: 7,
@@ -112,24 +94,6 @@ const tasklistSets: tasklistSetsType = [
       en: 'Demonstrate that the material has an urease inhibitor effect as described in Annex II, point 4 c.'
     },
     answer: ['Urease inhibitor']
-  },
-  {
-    taskId: 12,
-    id: 'Q4',
-    task: {
-      nl: 'Bewijs van REACH registratie van het materiaal inclusief informatie uit bijlages VI, VII en VIII van REACH alsmede een veiligheidsblad zoals beschreven in Artikel 14 van REACH.',
-      en: 'Proof of REACH registration of the substance or mixture with information provided by Annexes VI, VII, and VIII to REACH and a chemical safety report as described in Article 14 of REACH.'
-    },
-    answer: ['CMC 1', 'CMC 6', 'CMC 11', 'CMC 12', 'CMC 13', 'CMC 14', 'CMC 15']
-  },
-  {
-    taskId: 13,
-    id: 'Q4',
-    task: {
-      nl: 'Voeg voor ieder additief een bewijs van REACH registratie toe met informatie uit bijlages VI, VII en VIII van REACH alsmede een veiligheidsblad zoals beschreven in Artikel 14 van REACH.',
-      en: 'For each additive, include proof of REACH registration of the additive with information provided by Annexes VI, VII, and VIII to REACH and a chemical safety report as described in Article 14 of REACH.'
-    },
-    answer: ['CMC 3', 'CMC 4']
   },
   {
     taskId: 14,
@@ -647,6 +611,70 @@ const tasklistSets: tasklistSetsType = [
       en: 'When the blend contains an inhibitor, the inhibitor is present in such a quantity that the blend meets the reduction thresholds set for inhibitors.'
     },
     answer: ['PFC 7']
+  },
+  // CMC related tasks
+  {
+    taskId: 12,
+    id: 'Q4',
+    task: {
+      nl: 'Bewijs van REACH registratie van het materiaal inclusief informatie uit bijlages VI, VII en VIII van REACH alsmede een veiligheidsblad zoals beschreven in Artikel 14 van REACH.',
+      en: 'Proof of REACH registration of the substance or mixture with information provided by Annexes VI, VII, and VIII to REACH and a chemical safety report as described in Article 14 of REACH.'
+    },
+    answer: ['CMC 1', 'CMC 6', 'CMC 11', 'CMC 12', 'CMC 13', 'CMC 14', 'CMC 15']
+  },
+  {
+    taskId: 13,
+    id: 'Q4',
+    task: {
+      nl: 'Geef een gedetailleerde beschrijving van de herkomst van alle inputmaterialen. Als een inputmateriaal eerder is gecomposteerd, bewijs dan dat het niet meer dan 6 mg/kg droge stof aan PAK16 bevat.',
+      en: 'Include a detailed description of the origin of all input materials. If an input materials has previously been composted, proof that it does not contain more than 6 mg/kg dry matter of PAH16.'
+    },
+    answer: ['CMC 3']
+  },
+  {
+    taskId: 13,
+    id: 'Q4',
+    task: {
+      nl: 'Toon aan dat het bestanddeel niet de limieten voor PAK16 en macroscopische verontreinigingen overschreidt.',
+      en: 'Demonstrate that the component does not exceed the limits for PAH16 and macroscopic contaminants.'
+    },
+    answer: ['CMC 3']
+  },
+  {
+    taskId: 13,
+    id: 'Q4',
+    task: {
+      nl: 'Toon aan dat het bestanddeel voldoet aan de stabiliteitscriteria met een rapport over de zuurstofopnamesnelheid of de zelfverhittingsfactor.',
+      en: 'Demonstrate that the component complies to the stability criteria with either a report on the oxygen uptake rate or the self heating factor.'
+    },
+    answer: ['CMC 3']
+  },
+  {
+    taskId: 13,
+    id: 'Q4',
+    task: {
+      nl: 'Geef een gedetailleerde beschrijving van de herkomst van alle inputmaterialen.',
+      en: 'Include a detailed description of the origin of all input materials.'
+    },
+    answer: ['CMC 4', 'CMC 5']
+  },
+  {
+    taskId: 13,
+    id: 'Q4',
+    task: {
+      nl: 'Voeg voor ieder additief een bewijs van REACH registratie toe met informatie uit bijlages VI, VII en VIII van REACH alsmede een veiligheidsblad zoals beschreven in Artikel 14 van REACH.',
+      en: 'For each additive, include proof of REACH registration of the additive with information provided by Annexes VI, VII, and VIII to REACH and a chemical safety report as described in Article 14 of REACH.'
+    },
+    answer: ['CMC 3', 'CMC 4']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Geef voor ieder bestanddeel aan waar het vandaan komt en hoe het is geproduceerd',
+      en: 'For each component, include a description of where the component comes from and how it was manufactured.'
+    },
+    answer: ['CMC 1', 'CMC 2', 'CMC 3', 'CMC 4', 'CMC 5', 'CMC 6', 'CMC 7', 'CMC 8', 'CMC 9', 'CMC 10', 'CMC 11', 'CMC 12', 'CMC 13', 'CMC 14', 'CMC 15']
   }
 ]
 
