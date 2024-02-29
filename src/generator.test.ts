@@ -140,7 +140,7 @@ describe('Generator', () => {
 
     const testTask: technicalDocumentationTask = {
       applicableElement: 'product',
-      task: 'Include any other results, calculations, or studies carried out on the product related to compliance with requirements'
+      task: 'Include any other results, calculations, or studies carried out on the product related to compliance with requirements.'
     }
 
     expect(generator.tasklist.find(task => task.task === testTask.task)).toHaveProperty('task')
