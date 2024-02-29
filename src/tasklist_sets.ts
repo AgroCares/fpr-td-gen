@@ -220,7 +220,7 @@ const tasklistSets: tasklistSetsType = [
       nl: 'Het product moet in vaste vorm zijn.',
       en: 'The product must be in solid form.'
     },
-    answer: ['PFC 1.A.I', 'PFC 1.B.I']
+    answer: ['PFC 1.A.I', 'PFC 1.B.I', 'PFC 1.C.I.a', 'PFC 1.C.I.a.i', 'PFC 1.C.I.a.ii', 'PFC 1.C.I.a.ii.A']
   },
   {
     taskId: 20,
@@ -238,7 +238,7 @@ const tasklistSets: tasklistSetsType = [
       nl: 'Het product moet in vloeibare vorm zijn.',
       en: 'The product must be in liquid form.'
     },
-    answer: ['PFC 1.A.II', 'PFC 1.B.II']
+    answer: ['PFC 1.A.II', 'PFC 1.B.II', 'PFC 1.C.b.i', 'PFC 1.C.b.ii', 'PFC 1.C.I.a.i.A', 'PFC 1.C.I.b.i', 'PFC 1.C.I.b.ii']
   },
   {
     taskId: 20,
@@ -284,6 +284,195 @@ const tasklistSets: tasklistSetsType = [
       en: 'Demonstrate that the organic carbon content is at least 3% by mass.'
     },
     answer: ['PFC 1.B.II']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Als het gehalte aan organische koolstof >1 massaprocent is. Voeg ofwel een beschrijving van de herkomst van de organische koolstof toe om aan te tonen dat het niet hoeft te voldoen aan de criteria voor microörganismen of een analyserapport om te bewijzen dat het voldoet aan de criteria voor microörganismen.',
+      en: 'If the organic carbon content >1% by mass. Include either a description of the origin of the organic carbon to show it does not need to pass the pathogen criteria or an analysis report to prove that is passes the criteria for pathogens'
+    },
+    answer: ['PFC 1.C.I.a.i', 'PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii', 'PFC 1.C.I.a.ii.A', 'PFC 1.C.I.b.i', 'PFC 1.C.I.b.ii', 'PFC 1.C.II.a', 'PFC 1.C.II.b']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Het product moet tenminste een minumum hoeveelheid N, P, K, Ca, Mg, Na of S bevatten of een combinatie van één van N, P, K en één van Ca, Mg, Na of S. Het totaal gehalte macronutriënt moet tenminste 18% zijn.',
+      en: 'Demonstrate that the product contains at least minimum amounts of N, P, K, Ca, Mg, Na, or S OR one of N, P, K and one of Ca, Mg, Na, or S. For a total of at least 18%'
+    },
+    answer: ['PFC 1.C.I.a.i']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product voldoet aan de minimale hoeveelheden van tenminste twee van N, P en K of tenminste twee van Ca, Mg, Na en S. Met een totaal van tenminste 18%. Het totaal Na gehalte (uitgedrukt in Na2O) moet minder zijn dan 40% op massa basis.',
+      en: 'Demonstrate that the product contains at least minimum amounts of at least two of N, P, K or at least two of Ca, Mg, Na, and S. For a total of at least 18%. Total Na content (Na2O) must be <= 40% by mass'
+    },
+    answer: ['PFC 1.C.I.a.ii']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product tenminste 28% ammonium nitraat (NH4NO3) bevat op massa basis.',
+      en: 'Demonstrate that the prodcut contains at least 28% of ammonium nitrate (NH4NO3) by mass'
+    },
+    answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Geen van de bestandsdelen in het product mag reageren met ammonium nitraat.',
+      en: 'No compounds in the product may react with ammonium nitrate.'
+    },
+    answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Geen van de bestandsdelen in het product mag reageren met ammonium nitraat.',
+      en: 'No compounds in the product may react with ammonium nitrate.'
+    },
+    answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Het product mag alleen verpakt op de markt gebracht worden. Het zegel of de opening van de verpakking moet zichtbaar en onherstelbaar worden beschadigd bij openen.',
+      en: 'The product may only be made available in packaged form. The seal or opening must be visibly and irreparably damaged upon opening.'
+    },
+    answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product voldoet aan de olie retentie criteria.',
+      en: 'Demonstrate that the product complies with the oil retention criteria.'
+    },
+    answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product voldoet aan de detonatieveiligheidscriteria.',
+      en: 'Demonstrate that the product complies with the detonation safety criteria.'
+    },
+    answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product voldoet aan de ontbrandbaar materiaal veiligheidscriteria',
+      en: 'Demonstrate that the product complies with the combustable material safety criteria.'
+    },
+    answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat een oplossing van 10 g van het het product in 100 ml water een pH heeft van tenminste 4,5.',
+      en: 'Demonstrate that a solution of 10 g of the product in 100 ml of water has a pH of at least 4.5.'
+    },
+    answer: ['PFC 1.C.I.a.i.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat niet meer dan 5% door een 1 mm zeef past en niet meer dan 3% door een 0,5 mm zeef op massa basis.',
+      en: 'Demonstrate that not more than 5% by mass passess through a 1 mm mesh sieve, and not more than 3% by mass passess through a 0,5 mm mesh sieve.'
+    },
+    answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het Cu gehalte niet hoger is dan 10 mg/kg en het Cl gehalte niet hoger is dan 200 mg/kg.',
+      en: 'Demonstrate that the Cu content does not exceed 10 mg/kg and that the Cl content does not exceed 200 mg/kg.'
+    },
+    answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Het product moet tenminste een minumum hoeveelheid N, P, K, Ca, Mg, Na of S bevatten of een combinatie van één van N, P, K en één van Ca, Mg, Na of S. Het totaal gehalte macronutriënt moet tenminste 7% zijn. Echter, het gehalte Na2O mag niet meer zijn dan 20% op massa basis.',
+      en: 'Demonstrate that the product contains at least minimum amounts of N, P, K, Ca, Mg, Na, or S OR one of N, P, K and one of Ca, Mg, Na, or S. For a total of at least 7%. However, the Na2O content should not exceed 20% on a mass basis.'
+    },
+    answer: ['PFC 1.C.I.b.i', 'PFC 1.C.I.b.ii']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product planten of paddestoelen van micronutriënten voorziet (B, Co, Cu, Fe, Mn, Mo, Zn).',
+      en: 'Demonstrate that the product provides plants or mushrooms with micronutrients (B, Co, Cu, Fe, Mn, Mo, Zn).'
+    },
+    answer: ['PFC 1.C.II.a', 'PFC 1.C.II.b']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Het product moet verpakt zijn.',
+      en: 'The product must be packaged.'
+    },
+    answer: ['PFC 1.C.II.a', 'PFC 1.C.II.b']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product niet de limieten voor As, Cd, Pb, Hg en Ni overschreid gegeven het gehalte micronutrient.',
+      en: 'Demonstrate that the product does not exceed the limits for As, Cd, Pb, Hg and Ni given the micronutrient content.'
+    },
+    answer: ['PFC 1.C.II.a', 'PFC 1.C.II.b']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Het product mag slechts één aangegeven micronutriënt bevatten.',
+      en: 'The product must only have one declared micronutrient.'
+    },
+    answer: ['PFC 1.C.II.a']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Het product voldoet aan de beschrijving van één van de types beschreven in de tabel in Annex I PFC 1(C)(II)(a)2.',
+      en: 'The product meets the description of one of the types described in the table in Annex I PFC 1(C)(II)(a)2.'
+    },
+    answer: ['PFC 1.C.II.a']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Het product bevat tenminste twee aangegeven micronutriënten.',
+      en: 'The product contains at least two declared micronutrients.'
+    },
+    answer: ['PFC 1.C.II.b']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Indien het product vloeibaar is, bevat het tenminste 2% micronutrient op massa basis of 5% indien het product in vaste vorm is.',
+      en: 'If the product is liquid, it contains at least 2% micronutrient on a mass basis or 5% if the product is in solid form.'
+    },
+    answer: ['PFC 1.C.II.b']
   }
 ]
 
