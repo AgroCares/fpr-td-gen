@@ -156,18 +156,35 @@ describe('Generator', () => {
     generator.allAnswers.set('Q4-1', 'CMC 1')
     generator.allAnswers.set('Q4-2', 'CMC 14')
     generator.allAnswers.set('Q4-3', 'CMC 2')
+    generator.allAnswers.set('Q5.1-2', 'Not applicable')
+    generator.allAnswers.set('Q5.1-3', 'Urease inhibitor')
 
     generator.getTechnicalDocumentationTaskList()
 
-    // an expected task
-    const testTask: technicalDocumentationTask = {
-      applicableElement: '1',
-      task: 'For each component, include a description of where the component comes from and how it was manufactured.'
-    }
-
     // check that the same task exists for multiple CMCs
-
-    expect(generator.tasklist.find(task => task.task === testTask.task)).toHaveProperty('task') // dummy test
-    expect(generator.tasklist).toContainEqual(testTask)
+    expect(generator.tasklist).toContainEqual(
+      {
+        applicableElement: '1',
+        task: 'For each component, include a description of where the component comes from and how it was manufactured.'
+      }
+    )
+    expect(generator.tasklist).toContainEqual(
+      {
+        applicableElement: '2',
+        task: 'For each component, include a description of where the component comes from and how it was manufactured.'
+      }
+    )
+    expect(generator.tasklist).not.toContainEqual(
+      {
+        applicableElement: '2',
+        task: 'Demonstrate that the material has an urease inhibitor effect as described in Annex II, point 4 c.'
+      }
+    )
+    expect(generator.tasklist).toContainEqual(
+      {
+        applicableElement: '3',
+        task: 'Demonstrate that the material has an urease inhibitor effect as described in Annex II, point 4 c.'
+      }
+    )
   })
 })
