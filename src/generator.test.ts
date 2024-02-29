@@ -145,7 +145,7 @@ describe('Generator', () => {
 
     expect(generator.tasklist.find(task => task.task === testTask.task)).toHaveProperty('task')
     expect(generator.tasklist.find(task => task.task === testTask.task)).toHaveProperty('applicableElement')
-    // expect(generator.tasklist.filter(x => x.applicableElement === 'product')).toContain(testTask)
+    expect(generator.tasklist.filter(x => x.applicableElement === 'product')).toContainEqual(testTask)
   })
 
   it('should give tasks belonging to the same question for seperate components', () => {
@@ -168,6 +168,6 @@ describe('Generator', () => {
     // check that the same task exists for multiple CMCs
 
     expect(generator.tasklist.find(task => task.task === testTask.task)).toHaveProperty('task') // dummy test
-    // expect(generator.tasklist).toContain(testTask)
+    expect(generator.tasklist).toContainEqual(testTask)
   })
 })
