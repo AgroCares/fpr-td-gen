@@ -466,13 +466,87 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.II.b']
   },
   {
-    taskId: 20,
+    taskId: 22,
     id: 'Q2',
     task: {
       nl: 'Indien het product vloeibaar is, bevat het tenminste 2% micronutrient op massa basis of 5% indien het product in vaste vorm is.',
       en: 'If the product is liquid, it contains at least 2% micronutrient on a mass basis or 5% if the product is in solid form.'
     },
     answer: ['PFC 1.C.II.b']
+  },
+  // Liming material related tasks
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product de grenswaarden voor Cd, Cr VI, Hg, Ni, Pb, As, Cu, Zn niet overschrijdt.',
+      en: 'Demonstrate that the product does not exceed limits for Cd, Cr VI, Hg, Ni, Pb, As, Cu, Zn.'
+    },
+    answer: ['PFC 2']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product een minimale neutraliserende waarde heeft van 15 (equivalent CaO) of 9 (equivalent HO-).',
+      en: 'Demonstrate that the product has a minimum neutralising value of 15 (equivalent CaO) or 9 (equivalent HO-)'
+    },
+    answer: ['PFC 2']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Voeg een testverslag toe van de zoutzuurtest of incubatietest om de reactiviteit aan te tonen.',
+      en: 'Include a report on the hydrochloric acid test or incubation test to demonstrate the reactivity.'
+    },
+    answer: ['PFC 2']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Met uitzondering van gebrande kalk, kalkkorrels en krijt, moet worden aangetoond dat ten minste 70% van de deeltjes kleiner is dan 1 mm.',
+      en: 'Except for burnt lime, granulated liming materials and chalk, demonstrate that at least 70% of the particles is smaller than 1 mm.'
+    },
+    answer: ['PFC 2']
+  },
+  // soil improvers
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat ten minste 95% van het materiaal van het product uitsluitend van biologische oorsprong is.',
+      en: 'Demonstrate that at least 95% of the product\'s material is solely of biological origin.'
+    },
+    answer: ['PFC 3.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product een droge stofgehalte van tenminste 20% heeft.',
+      en: 'Demonstrate that the product has a dry matter content of at least 20%.'
+    },
+    answer: ['PFC 3.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product een organisch koolstofgehalte heeft van minstens 7,5 massaprocent.',
+      en: 'Demonstrate that the product has an organic carbon content of at least 7,5 % by mass.'
+    },
+    answer: ['PFC 3.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product niet de limieten voor Cd, Cr VI, Hg, Ni, Pb, As, Cu, Zn en pathogenen overschreidt.',
+      en: 'Demonstrate that the product does not exceed the limits for Cd, Cr VI, Hg, Ni, Pb, As, Cu, Zn and pathogens.'
+    },
+    answer: ['PFC 3.A', 'PFC 3.B']
   }
 ]
 
