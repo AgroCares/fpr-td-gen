@@ -511,7 +511,7 @@ const tasklistSets: tasklistSetsType = [
     },
     answer: ['PFC 2']
   },
-  // soil improvers
+  // soil improvers and growing media
   {
     taskId: 20,
     id: 'Q2',
@@ -546,7 +546,107 @@ const tasklistSets: tasklistSetsType = [
       nl: 'Toon aan dat het product niet de limieten voor Cd, Cr VI, Hg, Ni, Pb, As, Cu, Zn en pathogenen overschreidt.',
       en: 'Demonstrate that the product does not exceed the limits for Cd, Cr VI, Hg, Ni, Pb, As, Cu, Zn and pathogens.'
     },
-    answer: ['PFC 3.A', 'PFC 3.B']
+    answer: ['PFC 3.A', 'PFC 3.B', 'PFC 4']
+  },
+  // Inhibitors
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product de omzetting van NH3 in NO2 remt.',
+      en: 'Demonstrate that the product inhibits the conversion of NH3 to NO2.'
+    },
+    answer: ['PFC 5.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product de snelheid van ammoniakale stikstofoxidatie vertraagt gedurende 14 dagen na toepassing.',
+      en: 'Demonstrate that the product slows the rate of ammoniacal nitrogen oxidation during 14 days after application.'
+    },
+    answer: ['PFC 5.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product de omzetting van nitraat in N2 vertraagt of blokkeert zonder de oxidatie van ammoniumstikstof te beïnvloeden.',
+      en: 'Demonstrate that the product slows or blocks the conversion of nitrate to N2 without affecting the oxidation of ammoniacal nitrogen.'
+    },
+    answer: ['PFC 5.B']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product de hydrolyse van ureum met 20% vermindert in vergelijking met een onbehandelde controle.',
+      en: 'Demonstrate that the product has a 20% reduction in hydrolysation of urea compared to an untreated control.'
+    },
+    answer: ['PFC 5.C']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan dat het product de grenswaarden voor Cd, Cr VI, Hg, Ni, Pb, As, Cu en Zn niet overschrijdt.',
+      en: 'Demonstrate that the product does not exceed limits for Cd, Cr VI, Hg, Ni, Pb, As, Cu, and Zn.'
+    },
+    answer: ['PFC 6.A', 'PFC 6.B']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Vermeld op het etiket op welke planten de geclaimde functies van toepassing zijn.',
+      en: 'Indicate on the label, the plants to which the claimed functions apply.'
+    },
+    answer: ['PFC 6.A', 'PFC 6.B']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Het product mag niet de grenswaarden voor pathogenen overschreiden.',
+      en: 'The product must not exceed limits for pathogens.'
+    },
+    answer: ['PFC 6.A', 'PFC 6.B']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Het product moet ten minste één van de toegestane micro-organismen bevatten en als het vloeibaar is, moet de pH optimaal zijn voor de aanwezige micro-organismen.',
+      en: 'The product must contain at least one of the allowed micro-organisms and when liquid, must be at optimal pH for the contained micro-organisms.'
+    },
+    answer: ['PFC 6.A']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Het product moet ten minste twee CE-gemarkeerde bemestingsproducten bevatten.',
+      en: 'The product must contain at least two CE marked fertilising products.'
+    },
+    answer: ['PFC 7']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Toon aan of verklaar dat het mengen van de bemestingsproducten mag de aard van het product niet veranderen. Opslag en gebruik van het mengsel heeft geen negatief effect op de gezondheid of veiligheid van mensen, dieren of planten of op het milieu.',
+      en: 'Demonstrate or declare that blending the fertilising products may not change the nature of the product. Storage and usage of the blend does not have a negative effect on human, animal, or plant health or safety or the environment.'
+    },
+    answer: ['PFC 7']
+  },
+  {
+    taskId: 20,
+    id: 'Q2',
+    task: {
+      nl: 'Als de blend een inhibitor bevat, is de inhibitor aanwezig in een zodanige hoeveelheid dat de blend voldoet aan de reductiedrempels die zijn vastgesteld voor inhibitors.',
+      en: 'When the blend contains an inhibitor, the inhibitor is present in such a quantity that the blend meets the reduction thresholds set for inhibitors.'
+    },
+    answer: ['PFC 7']
   }
 ]
 
