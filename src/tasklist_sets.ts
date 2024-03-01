@@ -96,7 +96,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['Urease inhibitor']
   },
   {
-    taskId: 14,
+    taskId: 12,
     id: '',
     task: {
       nl: 'voeg een lijst toe van alle standaarden en specificaties welke gebruikt zijn voor tests om aan te tonen dat het product voldoet aan de gestelde eisen voor de product functie categorie en de component materiaal categorie(ën).',
@@ -105,7 +105,7 @@ const tasklistSets: tasklistSetsType = [
     answer: undefined
   },
   {
-    taskId: 15,
+    taskId: 13,
     id: '',
     task: {
       nl: 'Voeg alle test verslagen van de metingen en onderzoeken welke zijn uitgevoerd om aan te tonen dat voldaan wordt aan de vereisten van de PFC en CMCs van het product.',
@@ -114,7 +114,7 @@ const tasklistSets: tasklistSetsType = [
     answer: undefined
   },
   {
-    taskId: 16,
+    taskId: 14,
     id: '',
     task: {
       nl: 'Voeg het een copy van het product label toe.',
@@ -123,7 +123,7 @@ const tasklistSets: tasklistSetsType = [
     answer: undefined
   },
   {
-    taskId: 17,
+    taskId: 15,
     id: '',
     task: {
       nl: 'Voeg alle overige resultaten, berekeningen of onderzoeken toe welke verricht zijn op het product en gerelateerd zijn aan de conformiteitsbeoordeling.',
@@ -132,7 +132,7 @@ const tasklistSets: tasklistSetsType = [
     answer: undefined
   },
   {
-    taskId: 17,
+    taskId: 16,
     id: '',
     task: {
       nl: 'Voeg alle overige resultaten, berekeningen of onderzoeken toe welke verricht zijn op het product en gerelateerd zijn aan de conformiteitsbeoordeling.',
@@ -142,7 +142,7 @@ const tasklistSets: tasklistSetsType = [
   },
   // requirements for products of PFC 1
   {
-    taskId: 19,
+    taskId: 17,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product nutriënten kan leveren aan planten of paddestoelen. Bijvoorbeeld door het gehalte van een nutriënt aan te tonen',
@@ -151,7 +151,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.A.I', 'PFC 1.A.II', 'PFC 1.B.I', 'PFC 1.B.II', 'PFC 1.C.I.a.i', 'PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii', 'PFC 1.C.I.a.ii.A', 'PFC 1.C.I.b.i', 'PFC 1.C.I.b.ii', 'PFC 1.C.II.a', 'PFC 1.C.II.b']
   },
   {
-    taskId: 20,
+    taskId: 18,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product organische koolstof van biologische oorsprong bevat',
@@ -160,7 +160,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.A.I', 'PFC 1.A.II']
   },
   {
-    taskId: 21,
+    taskId: 19,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product niet de limieten voor Cd, Cr VI, Hg, Ni, Pb, As, biuret, Cu, en Zn overschreidt.',
@@ -169,7 +169,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.A.I', 'PFC 1.A.II', 'PFC 1.B.I', 'PFC 1.B.II']
   },
   {
-    taskId: 21,
+    taskId: 20,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product niet de limieten voor microorganismen overschreidt',
@@ -178,7 +178,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.A.I', 'PFC 1.A.II', 'PFC 1.B.I', 'PFC 1.B.II']
   },
   {
-    taskId: 20,
+    taskId: 21,
     id: 'Q2',
     task: {
       nl: 'Het product moet in vaste vorm zijn.',
@@ -187,7 +187,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.A.I', 'PFC 1.B.I', 'PFC 1.C.I.a', 'PFC 1.C.I.a.i', 'PFC 1.C.I.a.ii', 'PFC 1.C.I.a.ii.A']
   },
   {
-    taskId: 20,
+    taskId: 22,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product een voldoende gehalte N, P en/of K heeft',
@@ -196,7 +196,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.A.I', 'PFC 1.A.II', 'PFC 1.B.I', 'PFC 1.B.II']
   },
   {
-    taskId: 20,
+    taskId: 23,
     id: 'Q2',
     task: {
       nl: 'Het product moet in vloeibare vorm zijn.',
@@ -205,7 +205,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.A.II', 'PFC 1.B.II', 'PFC 1.C.b.i', 'PFC 1.C.b.ii', 'PFC 1.C.I.a.i.A', 'PFC 1.C.I.b.i', 'PFC 1.C.I.b.ii']
   },
   {
-    taskId: 20,
+    taskId: 24,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het organische koolstof gehalte tenminste 15% is op massa basis.',
@@ -214,7 +214,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.A.I']
   },
   {
-    taskId: 20,
+    taskId: 25,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het organische koolstof gehalte tenminste 5% is op massa basis.',
@@ -223,7 +223,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.A.II', 'PFC 1.B.I']
   },
   {
-    taskId: 20,
+    taskId: 26,
     id: 'Q2',
     task: {
       nl: 'Uit de lijst van componenten moet blijken dat het product (een organo-minerale meststof PFC 1 B) een inorganische meststof bevat en een materiaal wat organische koolstof en nutriënten van biologische oorsprong bevat.',
@@ -232,7 +232,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.B.I', 'PFC 1.B.II']
   },
   {
-    taskId: 20,
+    taskId: 27,
     id: 'Q2',
     task: {
       nl: 'Het gehalte ammonium nitraat moet lager zijn dan 16%.',
@@ -241,7 +241,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.B.I', 'PFC 1.B.II']
   },
   {
-    taskId: 20,
+    taskId: 28,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het organische koolstof gehalte tenminste 3% is op massa basis.',
@@ -250,7 +250,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.B.II']
   },
   {
-    taskId: 20,
+    taskId: 29,
     id: 'Q2',
     task: {
       nl: 'Als het gehalte aan organische koolstof >1 massaprocent is. Voeg ofwel een beschrijving van de herkomst van de organische koolstof toe om aan te tonen dat het niet hoeft te voldoen aan de criteria voor microörganismen of een analyserapport om te bewijzen dat het voldoet aan de criteria voor microörganismen.',
@@ -259,7 +259,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.i', 'PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii', 'PFC 1.C.I.a.ii.A', 'PFC 1.C.I.b.i', 'PFC 1.C.I.b.ii', 'PFC 1.C.II.a', 'PFC 1.C.II.b']
   },
   {
-    taskId: 20,
+    taskId: 30,
     id: 'Q2',
     task: {
       nl: 'Het product moet tenminste een minumum hoeveelheid N, P, K, Ca, Mg, Na of S bevatten of een combinatie van één van N, P, K en één van Ca, Mg, Na of S. Het totaal gehalte macronutriënt moet tenminste 18% zijn.',
@@ -268,7 +268,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.i']
   },
   {
-    taskId: 20,
+    taskId: 31,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product voldoet aan de minimale hoeveelheden van tenminste twee van N, P en K of tenminste twee van Ca, Mg, Na en S. Met een totaal van tenminste 18%. Het totaal Na gehalte (uitgedrukt in Na2O) moet minder zijn dan 40% op massa basis.',
@@ -277,7 +277,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.ii']
   },
   {
-    taskId: 20,
+    taskId: 32,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product tenminste 28% ammonium nitraat (NH4NO3) bevat op massa basis.',
@@ -286,7 +286,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
   },
   {
-    taskId: 20,
+    taskId: 33,
     id: 'Q2',
     task: {
       nl: 'Geen van de bestandsdelen in het product mag reageren met ammonium nitraat.',
@@ -295,7 +295,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
   },
   {
-    taskId: 20,
+    taskId: 34,
     id: 'Q2',
     task: {
       nl: 'Geen van de bestandsdelen in het product mag reageren met ammonium nitraat.',
@@ -304,7 +304,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
   },
   {
-    taskId: 20,
+    taskId: 35,
     id: 'Q2',
     task: {
       nl: 'Het product mag alleen verpakt op de markt gebracht worden. Het zegel of de opening van de verpakking moet zichtbaar en onherstelbaar worden beschadigd bij openen.',
@@ -313,7 +313,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
   },
   {
-    taskId: 20,
+    taskId: 36,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product voldoet aan de olie retentie criteria.',
@@ -322,7 +322,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
   },
   {
-    taskId: 20,
+    taskId: 37,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product voldoet aan de detonatieveiligheidscriteria.',
@@ -331,7 +331,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
   },
   {
-    taskId: 20,
+    taskId: 38,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product voldoet aan de ontbrandbaar materiaal veiligheidscriteria',
@@ -340,7 +340,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
   },
   {
-    taskId: 20,
+    taskId: 39,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat een oplossing van 10 g van het het product in 100 ml water een pH heeft van tenminste 4,5.',
@@ -349,7 +349,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.i.A']
   },
   {
-    taskId: 20,
+    taskId: 40,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat niet meer dan 5% door een 1 mm zeef past en niet meer dan 3% door een 0,5 mm zeef op massa basis.',
@@ -358,7 +358,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
   },
   {
-    taskId: 20,
+    taskId: 41,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het Cu gehalte niet hoger is dan 10 mg/kg en het Cl gehalte niet hoger is dan 200 mg/kg.',
@@ -367,7 +367,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.a.i.A', 'PFC 1.C.I.a.ii.A']
   },
   {
-    taskId: 20,
+    taskId: 42,
     id: 'Q2',
     task: {
       nl: 'Het product moet tenminste een minumum hoeveelheid N, P, K, Ca, Mg, Na of S bevatten of een combinatie van één van N, P, K en één van Ca, Mg, Na of S. Het totaal gehalte macronutriënt moet tenminste 7% zijn. Echter, het gehalte Na2O mag niet meer zijn dan 20% op massa basis.',
@@ -376,7 +376,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.I.b.i', 'PFC 1.C.I.b.ii']
   },
   {
-    taskId: 20,
+    taskId: 43,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product planten of paddestoelen van micronutriënten voorziet (B, Co, Cu, Fe, Mn, Mo, Zn).',
@@ -385,7 +385,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.II.a', 'PFC 1.C.II.b']
   },
   {
-    taskId: 20,
+    taskId: 44,
     id: 'Q2',
     task: {
       nl: 'Het product moet verpakt zijn.',
@@ -394,7 +394,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.II.a', 'PFC 1.C.II.b']
   },
   {
-    taskId: 20,
+    taskId: 45,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product niet de limieten voor As, Cd, Pb, Hg en Ni overschreid gegeven het gehalte micronutrient.',
@@ -403,7 +403,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.II.a', 'PFC 1.C.II.b']
   },
   {
-    taskId: 20,
+    taskId: 46,
     id: 'Q2',
     task: {
       nl: 'Het product mag slechts één aangegeven micronutriënt bevatten.',
@@ -412,7 +412,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.II.a']
   },
   {
-    taskId: 20,
+    taskId: 47,
     id: 'Q2',
     task: {
       nl: 'Het product voldoet aan de beschrijving van één van de types beschreven in de tabel in Annex I PFC 1(C)(II)(a)2.',
@@ -421,7 +421,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.II.a']
   },
   {
-    taskId: 20,
+    taskId: 48,
     id: 'Q2',
     task: {
       nl: 'Het product bevat tenminste twee aangegeven micronutriënten.',
@@ -430,7 +430,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 1.C.II.b']
   },
   {
-    taskId: 22,
+    taskId: 49,
     id: 'Q2',
     task: {
       nl: 'Indien het product vloeibaar is, bevat het tenminste 2% micronutrient op massa basis of 5% indien het product in vaste vorm is.',
@@ -440,7 +440,7 @@ const tasklistSets: tasklistSetsType = [
   },
   // Liming material related tasks
   {
-    taskId: 20,
+    taskId: 50,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product de grenswaarden voor Cd, Cr VI, Hg, Ni, Pb, As, Cu, Zn niet overschrijdt.',
@@ -449,7 +449,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 2']
   },
   {
-    taskId: 20,
+    taskId: 51,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product een minimale neutraliserende waarde heeft van 15 (equivalent CaO) of 9 (equivalent HO-).',
@@ -458,7 +458,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 2']
   },
   {
-    taskId: 20,
+    taskId: 52,
     id: 'Q2',
     task: {
       nl: 'Voeg een testverslag toe van de zoutzuurtest of incubatietest om de reactiviteit aan te tonen.',
@@ -467,7 +467,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 2']
   },
   {
-    taskId: 20,
+    taskId: 53,
     id: 'Q2',
     task: {
       nl: 'Met uitzondering van gebrande kalk, kalkkorrels en krijt, moet worden aangetoond dat ten minste 70% van de deeltjes kleiner is dan 1 mm.',
@@ -477,7 +477,7 @@ const tasklistSets: tasklistSetsType = [
   },
   // soil improvers and growing media
   {
-    taskId: 20,
+    taskId: 54,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat ten minste 95% van het materiaal van het product uitsluitend van biologische oorsprong is.',
@@ -486,7 +486,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 3.A']
   },
   {
-    taskId: 20,
+    taskId: 55,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product een droge stofgehalte van tenminste 20% heeft.',
@@ -495,7 +495,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 3.A']
   },
   {
-    taskId: 20,
+    taskId: 56,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product een organisch koolstofgehalte heeft van minstens 7,5 massaprocent.',
@@ -504,7 +504,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 3.A']
   },
   {
-    taskId: 20,
+    taskId: 57,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product niet de limieten voor Cd, Cr VI, Hg, Ni, Pb, As, Cu, Zn en pathogenen overschreidt.',
@@ -514,7 +514,7 @@ const tasklistSets: tasklistSetsType = [
   },
   // Inhibitors
   {
-    taskId: 20,
+    taskId: 58,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product de omzetting van NH3 in NO2 remt.',
@@ -523,7 +523,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 5.A']
   },
   {
-    taskId: 20,
+    taskId: 59,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product de snelheid van ammoniakale stikstofoxidatie vertraagt gedurende 14 dagen na toepassing.',
@@ -532,7 +532,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 5.A']
   },
   {
-    taskId: 20,
+    taskId: 60,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product de omzetting van nitraat in N2 vertraagt of blokkeert zonder de oxidatie van ammoniumstikstof te beïnvloeden.',
@@ -541,7 +541,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 5.B']
   },
   {
-    taskId: 20,
+    taskId: 61,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product de hydrolyse van ureum met 20% vermindert in vergelijking met een onbehandelde controle.',
@@ -550,7 +550,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 5.C']
   },
   {
-    taskId: 20,
+    taskId: 62,
     id: 'Q2',
     task: {
       nl: 'Toon aan dat het product de grenswaarden voor Cd, Cr VI, Hg, Ni, Pb, As, Cu en Zn niet overschrijdt.',
@@ -559,7 +559,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 6.A', 'PFC 6.B']
   },
   {
-    taskId: 20,
+    taskId: 63,
     id: 'Q2',
     task: {
       nl: 'Vermeld op het etiket op welke planten de geclaimde functies van toepassing zijn.',
@@ -568,7 +568,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 6.A', 'PFC 6.B']
   },
   {
-    taskId: 20,
+    taskId: 64,
     id: 'Q2',
     task: {
       nl: 'Het product mag niet de grenswaarden voor pathogenen overschreiden.',
@@ -577,7 +577,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 6.A', 'PFC 6.B']
   },
   {
-    taskId: 20,
+    taskId: 65,
     id: 'Q2',
     task: {
       nl: 'Het product moet ten minste één van de toegestane micro-organismen bevatten en als het vloeibaar is, moet de pH optimaal zijn voor de aanwezige micro-organismen.',
@@ -586,7 +586,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 6.A']
   },
   {
-    taskId: 20,
+    taskId: 66,
     id: 'Q2',
     task: {
       nl: 'Het product moet ten minste twee CE-gemarkeerde bemestingsproducten bevatten.',
@@ -595,7 +595,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 7']
   },
   {
-    taskId: 20,
+    taskId: 67,
     id: 'Q2',
     task: {
       nl: 'Toon aan of verklaar dat het mengen van de bemestingsproducten mag de aard van het product niet veranderen. Opslag en gebruik van het mengsel heeft geen negatief effect op de gezondheid of veiligheid van mensen, dieren of planten of op het milieu.',
@@ -604,7 +604,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['PFC 7']
   },
   {
-    taskId: 20,
+    taskId: 68,
     id: 'Q2',
     task: {
       nl: 'Als de blend een inhibitor bevat, is de inhibitor aanwezig in een zodanige hoeveelheid dat de blend voldoet aan de reductiedrempels die zijn vastgesteld voor inhibitors.',
@@ -614,7 +614,7 @@ const tasklistSets: tasklistSetsType = [
   },
   // CMC related tasks
   {
-    taskId: 12,
+    taskId: 69,
     id: 'Q4',
     task: {
       nl: 'Bewijs van REACH registratie van het materiaal inclusief informatie uit bijlages VI, VII en VIII van REACH alsmede een veiligheidsblad zoals beschreven in Artikel 14 van REACH.',
@@ -623,7 +623,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 1', 'CMC 6', 'CMC 11', 'CMC 12', 'CMC 13', 'CMC 14', 'CMC 15']
   },
   {
-    taskId: 13,
+    taskId: 70,
     id: 'Q4',
     task: {
       nl: 'Geef een gedetailleerde beschrijving van de herkomst van alle inputmaterialen. Als een inputmateriaal eerder is gecomposteerd, bewijs dan dat het niet meer dan 6 mg/kg droge stof aan PAK16 bevat.',
@@ -632,7 +632,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 3']
   },
   {
-    taskId: 13,
+    taskId: 71,
     id: 'Q4',
     task: {
       nl: 'Toon aan dat het bestanddeel niet de limieten voor PAK16 en macroscopische verontreinigingen overschreidt.',
@@ -641,7 +641,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 3']
   },
   {
-    taskId: 13,
+    taskId: 72,
     id: 'Q4',
     task: {
       nl: 'Toon aan dat het bestanddeel voldoet aan de stabiliteitscriteria met een rapport over de zuurstofopnamesnelheid of de zelfverhittingsfactor.',
@@ -650,7 +650,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 3']
   },
   {
-    taskId: 13,
+    taskId: 73,
     id: 'Q4',
     task: {
       nl: 'Geef een gedetailleerde beschrijving van de herkomst van alle inputmaterialen. Als het materiaal bewerkt wordt na digestatie, beschrijf hoe het bewerkt wordt.',
@@ -659,7 +659,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 4', 'CMC 5']
   },
   {
-    taskId: 13,
+    taskId: 74,
     id: 'Q4',
     task: {
       nl: 'Toon aan dat het digestaat voldoet aan de stabiliteitscriteria voor zuurstofopnamesnelheid of restbiogaspotentieel.',
@@ -668,7 +668,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 4', 'CMC 5']
   },
   {
-    taskId: 13,
+    taskId: 74,
     id: 'Q4',
     task: {
       nl: 'Voeg voor ieder additief een bewijs van REACH registratie toe met informatie uit bijlages VI, VII en VIII van REACH alsmede een veiligheidsblad zoals beschreven in Artikel 14 van REACH. Toon ook aan dat alle additieven samen niet meer dan 5% van het materiaal uitmaken.',
@@ -677,7 +677,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 3', 'CMC 4', 'CMC 5']
   },
   {
-    taskId: 6,
+    taskId: 75,
     id: 'Q4',
     task: {
       nl: 'Geef voor ieder bestanddeel aan waar het vandaan komt en hoe het is geproduceerd',
@@ -686,7 +686,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 1', 'CMC 2', 'CMC 3', 'CMC 4', 'CMC 5', 'CMC 6', 'CMC 7', 'CMC 10', 'CMC 11', 'CMC 12', 'CMC 13', 'CMC 14', 'CMC 15']
   },
   {
-    taskId: 6,
+    taskId: 76,
     id: 'Q4',
     task: {
       nl: 'Geef een beschrijving van het materiaal en toon voor ieder monomeer een bewijs van REACH registratie toe met informatie uit bijlages VI, VII en VIII van REACH alsmede een veiligheidsblad zoals beschreven in Artikel 14 van REACH.',
@@ -695,7 +695,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 8']
   },
   {
-    taskId: 6,
+    taskId: 77,
     id: 'Q4',
     task: {
       nl: 'Toon aan dat het materiaal niet meer dan 600 ppm formaldehyde bevat.',
@@ -704,7 +704,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 8']
   },
   {
-    taskId: 6,
+    taskId: 78,
     id: 'Q4',
     task: {
       nl: 'Toon aan dat het materiaal voldoende oplosbaar is in een fosfaat buffer oplossing bij pH 7,5 bij 100°C.',
@@ -713,7 +713,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 8']
   },
   {
-    taskId: 6,
+    taskId: 79,
     id: 'Q4',
     task: {
       nl: 'Beschrijf het bestanddeel en diens functie in het product.',
@@ -722,7 +722,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 9']
   },
   {
-    taskId: 6,
+    taskId: 80,
     id: 'Q4',
     task: {
       nl: 'Voeg de resultaten toe van de acute toxiciteit testen voor plantengroei en regenwormen en de test op remming van nitrificatie met in de bodem levende micro-organismen.',
@@ -731,7 +731,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 9']
   },
   {
-    taskId: 6,
+    taskId: 81,
     id: 'Q4',
     task: {
       nl: 'Voeg de een beschrijving toe van het productieproces.',
@@ -740,7 +740,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 11']
   },
   {
-    taskId: 6,
+    taskId: 82,
     id: 'Q4',
     task: {
       nl: 'Voeg analyseverslagen toe van de gehalten organische koolstof, PAK16, PCDD/PCDF van het bestanddeel.',
@@ -749,7 +749,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 11', 'CMC 13']
   },
   {
-    taskId: 6,
+    taskId: 83,
     id: 'Q4',
     task: {
       nl: 'Toon aan dat het product niet de grenswaarden voor totaal chroom en thallium overschreidt.',
@@ -758,7 +758,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 11']
   },
   {
-    taskId: 6,
+    taskId: 84,
     id: 'Q4',
     task: {
       nl: 'Ga in gedelegeerde verordening (EU) 2022/973 na of aanvullende criteria van toepassing zijn zoals op het vanadium gehalte of radioactiviteit.',
@@ -767,7 +767,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 11']
   },
   {
-    taskId: 6,
+    taskId: 85,
     id: 'Q4',
     task: {
       nl: 'Beschrijf het bestanddeel, de oorsprong van de ingangsmaterialen en een gedetailleerde beschrijving van het productieproces.',
@@ -776,7 +776,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 12']
   },
   {
-    taskId: 6,
+    taskId: 86,
     id: 'Q4',
     task: {
       nl: 'Beschrijf de reactor waar het neerslaan plaats vindt en beschrijf hoe het bestanddeel ten alle tijden gescheiden wordt van andere materialen.',
@@ -785,7 +785,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 12']
   },
   {
-    taskId: 6,
+    taskId: 87,
     id: 'Q4',
     task: {
       nl: 'Voeg verslagen toe over het P2O5 gehalte, organiche koolstof gehalte, droge stofgehalte en de hoeveelheid macroscopische verontreinigingen.',
@@ -794,7 +794,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 12']
   },
   {
-    taskId: 6,
+    taskId: 88,
     id: 'Q4',
     task: {
       nl: 'Toon aan dat het product niet de grenswaarden voor de pathogenen Salmonella spp., Escherichia coli en Enterococcaceae overschreidt. Tenzij het neergeslagen zout en alle overige bestanddelen van biologische oorsprong zijn gesteriliseerd of gepasteuriseerd volgens CMC 12 punt 10.',
@@ -803,7 +803,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 12']
   },
   {
-    taskId: 6,
+    taskId: 89,
     id: 'Q4',
     task: {
       nl: 'Indien het bestanddeel geproduceerd is met afvalwater of rioolslib van gemeentelijke RWZI\'s, toon aan dat het product niet de grenswaarden voor de pathogenen Clostridium perfringens en Ascaris sp. overschreidt. Tenzij het neergeslagen zout en alle overige bestanddelen van biologische oorsprong zijn gesteriliseerd of gepasteuriseerd volgens CMC 12 punt 10.',
@@ -812,7 +812,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 12']
   },
   {
-    taskId: 6,
+    taskId: 90,
     id: 'Q4',
     task: {
       nl: 'Toon aan dat het bestanddeel niet de grenswaarden voor PAK16 overschreidt.',
@@ -821,7 +821,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 12']
   },
   {
-    taskId: 6,
+    taskId: 91,
     id: 'Q4',
     task: {
       nl: 'Voeg analyseresultaten van de ijzer en aluminium gehalten toe.',
@@ -830,7 +830,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 12']
   },
   {
-    taskId: 6,
+    taskId: 92,
     id: 'Q4',
     task: {
       nl: 'Rapporteer het drogestofgehalte op basis van een vacuum droog bepaling bij 40°C om verdamping van het crystal water te voorkomen.',
@@ -839,7 +839,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 12']
   },
   {
-    taskId: 6,
+    taskId: 93,
     id: 'Q4',
     task: {
       nl: 'Beschrijf het thermisch oxidatie proces, de verbrandingskamer en hoe andere materialen gescheiden worden gehouden van het bestanddeel.',
@@ -848,7 +848,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 13']
   },
   {
-    taskId: 6,
+    taskId: 94,
     id: 'Q4',
     task: {
       nl: 'Toon aan dat bestandeel niet de grenswaarden overscheid voor vanadium en afhankelijk van het ingangsmateriaal, ook voor totaal choom, thallium en/of chloor.',
@@ -857,7 +857,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 13']
   },
   {
-    taskId: 6,
+    taskId: 95,
     id: 'Q4',
     task: {
       nl: 'Een beschrijving waaruit blijkt hoe ingangs en uitgangsmaterialen gescheiden worden gehouden.',
@@ -866,7 +866,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 14']
   },
   {
-    taskId: 6,
+    taskId: 96,
     id: 'Q4',
     task: {
       nl: 'Voeg analyseverslagen toe van de H/Corg ratio en gehalten PAK16 en PCDD/PCDF.',
@@ -875,7 +875,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 14']
   },
   {
-    taskId: 6,
+    taskId: 97,
     id: 'Q4',
     task: {
       nl: 'Toon aan dat het product niet de grenswaarde voor Cl overscheidt. Indien het aandeel CMC 14 materialen in het product hoger is dan 5%, moet ook worden aangetoond dat het product niet de limiet voor thallium gehalte overscheidt.',
@@ -884,7 +884,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 14']
   },
   {
-    taskId: 6,
+    taskId: 98,
     id: 'Q4',
     task: {
       nl: 'Voeg analyseverslagen toe van de gehalten organische koolstof, PAK16 en PCDD/PCDF van het bestanddeel op drogestof basis.',
@@ -893,7 +893,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 15']
   },
   {
-    taskId: 6,
+    taskId: 99,
     id: 'Q4',
     task: {
       nl: 'Voeg analyseverslagen toe van de gehalten chloor en thallium van het product op drogestof basis.',
@@ -902,7 +902,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 15']
   },
   {
-    taskId: 6,
+    taskId: 100,
     id: 'Q4',
     task: {
       nl: 'Toon aan dat het product niet de grenswaarden voor Salmonella spp., Escherichia coli en Enterococcaceae overschreidt.',
@@ -911,7 +911,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 15']
   },
   {
-    taskId: 6,
+    taskId: 101,
     id: 'Q4',
     task: {
       nl: 'Beschrijf de opslag faciliteiten van het bestanddeel.',
@@ -920,7 +920,7 @@ const tasklistSets: tasklistSetsType = [
     answer: ['CMC 15']
   },
   {
-    taskId: 6,
+    taskId: 102,
     id: 'Q5.2',
     task: {
       nl: 'Toon aan dat het dierlijke bijproduct materiaal een eindpunt heeft bereikt in de productieketen.',
