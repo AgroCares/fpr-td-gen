@@ -653,8 +653,8 @@ const tasklistSets: tasklistSetsType = [
     taskId: 13,
     id: 'Q4',
     task: {
-      nl: 'Geef een gedetailleerde beschrijving van de herkomst van alle inputmaterialen.',
-      en: 'Include a detailed description of the origin of all input materials.'
+      nl: 'Geef een gedetailleerde beschrijving van de herkomst van alle inputmaterialen. Als het materiaal bewerkt wordt na digestatie, beschrijf hoe het bewerkt wordt.',
+      en: 'Include a detailed description of the origin of all input materials. If the material is processed after digestion, describe how it is processed.'
     },
     answer: ['CMC 4', 'CMC 5']
   },
@@ -662,10 +662,19 @@ const tasklistSets: tasklistSetsType = [
     taskId: 13,
     id: 'Q4',
     task: {
-      nl: 'Voeg voor ieder additief een bewijs van REACH registratie toe met informatie uit bijlages VI, VII en VIII van REACH alsmede een veiligheidsblad zoals beschreven in Artikel 14 van REACH.',
-      en: 'For each additive, include proof of REACH registration of the additive with information provided by Annexes VI, VII, and VIII to REACH and a chemical safety report as described in Article 14 of REACH.'
+      nl: 'Toon aan dat het digestaat voldoet aan de stabiliteitscriteria voor zuurstofopnamesnelheid of restbiogaspotentieel.',
+      en: 'Demonstrate that the digestate complies with the stability criteria for oxygen uptake rate or residual biogas potential.'
     },
-    answer: ['CMC 3', 'CMC 4']
+    answer: ['CMC 4', 'CMC 5']
+  },
+  {
+    taskId: 13,
+    id: 'Q4',
+    task: {
+      nl: 'Voeg voor ieder additief een bewijs van REACH registratie toe met informatie uit bijlages VI, VII en VIII van REACH alsmede een veiligheidsblad zoals beschreven in Artikel 14 van REACH. Toon ook aan dat alle additieven samen niet meer dan 5% van het materiaal uitmaken.',
+      en: 'For each additive, include proof of REACH registration of the additive with information provided by Annexes VI, VII, and VIII to REACH and a chemical safety report as described in Article 14 of REACH. Also demonstrate that the additives together do not make up more than 5% of the material.'
+    },
+    answer: ['CMC 3', 'CMC 4', 'CMC 5']
   },
   {
     taskId: 6,
@@ -674,7 +683,250 @@ const tasklistSets: tasklistSetsType = [
       nl: 'Geef voor ieder bestanddeel aan waar het vandaan komt en hoe het is geproduceerd',
       en: 'For each component, include a description of where the component comes from and how it was manufactured.'
     },
-    answer: ['CMC 1', 'CMC 2', 'CMC 3', 'CMC 4', 'CMC 5', 'CMC 6', 'CMC 7', 'CMC 8', 'CMC 9', 'CMC 10', 'CMC 11', 'CMC 12', 'CMC 13', 'CMC 14', 'CMC 15']
+    answer: ['CMC 1', 'CMC 2', 'CMC 3', 'CMC 4', 'CMC 5', 'CMC 6', 'CMC 7', 'CMC 10', 'CMC 11', 'CMC 12', 'CMC 13', 'CMC 14', 'CMC 15']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Geef een beschrijving van het materiaal en toon voor ieder monomeer een bewijs van REACH registratie toe met informatie uit bijlages VI, VII en VIII van REACH alsmede een veiligheidsblad zoals beschreven in Artikel 14 van REACH.',
+      en: 'Give a description of the material and proof for each monomer thatit has a REACH registration and include the information provided by Annexes VI, VII, and VIII to REACH and a chemical safety report as described in Article 14 of REACH.'
+    },
+    answer: ['CMC 8']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Toon aan dat het materiaal niet meer dan 600 ppm formaldehyde bevat.',
+      en: 'Demonstrate that the material does not contain more than 600 ppm of formaldehyde.'
+    },
+    answer: ['CMC 8']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Toon aan dat het materiaal voldoende oplosbaar is in een fosfaat buffer oplossing bij pH 7,5 bij 100°C.',
+      en: 'Demonstrate that the material is sufficiently soluble in a phosphate buffer solution of pH 7.5 at 100°C.'
+    },
+    answer: ['CMC 8']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Beschrijf het bestanddeel en diens functie in het product.',
+      en: 'Describe the component and its function in the product.'
+    },
+    answer: ['CMC 9']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Voeg de resultaten toe van de acute toxiciteit testen voor plantengroei en regenwormen en de test op remming van nitrificatie met in de bodem levende micro-organismen.',
+      en: 'Include the results of the acute toxicitiy tests for plant growth and earthworms, and the results on nitrification inhibition with living micro-organisms in the soil.'
+    },
+    answer: ['CMC 9']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Voeg de een beschrijving toe van het productieproces.',
+      en: 'Include a description of the production process.'
+    },
+    answer: ['CMC 11']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Voeg analyseverslagen toe van de gehalten organische koolstof, PAK16, PCDD/PCDF van het bestanddeel.',
+      en: 'Include analysis reports of the organic carbon, PAH16, PCDD/PCDF of the component.'
+    },
+    answer: ['CMC 11', 'CMC 13']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Toon aan dat het product niet de grenswaarden voor totaal chroom en thallium overschreidt.',
+      en: 'Demonstrate that the product does not exceed the limits for total chromium and thallium.'
+    },
+    answer: ['CMC 11']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Ga in gedelegeerde verordening (EU) 2022/973 na of aanvullende criteria van toepassing zijn zoals op het vanadium gehalte of radioactiviteit.',
+      en: 'Go through the delegated regulation (EU) 2022/973 to see if additional criteria apply such as on the vanadium content or radioactivity.'
+    },
+    answer: ['CMC 11']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Beschrijf het bestanddeel, de oorsprong van de ingangsmaterialen en een gedetailleerde beschrijving van het productieproces.',
+      en: 'Describe the component, the origin of the input materials and give a detailed description of the production process.'
+    },
+    answer: ['CMC 12']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Beschrijf de reactor waar het neerslaan plaats vindt en beschrijf hoe het bestanddeel ten alle tijden gescheiden wordt van andere materialen.',
+      en: 'Describe the reactor where the precipitation takes place and describe how the component is kept separate from other materials at all times.'
+    },
+    answer: ['CMC 12']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Voeg verslagen toe over het P2O5 gehalte, organiche koolstof gehalte, droge stofgehalte en de hoeveelheid macroscopische verontreinigingen.',
+      en: 'Include reports on the P2O5 content, organic carbon content, dry matter content, and macro contaminants.'
+    },
+    answer: ['CMC 12']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Toon aan dat het product niet de grenswaarden voor de pathogenen Salmonella spp., Escherichia coli en Enterococcaceae overschreidt. Tenzij het neergeslagen zout en alle overige bestanddelen van biologische oorsprong zijn gesteriliseerd of gepasteuriseerd volgens CMC 12 punt 10.',
+      en: 'Demonstrate that the product does not exceed the limits for the pathogens Salmonella spp., Escherichia coli and Enterococcaceae. Unless the precipitated salt and all other components of biogenic origin are sterilized or pasteurized according to CMC 12 point 10.'
+    },
+    answer: ['CMC 12']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Indien het bestanddeel geproduceerd is met afvalwater of rioolslib van gemeentelijke RWZI\'s, toon aan dat het product niet de grenswaarden voor de pathogenen Clostridium perfringens en Ascaris sp. overschreidt. Tenzij het neergeslagen zout en alle overige bestanddelen van biologische oorsprong zijn gesteriliseerd of gepasteuriseerd volgens CMC 12 punt 10.',
+      en: 'If the component is produced with wastewater or sewage sludge from municipal wastewater treatment plants, demonstrate that the product does not exceed the limits for the pathogens Clostridium perfringens and Ascaris sp. Unless the precipitated salt and all other components of biogenic origin are sterilized or pasteurized according to CMC 12 point 10.'
+    },
+    answer: ['CMC 12']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Toon aan dat het bestanddeel niet de grenswaarden voor PAK16 overschreidt.',
+      en: 'Demonstrate that the component does not exceed the limits for PAH16.'
+    },
+    answer: ['CMC 12']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Voeg analyseresultaten van de ijzer en aluminium gehalten toe.',
+      en: 'Include analysis results of the iron and aluminium content.'
+    },
+    answer: ['CMC 12']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Rapporteer het drogestofgehalte op basis van een vacuum droog bepaling bij 40°C om verdamping van het crystal water te voorkomen.',
+      en: 'Report the dry matter content based on a vacuum dry determination at 40°C to prevent evaporation of the crystal bound water.'
+    },
+    answer: ['CMC 12']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Beschrijf het thermisch oxidatie proces, de verbrandingskamer en hoe andere materialen gescheiden worden gehouden van het bestanddeel.',
+      en: 'Describe the thermal oxidation process, the combustion or inceneration chamber and how other materials are kept separate from the component.'
+    },
+    answer: ['CMC 13']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Toon aan dat bestandeel niet de grenswaarden overscheid voor vanadium en afhankelijk van het ingangsmateriaal, ook voor totaal choom, thallium en/of chloor.',
+      en: 'Demonstrate that the component does not exceed the limits for vanadium and, depending on the input material, for total chromium, thallium, and/or chlorine.'
+    },
+    answer: ['CMC 13']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Een beschrijving waaruit blijkt hoe ingangs en uitgangsmaterialen gescheiden worden gehouden.',
+      en: 'A description that shows how input and output materials are kept separated.'
+    },
+    answer: ['CMC 14']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Voeg analyseverslagen toe van de H/Corg ratio en gehalten PAK16 en PCDD/PCDF.',
+      en: 'Include analysis reports of the H/Corg ratio and PAH16 and PCDD/PCDF contents.'
+    },
+    answer: ['CMC 14']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Toon aan dat het product niet de grenswaarde voor Cl overscheidt. Indien het aandeel CMC 14 materialen in het product hoger is dan 5%, moet ook worden aangetoond dat het product niet de limiet voor thallium gehalte overscheidt.',
+      en: 'Demonstrate that the product does not exceed the limit for chlorine. If the percentage of CMC 14 materials in the product is higher than 5%, it must also be demonstrated that the product does not exceed the limit for thallium content.'
+    },
+    answer: ['CMC 14']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Voeg analyseverslagen toe van de gehalten organische koolstof, PAK16 en PCDD/PCDF van het bestanddeel op drogestof basis.',
+      en: 'Include analysis reports of the organic carbon content, PAH16 and PCDD/PCDF contents of the component on dry matter basis.'
+    },
+    answer: ['CMC 15']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Voeg analyseverslagen toe van de gehalten chloor en thallium van het product op drogestof basis.',
+      en: 'Include analysis reports of the chlorine and thallium contents of the product on dry matter basis.'
+    },
+    answer: ['CMC 15']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Toon aan dat het product niet de grenswaarden voor Salmonella spp., Escherichia coli en Enterococcaceae overschreidt.',
+      en: 'Demonstrate that the product does not exceed the threshold values for Salmonella spp., Escherichia coli and Enterococcaceae.'
+    },
+    answer: ['CMC 15']
+  },
+  {
+    taskId: 6,
+    id: 'Q4',
+    task: {
+      nl: 'Beschrijf de opslag faciliteiten van het bestanddeel.',
+      en: 'Describe the storage facilities of the component.'
+    },
+    answer: ['CMC 15']
+  },
+  {
+    taskId: 6,
+    id: 'Q5.2',
+    task: {
+      nl: 'Toon aan dat het dierlijke bijproduct materiaal een eindpunt heeft bereikt in de productieketen.',
+      en: 'Demonstrate that the animal-byproduct material has reached an end-point in the manufacturing chain.'
+    },
+    answer: true
   }
 ]
 
