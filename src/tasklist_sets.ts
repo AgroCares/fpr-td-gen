@@ -861,7 +861,7 @@ const tasklistSets: tasklistSetsType = [
       answer: ['PFC 7']
     },
     taskName: {
-      nl: 'Toon aan of verklaar dat het mengen van de bemestingsproducten mag de aard van het product niet veranderen. Opslag en gebruik van het mengsel heeft geen negatief effect op de gezondheid of veiligheid van mensen, dieren of planten of op het milieu.',
+      nl: 'Toon aan of verklaar dat het mengen van de bemestingsproducten mag en dat de aard van de producten niet veranderen. Opslag en gebruik van het mengsel heeft geen negatief effect op de gezondheid of veiligheid van mensen, dieren of planten of op het milieu.',
       en: 'Demonstrate or declare that blending the fertilising products may not change the nature of the product. Storage and usage of the blend does not have a negative effect on human, animal, or plant health or safety or the environment.'
     },
     taskDetails: null,

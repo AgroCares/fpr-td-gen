@@ -67,8 +67,10 @@ describe('Generator', () => {
     generator.saveAnswer('My productname')
     generator.getNextQuestion()
     generator.saveAnswer('PFC 2')
+    expect(generator.identifyNextQuestion()).toEqual('Q3')
     generator.getNextQuestion()
     generator.saveAnswer(['calcium carbonate'])
+    expect(generator.generalQuestionsComplete()).toBe(true)
 
     const nextQuestion = generator.identifyNextQuestion()
     expect(nextQuestion).toEqual('Q4-1')
@@ -79,31 +81,69 @@ describe('Generator', () => {
     generator.getNextQuestion()
     generator.saveAnswer(false)
 
-    expect(generator.identifyNextQuestion()).toEqual('END')
+    expect(generator.allQuestionsAnswered()).toBe(true)
+  })
+
+  it('should be able to ask the correct questions for a fertilising product blend (PFC 7), store the answers and return technical documentation', () => {
+    const generator = new Generator('en', 'FPR 2019/1009')
+
+    expect(generator.allQuestionsAnswered()).toBe(false)
+
+    generator.getNextQuestion()
+    generator.saveAnswer('My fertilsing product blend name')
+
+    generator.getNextQuestion()
+    generator.saveAnswer('PFC 7')
+    expect(generator.allQuestionsAnswered()).toBe(true)
+
+    // check that some PFC 7 tasks are given
+    generator.getTechnicalDocumentationTaskList()
+    expect(generator.tasklist).toContainEqual(
+      {
+        applicableElement: undefined,
+        taskDetails: null,
+        taskName: 'The product must contain at least two CE marked fertilising products.',
+        taskUrl: null
+      }
+    )
+    expect(generator.tasklist).toContainEqual(
+      {
+        applicableElement: undefined,
+        taskDetails: null,
+        taskName: 'When the blend contains an inhibitor, the inhibitor is present in such a quantity that the blend meets the reduction thresholds set for inhibitors.',
+        taskUrl: null
+      }
+    )
   })
 
   it('should save answers of different types without throwing errors', () => {
     const generator = new Generator('en', 'FPR 2019/1009')
 
+    expect(generator.identifyNextQuestion()).toBe('Q1')
     generator.getNextQuestion()
     /* questionId == 'Q1', so answer.type must be text of value string */
     expect(generator.saveAnswer('My productname')).toBe(true)
 
+    expect(generator.identifyNextQuestion()).toBe('Q2')
     generator.getNextQuestion()
     /* questionId == 'Q2', so answer.type must be a string of a select number of values */
     expect(generator.saveAnswer('PFC 1.A.II')).toBe(true)
 
+    expect(generator.identifyNextQuestion()).toBe('Q3')
     generator.getNextQuestion()
     /* questionId == 'Q3', so answer.type must be a multitext e.g. an array of strings */
     expect(generator.saveAnswer(['Urea', 'biochar', 'another component material name'])).toBe(true)
 
     /** Urea */
+    expect(generator.identifyNextQuestion()).toBe('Q4-1')
     generator.getNextQuestion()
     /* questionId == 'Q4', so answer.type must be a string, */
     expect(generator.saveAnswer('CMC 1')).toBe(true)
+    expect(generator.identifyNextQuestion()).toBe('Q5.1-1')
     generator.getNextQuestion()
     /* questionId == 'Q5.1', so answer.type must be a boolean */
     expect(generator.saveAnswer('Not applicable')).toBe(true)
+    expect(generator.identifyNextQuestion()).toBe('Q5.2-1')
     generator.getNextQuestion()
     /* questionId == 'Q5.2', so answer.type must be a boolean */
     expect(generator.saveAnswer(false)).toBe(true)
@@ -113,31 +153,48 @@ describe('Generator', () => {
     generator.getNextQuestion()
     /* questionId == 'Q4', so answer.type must be a string */
     expect(generator.saveAnswer('CMC 14')).toBe(true)
+    expect(generator.identifyNextQuestion()).toBe('Q5.1-2')
     generator.getNextQuestion()
     /* questionId == 'Q5.1', so answer.type must be a boolean */
     expect(generator.saveAnswer('Not applicable')).toBe(true)
+    expect(generator.identifyNextQuestion()).toBe('Q5.2-2')
     generator.getNextQuestion()
     /* questionId == 'Q5.2', so answer.type must be a boolean */
     expect(generator.saveAnswer(false)).toBe(true)
 
     /** another component material */
+    expect(generator.identifyNextQuestion()).toBe('Q4-3')
     generator.getNextQuestion()
     /* questionId == 'Q4', so answer.type must be a string */
     expect(generator.saveAnswer('CMC 2')).toBe(true)
+    expect(generator.identifyNextQuestion()).toBe('Q5.1-3')
     generator.getNextQuestion()
     expect(generator.saveAnswer('Not applicable')).toBe(true)
+    expect(generator.identifyNextQuestion()).toBe('Q5.2-3')
     generator.getNextQuestion()
     /* questionId == 'Q5.2', so answer.type must be a boolean */
     expect(generator.saveAnswer(false)).toBe(true)
 
-    expect(generator.identifyNextQuestion()).toEqual('END')
+    expect(generator.allQuestionsAnswered()).toBe(true)
   })
 
-  it('should add non-question specific tasks to the tasklist', () => {
+  it('should give tasks belonging to the same question for seperate components', () => {
     const generator = new Generator('en', 'FPR 2019/1009')
 
-    generator.getTechnicalDocumentationTaskList()
+    // fill in some mock answers
+    generator.allAnswers.set('Q1', 'My productname')
+    generator.allAnswers.set('Q2', 'PFC 1.A.II')
+    generator.allAnswers.set('Q3', ['Urea', 'biochar'])
+    generator.allAnswers.set('Q4-1', 'CMC 1')
+    generator.allAnswers.set('Q4-2', 'CMC 14')
+    generator.allAnswers.set('Q5.1-1', 'Not applicable')
+    generator.allAnswers.set('Q5.1-2', 'Urease inhibitor')
+    generator.allAnswers.set('Q5.2-1', false)
+    generator.allAnswers.set('Q5.2-2', false)
+    expect(generator.identifyNextQuestion()).toEqual('END')
+    expect(generator.allQuestionsAnswered()).toBe(true)
 
+    generator.getTechnicalDocumentationTaskList()
     const testTask: technicalDocumentationTask = {
       applicableElement: 'product',
       taskName: 'Include any other results, calculations, or studies carried out on the product related to compliance with requirements.',
@@ -148,20 +205,6 @@ describe('Generator', () => {
     expect(generator.tasklist.find(task => task.taskName === testTask.taskName)).toHaveProperty('taskName')
     expect(generator.tasklist.find(task => task.taskName === testTask.taskName)).toHaveProperty('applicableElement')
     expect(generator.tasklist.filter(x => x.applicableElement === 'product')).toContainEqual(testTask)
-  })
-
-  it('should give tasks belonging to the same question for seperate components', () => {
-    const generator = new Generator('en', 'FPR 2019/1009')
-
-    // fill in some mock answers
-    generator.allAnswers.set('Q3', ['Urea', 'biochar', 'another component material name'])
-    generator.allAnswers.set('Q4-1', 'CMC 1')
-    generator.allAnswers.set('Q4-2', 'CMC 14')
-    generator.allAnswers.set('Q4-3', 'CMC 2')
-    generator.allAnswers.set('Q5.1-2', 'Not applicable')
-    generator.allAnswers.set('Q5.1-3', 'Urease inhibitor')
-
-    generator.getTechnicalDocumentationTaskList()
 
     // check that the same task exists for multiple CMCs
     expect(generator.tasklist).toContainEqual(
@@ -182,7 +225,7 @@ describe('Generator', () => {
     )
     expect(generator.tasklist).not.toContainEqual(
       {
-        applicableElement: '2',
+        applicableElement: '1',
         taskDetails: null,
         taskName: 'Demonstrate that the material has an urease inhibitor effect as described in Annex II, point 4 c.',
         taskUrl: null
@@ -190,7 +233,7 @@ describe('Generator', () => {
     )
     expect(generator.tasklist).toContainEqual(
       {
-        applicableElement: '3',
+        applicableElement: '2',
         taskDetails: null,
         taskName: 'Demonstrate that the material has an urease inhibitor effect as described in Annex II, point 4 c.',
         taskUrl: null

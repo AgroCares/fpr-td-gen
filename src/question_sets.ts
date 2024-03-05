@@ -405,7 +405,7 @@ const questionSets: questionSetsType =
       },
       options: null,
       cmcQuestion: true
-    },
+    }
     /*    {
       id: 'Q6',
       type: 'select',
@@ -434,7 +434,7 @@ const questionSets: questionSetsType =
           }
         }
       ]
-        }, */
+        },
     {
       id: 'Q7',
       type: 'multitext',
@@ -616,7 +616,7 @@ const questionSets: questionSetsType =
       ],
       cmcQuestion: false
     }
-    /*    {
+        {
       id: 'Q7.2.',
       type: 'select',
       ask: {
