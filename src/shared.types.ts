@@ -117,14 +117,18 @@ export interface questionSetType {
 /**
  * The items that need to be contained in the technical documentation
  *
- * @typeParam questionSetType - The question set that contains the details of a question
+ * @typeParam tasklistSetType - The question set that contains the details of a question
  * @internal
  */
 export interface tasklistSetType {
-  taskId: number
-  id: idType
-  task: Record<localesType, string>
-  answer: answerType | undefined // an answer value to a boolean or select question that decides whether a quesion is applicable
+  taskId: string
+  applicableTo: {
+    id: idType
+    answer: answerType | undefined // an answer value to a boolean or select question that decides whether a quesion is applicable
+  }
+  taskName: Record<localesType, string>
+  taskDetails: Record<localesType, string> | null
+  taskUrl: Record<localesType, string> | null
 }
 
 /**
@@ -253,5 +257,7 @@ export type technicalDocumentationTaskListType = technicalDocumentationTask[]
 
 export interface technicalDocumentationTask {
   applicableElement: 'product' | string
-  task: string
+  taskName: string
+  taskDetails: string | null
+  taskUrl: string | null
 }

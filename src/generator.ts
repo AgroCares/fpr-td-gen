@@ -203,12 +203,39 @@ class Generator {
     let tasklistSet: tasklistSetType
 
     // add all general tasks to the tasklist
-    tasklistSets.forEach(x => {
-      if (x.id === '') {
-        this.tasklist.push({
-          applicableElement: 'product',
-          task: x.task[this.locale]
-        })
+    tasklistSets.forEach(tasklistSet => {
+      if (tasklistSet.applicableTo.id === '') {
+        if (tasklistSet.taskDetails === null && tasklistSet.taskUrl === null) {
+          this.tasklist.push({
+            applicableElement: 'product',
+            taskName: tasklistSet.taskName[this.locale],
+            taskDetails: null,
+            taskUrl: null
+          })
+        } else if (tasklistSet.taskDetails !== null && tasklistSet.taskUrl === null) {
+          this.tasklist.push({
+            applicableElement: 'product',
+            taskName: tasklistSet.taskName[this.locale],
+            taskDetails: tasklistSet.taskDetails[this.locale],
+            taskUrl: null
+          })
+        } else if (tasklistSet.taskDetails === null && tasklistSet.taskUrl !== null) {
+          this.tasklist.push({
+            applicableElement: 'product',
+            taskName: tasklistSet.taskName[this.locale],
+            taskDetails: null,
+            taskUrl: tasklistSet.taskUrl[this.locale]
+          })
+        } else if (tasklistSet.taskDetails !== null && tasklistSet.taskUrl !== null) {
+          this.tasklist.push({
+            applicableElement: 'product',
+            taskName: tasklistSet.taskName[this.locale],
+            taskDetails: tasklistSet.taskDetails[this.locale],
+            taskUrl: tasklistSet.taskUrl[this.locale]
+          })
+        } else {
+          throw new Error('Invalid tasklistSet')
+        }
       }
     })
 
@@ -219,33 +246,114 @@ class Generator {
 
       // for loop over sets in tasklistSets where id is questionId
       for (tasklistSet of tasklistSets) {
-        if (tasklistSet.id === questionId) {
+        if (tasklistSet.applicableTo.id === questionId) {
           // check whether tasklistSet has answer
-          switch (typeof tasklistSet.answer) {
+          switch (typeof tasklistSet.applicableTo.answer) {
             case 'undefined':
-              this.tasklist.push({
-                applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
-                task: tasklistSet.task[this.locale]
-              })
-              break
-            case 'boolean':
-              if (value === tasklistSet.answer) {
+              if (tasklistSet.taskDetails === null && tasklistSet.taskUrl === null) {
                 this.tasklist.push({
                   applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
-                  task: tasklistSet.task[this.locale]
+                  taskName: tasklistSet.taskName[this.locale],
+                  taskDetails: null,
+                  taskUrl: null
                 })
+              } else if (tasklistSet.taskDetails !== null && tasklistSet.taskUrl === null) {
+                this.tasklist.push({
+                  applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                  taskName: tasklistSet.taskName[this.locale],
+                  taskDetails: tasklistSet.taskDetails[this.locale],
+                  taskUrl: null
+                })
+              } else if (tasklistSet.taskDetails === null && tasklistSet.taskUrl !== null) {
+                this.tasklist.push({
+                  applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                  taskName: tasklistSet.taskName[this.locale],
+                  taskDetails: null,
+                  taskUrl: tasklistSet.taskUrl[this.locale]
+                })
+              } else if (tasklistSet.taskDetails !== null && tasklistSet.taskUrl !== null) {
+                this.tasklist.push({
+                  applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                  taskName: tasklistSet.taskName[this.locale],
+                  taskDetails: tasklistSet.taskDetails[this.locale],
+                  taskUrl: tasklistSet.taskUrl[this.locale]
+                })
+              } else {
+                throw new Error('Invalid tasklistSet')
+              }
+              break
+            case 'boolean':
+              if (value === tasklistSet.applicableTo.answer) {
+                if (tasklistSet.taskDetails === null && tasklistSet.taskUrl === null) {
+                  this.tasklist.push({
+                    applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                    taskName: tasklistSet.taskName[this.locale],
+                    taskDetails: null,
+                    taskUrl: null
+                  })
+                } else if (tasklistSet.taskDetails !== null && tasklistSet.taskUrl === null) {
+                  this.tasklist.push({
+                    applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                    taskName: tasklistSet.taskName[this.locale],
+                    taskDetails: tasklistSet.taskDetails[this.locale],
+                    taskUrl: null
+                  })
+                } else if (tasklistSet.taskDetails === null && tasklistSet.taskUrl !== null) {
+                  this.tasklist.push({
+                    applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                    taskName: tasklistSet.taskName[this.locale],
+                    taskDetails: null,
+                    taskUrl: tasklistSet.taskUrl[this.locale]
+                  })
+                } else if (tasklistSet.taskDetails !== null && tasklistSet.taskUrl !== null) {
+                  this.tasklist.push({
+                    applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                    taskName: tasklistSet.taskName[this.locale],
+                    taskDetails: tasklistSet.taskDetails[this.locale],
+                    taskUrl: tasklistSet.taskUrl[this.locale]
+                  })
+                } else {
+                  throw new Error('Invalid tasklistSet')
+                }
               }
               break
             default:
-              if (typeof value === 'string' && Array.isArray(tasklistSet.answer)) {
-                if (tasklistSet.answer.includes(value)) {
-                  this.tasklist.push({
-                    applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
-                    task: tasklistSet.task[this.locale]
-                  })
+              if (typeof value === 'string' && Array.isArray(tasklistSet.applicableTo.answer)) {
+                if (tasklistSet.applicableTo.answer.includes(value)) {
+                  if (tasklistSet.taskDetails === null && tasklistSet.taskUrl === null) {
+                    this.tasklist.push({
+                      applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                      taskName: tasklistSet.taskName[this.locale],
+                      taskDetails: null,
+                      taskUrl: null
+                    })
+                  } else if (tasklistSet.taskDetails !== null && tasklistSet.taskUrl === null) {
+                    this.tasklist.push({
+                      applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                      taskName: tasklistSet.taskName[this.locale],
+                      taskDetails: tasklistSet.taskDetails[this.locale],
+                      taskUrl: null
+                    })
+                  } else if (tasklistSet.taskDetails === null && tasklistSet.taskUrl !== null) {
+                    this.tasklist.push({
+                      applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                      taskName: tasklistSet.taskName[this.locale],
+                      taskDetails: null,
+                      taskUrl: tasklistSet.taskUrl[this.locale]
+                    })
+                  } else if (tasklistSet.taskDetails !== null && tasklistSet.taskUrl !== null) {
+                    this.tasklist.push({
+                      applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+                      taskName: tasklistSet.taskName[this.locale],
+                      taskDetails: tasklistSet.taskDetails[this.locale],
+                      taskUrl: tasklistSet.taskUrl[this.locale]
+                    })
+                  } else {
+                    throw new Error('Invalid tasklistSet')
+                  }
                 }
               } else {
-                throw new Error('Answer type ' + typeof tasklistSet.answer + ' is not supported')
+                throw new Error('Answer type ' + typeof tasklistSet.applicableTo.answer + ' is not supported')
               }
           }
         }
