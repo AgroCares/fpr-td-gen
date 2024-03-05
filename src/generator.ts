@@ -254,9 +254,7 @@ class Generator {
       const givenEachAnswerDoesThisTasklistSetApply = function (value: answerType, tasklistSet: tasklistSetType): boolean {
         let returnValue: boolean
 
-        if (tasklistSet.applicableTo.answer === undefined) {
-          returnValue = true
-        } else if (value === true) {
+        if (value === true) {
           returnValue = true
         } else if (value === false) {
           returnValue = false
