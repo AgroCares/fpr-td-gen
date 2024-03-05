@@ -260,29 +260,27 @@ class Generator {
 
       const givenEachAnswerDoesThisTasklistSetApply = function (value: answerType, tasklistSet: tasklistSetType): boolean {
         let returnValue: boolean
-        const valueType = typeof value
 
-        switch (valueType) {
-          case undefined:
-            returnValue = true
-            break
-          case 'boolean':
-            if (value === true) {
+        if (tasklistSet.applicableTo.answer === undefined) {
+          returnValue = true
+        } else if (value === true) {
+          returnValue = true
+        } else if (value === false) {
+          returnValue = false
+        } else if (typeof value === 'string') {
+          if (Array.isArray(tasklistSet.applicableTo.answer)) {
+            if (tasklistSet.applicableTo.answer.includes(value)) {
               returnValue = true
             } else {
               returnValue = false
             }
-            break
-          default:
-            if (typeof value === 'string' && Array.isArray(tasklistSet.applicableTo.answer)) {
-              if (tasklistSet.applicableTo.answer.includes(value)) {
-                returnValue = true
-              } else {
-                returnValue = false
-              }
-            } else {
-              returnValue = false
-            }
+          } else if (tasklistSet.applicableTo.answer === value) {
+            returnValue = true
+          } else {
+            returnValue = false
+          }
+        } else {
+          throw new Error('Could not assert whether task: ' + tasklistSet.taskId + ' applies')
         }
         return returnValue
       }
