@@ -9,7 +9,7 @@ const tasklistSets: tasklistSetsType = [
     taskId: 'T1',
     applicableTo: {
       id: '',
-      answer: undefined
+      answer: null
     },
     taskName: {
       nl: 'Voeg een algemene beschrijving van het product toe aan de technische documentatie, inclusief een beschrijving van de beoogde toepassing.',
@@ -48,7 +48,7 @@ const tasklistSets: tasklistSetsType = [
     taskId: 'T4',
     applicableTo: {
       id: 'Q3',
-      answer: undefined
+      answer: null
     },
     taskName: {
       nl: 'Voeg een beschrijving toe van het productieproces inclusief schema\'s of tekeningen om het productie proces te verduidelijken.',
@@ -139,7 +139,7 @@ const tasklistSets: tasklistSetsType = [
     taskId: 'T12',
     applicableTo: {
       id: '',
-      answer: undefined
+      answer: null
     },
     taskName: {
       nl: 'Voeg een lijst toe van alle standaarden en specificaties welke gebruikt zijn voor tests om aan te tonen dat het product voldoet aan de gestelde eisen voor de product functie categorie en de component materiaal categorie(ën).',
@@ -152,7 +152,7 @@ const tasklistSets: tasklistSetsType = [
     taskId: 'T13',
     applicableTo: {
       id: '',
-      answer: undefined
+      answer: null
     },
     taskName: {
       nl: 'Voeg alle test verslagen van de metingen en onderzoeken welke zijn uitgevoerd om aan te tonen dat voldaan wordt aan de vereisten van de PFC en CMCs van het product.',
@@ -165,7 +165,7 @@ const tasklistSets: tasklistSetsType = [
     taskId: 'T14',
     applicableTo: {
       id: '',
-      answer: undefined
+      answer: null
     },
     taskName: {
       nl: 'Voeg het een copy van het product label toe.',
@@ -178,7 +178,7 @@ const tasklistSets: tasklistSetsType = [
     taskId: 'T15',
     applicableTo: {
       id: '',
-      answer: undefined
+      answer: null
     },
     taskName: {
       nl: 'Voeg alle overige resultaten, berekeningen of onderzoeken toe welke verricht zijn op het product en gerelateerd zijn aan de conformiteitsbeoordeling.',
@@ -191,7 +191,7 @@ const tasklistSets: tasklistSetsType = [
     taskId: 'T16',
     applicableTo: {
       id: '',
-      answer: undefined
+      answer: null
     },
     taskName: {
       nl: 'Voeg alle overige resultaten, berekeningen of onderzoeken toe welke verricht zijn op het product en gerelateerd zijn aan de conformiteitsbeoordeling.',
