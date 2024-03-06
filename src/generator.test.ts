@@ -208,37 +208,37 @@ describe('Generator', () => {
     expect(taskList.filter(x => x.applicableElement === 'product')).toContainEqual(testTask)
 
     // check that the same task exists for multiple CMCs
-    // expect(taskList).toContainEqual(
-    //   {
-    //     applicableElement: '1',
-    //     taskDetails: null,
-    //     taskName: 'For each component, include a description of where the component comes from and how it was manufactured.',
-    //     taskUrl: null
-    //   }
-    // )
-    // expect(taskList).toContainEqual(
-    //   {
-    //     applicableElement: '2',
-    //     taskDetails: null,
-    //     taskName: 'For each component, include a description of where the component comes from and how it was manufactured.',
-    //     taskUrl: null
-    //   }
-    // )
-    // expect(taskList).not.toContainEqual(
-    //   {
-    //     applicableElement: '1',
-    //     taskDetails: null,
-    //     taskName: 'Demonstrate that the material has an urease inhibitor effect as described in Annex II, point 4 c.',
-    //     taskUrl: null
-    //   }
-    // )
-    // expect(taskList).toContainEqual(
-    //   {
-    //     applicableElement: '2',
-    //     taskDetails: null,
-    //     taskName: 'Demonstrate that the material has an urease inhibitor effect as described in Annex II, point 4 c.',
-    //     taskUrl: null
-    //   }
-    // )
+    expect(taskList).toContainEqual(
+      {
+        applicableElement: '1',
+        taskDetails: null,
+        taskName: 'For each component, include a description of where the component comes from and how it was manufactured.',
+        taskUrl: null
+      }
+    )
+    expect(taskList).toContainEqual(
+      {
+        applicableElement: '2',
+        taskDetails: null,
+        taskName: 'For each component, include a description of where the component comes from and how it was manufactured.',
+        taskUrl: null
+      }
+    )
+    expect(taskList).not.toContainEqual(
+      {
+        applicableElement: '1',
+        taskDetails: null,
+        taskName: 'Demonstrate that the material has an urease inhibitor effect as described in Annex II, point 4 c.',
+        taskUrl: null
+      }
+    )
+    expect(taskList).toContainEqual(
+      {
+        applicableElement: '2',
+        taskDetails: null,
+        taskName: 'Demonstrate that the material has an urease inhibitor effect as described in Annex II, point 4 c.',
+        taskUrl: null
+      }
+    )
   })
 })
