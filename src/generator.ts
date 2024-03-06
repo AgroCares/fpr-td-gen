@@ -258,9 +258,9 @@ class Generator {
           returnValue = true
         } else if (value === false) {
           returnValue = false
-        } else if (typeof value === 'string') {
+        } else if (typeof value === 'string' || (Array.isArray(value) && value.every(element => typeof element === 'string'))) {
           if (Array.isArray(tasklistSet.applicableTo.answer)) {
-            if (tasklistSet.applicableTo.answer.includes(value)) {
+            if (tasklistSet.applicableTo.answer.some(answer => value.includes(answer))) {
               returnValue = true
             } else {
               returnValue = false
@@ -277,7 +277,7 @@ class Generator {
       }
 
       // add non-general tasks to the tasklist
-      const taskListCmcs = Object.keys(this.allAnswers).map(key => {
+      const taskListCmcs = Array.from(this.allAnswers.keys()).map(key => {
         const questionId = key.split('-')[0]
         const value = this.allAnswers.get(key)
         if (value === undefined) {

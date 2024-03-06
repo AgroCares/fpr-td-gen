@@ -92,28 +92,29 @@ describe('Generator', () => {
     generator.getNextQuestion()
     generator.saveAnswer('My fertilsing product blend name')
 
+    expect(generator.identifyNextQuestion()).toEqual('Q2')
     generator.getNextQuestion()
     generator.saveAnswer('PFC 7')
     expect(generator.allQuestionsAnswered()).toBe(true)
 
     // check that some PFC 7 tasks are given
-    // const taskList = generator.getTechnicalDocumentationTaskList()
-    // expect(taskList).toContainEqual(
-    //   {
-    //     applicableElement: undefined,
-    //     taskDetails: null,
-    //     taskName: 'The product must contain at least two CE marked fertilising products.',
-    //     taskUrl: null
-    //   }
-    // )
-    // expect(taskList).toContainEqual(
-    //   {
-    //     applicableElement: undefined,
-    //     taskDetails: null,
-    //     taskName: 'When the blend contains an inhibitor, the inhibitor is present in such a quantity that the blend meets the reduction thresholds set for inhibitors.',
-    //     taskUrl: null
-    //   }
-    // )
+    const taskList = generator.getTechnicalDocumentationTaskList()
+    expect(taskList).toContainEqual(
+      {
+        applicableElement: undefined,
+        taskDetails: null,
+        taskName: 'The product must contain at least two CE marked fertilising products.',
+        taskUrl: null
+      }
+    )
+    expect(taskList).toContainEqual(
+      {
+        applicableElement: undefined,
+        taskDetails: null,
+        taskName: 'When the blend contains an inhibitor, the inhibitor is present in such a quantity that the blend meets the reduction thresholds set for inhibitors.',
+        taskUrl: null
+      }
+    )
   })
 
   it('should save answers of different types without throwing errors', () => {
