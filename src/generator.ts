@@ -333,7 +333,7 @@ class Generator {
       locale: this.locale,
       FPRversion: this.fprVersion,
       pfcDesignation: this.pfcDesignation,
-      allAnsers: this.allAnswers,
+      allAnswers: this.allAnswers,
       nrOfComponents: this.nrOfComponents,
       lastKeyComponentNr: this.lastKeyComponentNr,
       fprVersionSet: this.fprVersionSet,
