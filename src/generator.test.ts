@@ -1,3 +1,4 @@
+import fs from 'node:fs'
 import { describe, it, expect } from 'vitest'
 
 import Generator from './generator.ts'
@@ -240,5 +241,21 @@ describe('Generator', () => {
         taskUrl: null
       }
     )
+  })
+
+  it('should export the generator', () => {
+    const generator = new Generator('en', 'FPR 2019/1009')
+
+    expect(() => generator.saveToDisk('notajson.txt')).toThrowError('Filepath must be a json file.')
+    expect(generator.saveToDisk('generator.json')).toBe(true)
+    expect(() => generator.saveToDisk('generator.json')).toThrowError('Filepath already exists.')
+    fs.unlinkSync('generator.json')
+
+    // fill in some mock answers
+    generator.allAnswers.set('Q1', 'My productname')
+    generator.allAnswers.set('Q2', 'PFC 1.A.II')
+
+    expect(generator.saveToDisk('generator.json')).toBe(true)
+    fs.unlinkSync('generator.json')
   })
 })
