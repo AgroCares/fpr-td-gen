@@ -92,13 +92,14 @@ describe('Generator', () => {
     generator.getNextQuestion()
     generator.saveAnswer('My fertilsing product blend name')
 
+    expect(generator.identifyNextQuestion()).toEqual('Q2')
     generator.getNextQuestion()
     generator.saveAnswer('PFC 7')
     expect(generator.allQuestionsAnswered()).toBe(true)
 
     // check that some PFC 7 tasks are given
-    generator.getTechnicalDocumentationTaskList()
-    expect(generator.tasklist).toContainEqual(
+    const taskList = generator.getTechnicalDocumentationTaskList()
+    expect(taskList).toContainEqual(
       {
         applicableElement: undefined,
         taskDetails: null,
@@ -106,7 +107,7 @@ describe('Generator', () => {
         taskUrl: null
       }
     )
-    expect(generator.tasklist).toContainEqual(
+    expect(taskList).toContainEqual(
       {
         applicableElement: undefined,
         taskDetails: null,
@@ -194,7 +195,7 @@ describe('Generator', () => {
     expect(generator.identifyNextQuestion()).toEqual('END')
     expect(generator.allQuestionsAnswered()).toBe(true)
 
-    generator.getTechnicalDocumentationTaskList()
+    const taskList = generator.getTechnicalDocumentationTaskList()
     const testTask: technicalDocumentationTask = {
       applicableElement: 'product',
       taskName: 'Include any other results, calculations, or studies carried out on the product related to compliance with requirements.',
@@ -202,12 +203,12 @@ describe('Generator', () => {
       taskUrl: null
     }
 
-    expect(generator.tasklist.find(task => task.taskName === testTask.taskName)).toHaveProperty('taskName')
-    expect(generator.tasklist.find(task => task.taskName === testTask.taskName)).toHaveProperty('applicableElement')
-    expect(generator.tasklist.filter(x => x.applicableElement === 'product')).toContainEqual(testTask)
+    expect(taskList.find(task => task.taskName === testTask.taskName)).toHaveProperty('taskName')
+    expect(taskList.find(task => task.taskName === testTask.taskName)).toHaveProperty('applicableElement')
+    expect(taskList.filter(x => x.applicableElement === 'product')).toContainEqual(testTask)
 
     // check that the same task exists for multiple CMCs
-    expect(generator.tasklist).toContainEqual(
+    expect(taskList).toContainEqual(
       {
         applicableElement: '1',
         taskDetails: null,
@@ -215,7 +216,7 @@ describe('Generator', () => {
         taskUrl: null
       }
     )
-    expect(generator.tasklist).toContainEqual(
+    expect(taskList).toContainEqual(
       {
         applicableElement: '2',
         taskDetails: null,
@@ -223,7 +224,7 @@ describe('Generator', () => {
         taskUrl: null
       }
     )
-    expect(generator.tasklist).not.toContainEqual(
+    expect(taskList).not.toContainEqual(
       {
         applicableElement: '1',
         taskDetails: null,
@@ -231,7 +232,7 @@ describe('Generator', () => {
         taskUrl: null
       }
     )
-    expect(generator.tasklist).toContainEqual(
+    expect(taskList).toContainEqual(
       {
         applicableElement: '2',
         taskDetails: null,

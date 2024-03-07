@@ -24,7 +24,6 @@ class Generator {
   cmcQuestions: idType[]
   cmcAnswers: idType[] /** an ordered array where for each component, the question ids that are expected as answers are included */
   blendQuestions: idType[]
-  tasklist: technicalDocumentationTaskListType
   constructor (locale: localesType, fprVersion: fprVersionType) {
     this.locale = locale
     this.fprVersion = fprVersion
@@ -41,8 +40,6 @@ class Generator {
     this.generalProductQuestions = this.fprVersionSet.generalProductQuestions
     this.cmcQuestions = this.fprVersionSet.cmcQuestions
     this.blendQuestions = this.fprVersionSet.blendQuestions
-
-    this.tasklist = []
   }
 
   /** Returns the next question
@@ -237,39 +234,33 @@ class Generator {
    * @internal
    * @alpha
    */
-  getTechnicalDocumentationTaskList (): boolean {
-    let returnValue: boolean
+  getTechnicalDocumentationTaskList (): technicalDocumentationTaskListType {
     if (!this.allQuestionsAnswered()) {
-      returnValue = false
       throw new Error('All questions must be answered before getting the technical documentation task list which does not seem to be true.')
     } else { // make the tasklist
       // add all general tasks to the tasklist
-      tasklistSets.forEach(tasklistSet => {
-        if (tasklistSet.applicableTo.id === '') {
-          const theTaskDetails = (tasklistSet.taskDetails === null) ? null : tasklistSet.taskDetails[this.locale]
-          const theTaskUrl = (tasklistSet.taskUrl === null) ? null : tasklistSet.taskUrl[this.locale]
+      const taskListGeneral = tasklistSets.filter(tasklistSet => tasklistSet.applicableTo.id === '').map(tasklistSet => {
+        const theTaskDetails = (tasklistSet.taskDetails === null) ? null : tasklistSet.taskDetails[this.locale]
+        const theTaskUrl = (tasklistSet.taskUrl === null) ? null : tasklistSet.taskUrl[this.locale]
 
-          this.tasklist.push({
-            applicableElement: 'product',
-            taskName: tasklistSet.taskName[this.locale],
-            taskDetails: theTaskDetails,
-            taskUrl: theTaskUrl
-          })
+        return {
+          applicableElement: 'product',
+          taskName: tasklistSet.taskName[this.locale],
+          taskDetails: theTaskDetails,
+          taskUrl: theTaskUrl
         }
       })
 
       const givenEachAnswerDoesThisTasklistSetApply = function (value: answerType, tasklistSet: tasklistSetType): boolean {
         let returnValue: boolean
 
-        if (tasklistSet.applicableTo.answer === undefined) {
-          returnValue = true
-        } else if (value === true) {
+        if (value === true) {
           returnValue = true
         } else if (value === false) {
           returnValue = false
-        } else if (typeof value === 'string') {
+        } else if (typeof value === 'string' || (Array.isArray(value) && value.every(element => typeof element === 'string'))) {
           if (Array.isArray(tasklistSet.applicableTo.answer)) {
-            if (tasklistSet.applicableTo.answer.includes(value)) {
+            if (tasklistSet.applicableTo.answer.some(answer => value.includes(answer))) {
               returnValue = true
             } else {
               returnValue = false
@@ -286,28 +277,35 @@ class Generator {
       }
 
       // add non-general tasks to the tasklist
-      this.allAnswers.forEach((value, key) => {
+      const taskListCmcs = Array.from(this.allAnswers.keys()).map(key => {
         const questionId = key.split('-')[0]
-        const cmcNr = key.split('-')[1]
+        const value = this.allAnswers.get(key)
+        if (value === undefined) {
+          throw new Error('The answer for question ' + questionId + ' is undefined.')
+        }
 
-        // attemt use forEach instead of forloop
-        tasklistSets.filter(tasklistSet => tasklistSet.applicableTo.id === questionId).forEach(tasklistSet => {
-          if (givenEachAnswerDoesThisTasklistSetApply(value, tasklistSet)) {
+        const taskListCmc = tasklistSets.filter(tasklistSet => tasklistSet.applicableTo.id === questionId)
+          .filter(tasklistSet => givenEachAnswerDoesThisTasklistSetApply(value, tasklistSet))
+          .map(tasklistSet => {
+            const cmcNr = key.split('-')[1]
+
             const theTaskDetails = (tasklistSet.taskDetails === null) ? null : tasklistSet.taskDetails[this.locale]
             const theTaskUrl = (tasklistSet.taskUrl === null) ? null : tasklistSet.taskUrl[this.locale]
 
-            this.tasklist.push({
+            return {
               applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
               taskName: tasklistSet.taskName[this.locale],
               taskDetails: theTaskDetails,
               taskUrl: theTaskUrl
-            })
-          }
-        })
-      })
-      returnValue = true
+            }
+          })
+        return taskListCmc.flat()
+      }).flat()
+
+      // concatenate the two tasklists
+      const taskList = taskListGeneral.concat(taskListCmcs)
+      return taskList
     }
-    return returnValue
   }
 }
 export default Generator

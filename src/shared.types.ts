@@ -124,7 +124,7 @@ export interface tasklistSetType {
   taskId: string
   applicableTo: {
     id: idType
-    answer: answerType | undefined // an answer value to a boolean or select question that decides whether a quesion is applicable
+    answer: answerType | null // an answer value to a boolean or select question that decides whether a quesion is applicable
   }
   taskName: Record<localesType, string>
   taskDetails: Record<localesType, string> | null
