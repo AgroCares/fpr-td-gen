@@ -1,3 +1,6 @@
+import fs from 'node:fs'
+import crypto from 'node:crypto'
+
 import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, answerSet, answerType, fprType, technicalDocumentationTaskListType, tasklistSetType } from './shared.types'
 
 import fprVersionSets from './fprVersionSets'
@@ -13,6 +16,7 @@ class Generator {
   * @returns A Generator class with the functions {@link getNextQuestion} and {@link getTechnicalDocumentation}
   * @alpha
   */
+  packageVersion = '0.1.0'
   locale: localesType
   fprVersion: fprVersionType
   pfcDesignation: pfcType = undefined
@@ -306,6 +310,47 @@ class Generator {
       const taskList = taskListGeneral.concat(taskListCmcs)
       return taskList
     }
+  }
+
+  /** Store the generator as JSON file to disk
+   * @param filePath - The file path for where to store the properties of the generator. Should have the extension ".json".
+   * @returns A boolean to indicate if the file has been stored successfully
+   * @internal
+   * @alpha
+   */
+  saveToDisk (filePath: string): boolean {
+    // Check if filePath is actual json and can be stored
+    if (!filePath.endsWith('.json')) {
+      throw new Error('Filepath must be a json file.')
+    }
+    if (fs.existsSync(filePath)) {
+      throw new Error('Filepath already exists.')
+    }
+
+    // Create object with all the information required for the generator
+    const properties = {
+      packageVersionversion: this.packageVersion,
+      locale: this.locale,
+      FPRversion: this.fprVersion,
+      pfcDesignation: this.pfcDesignation,
+      allAnsers: this.allAnswers,
+      nrOfComponents: this.nrOfComponents,
+      lastKeyComponentNr: this.lastKeyComponentNr,
+      fprVersionSet: this.fprVersionSet,
+      cmcAnswers: this.cmcAnswers,
+      generalProductQuestions: this.generalProductQuestions,
+      mcQuestions: this.cmcQuestions,
+      blendQuestions: this.blendQuestions
+    }
+    const propertiesHash = crypto.createHash('md5').update(JSON.stringify(properties)).digest('hex')
+    const file = {
+      properties,
+      propertiesHash
+    }
+
+    // Store the file
+    fs.writeFileSync(filePath, JSON.stringify(file))
+    return true
   }
 }
 export default Generator
