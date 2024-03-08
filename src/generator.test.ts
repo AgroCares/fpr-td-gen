@@ -3,6 +3,7 @@ import { describe, it, expect } from 'vitest'
 
 import Generator from './generator.ts'
 import type { technicalDocumentationTask } from './shared.types.ts'
+import { version } from '../package.json'
 
 describe('Generator', () => {
   it('should create a generator with the given locale', () => {
@@ -257,5 +258,10 @@ describe('Generator', () => {
 
     expect(generator.saveToDisk('generator.json')).toBe(true)
     fs.unlinkSync('generator.json')
+  })
+
+  it('the packageVersion of the generator should be the same as package.json', () => {
+    const generator = new Generator('nl', 'FPR 2019/1009')
+    expect(generator.packageVersion).toBe(version)
   })
 })
