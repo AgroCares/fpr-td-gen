@@ -1,7 +1,9 @@
+import fs from 'node:fs'
 import { describe, it, expect } from 'vitest'
 
 import Generator from './generator.ts'
 import type { technicalDocumentationTask } from './shared.types.ts'
+import { version } from '../package.json'
 
 describe('Generator', () => {
   it('should create a generator with the given locale', () => {
@@ -240,5 +242,26 @@ describe('Generator', () => {
         taskUrl: null
       }
     )
+  })
+
+  it('should export the generator', () => {
+    const generator = new Generator('en', 'FPR 2019/1009')
+
+    expect(() => generator.saveToDisk('notajson.txt')).toThrowError('Filepath must be a json file.')
+    expect(generator.saveToDisk('generator.json')).toBe(true)
+    expect(() => generator.saveToDisk('generator.json')).toThrowError('Filepath already exists.')
+    fs.unlinkSync('generator.json')
+
+    // fill in some mock answers
+    generator.allAnswers.set('Q1', 'My productname')
+    generator.allAnswers.set('Q2', 'PFC 1.A.II')
+
+    expect(generator.saveToDisk('generator.json')).toBe(true)
+    fs.unlinkSync('generator.json')
+  })
+
+  it('the packageVersion of the generator should be the same as package.json', () => {
+    const generator = new Generator('nl', 'FPR 2019/1009')
+    expect(generator.packageVersion).toBe(version)
   })
 })
