@@ -8,29 +8,24 @@ Producers of fertilising products can sell their product in the entire European 
 This package provides the logic and the content but no UI. The package does not store or sent data to an external party and can be used freely under the EUPL-1.2 license.
 
 ## Installation
-Make sure you have NodeJS installed and run then the following commands in the project folder
+Installation is done using the [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
 
 ```javascript
 
-npm install
-npm run watch
+npm install @nmi/fpr-td-gen
 
 ```
 
-The documentation can generated using:
+## Documentation
+The documentation of the package can be found [here](https://agrocares.github.io/fpr-td-gen/)
 
-```javascript
-
-npm run document
-
-```
 
 ## Usage
 To start, initialise a new `Generator` object
 
 ```typescript
 
-import { Generator } from 'fpr-td-gen'
+import { Generator } from 'fpr-td-gen' 
 
 const generator = new Generator()
 
