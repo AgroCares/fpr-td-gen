@@ -102,3 +102,4 @@ If you find a bug, please report it at https://github.com/AgroCares/fpr-td-gen/i
 Created by [Nutriënten Management Instituut](https://www.nmi-agro.nl)
 Licensed under EUPL-1.2 ([European Union Public Licence V. 1.2](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12))
 Source code available at https://github.com/AgroCares/fpr-td-gen
+![fpr-td-gen](logo_fpr_td_gen.png)
