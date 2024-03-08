@@ -1,6 +1,7 @@
-import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, answerSet, answerType, fprType } from './shared.types'
+import type { localesType, idType, questionType, fprVersionType, technicalDocumentationType, pfcType, answerSet, answerType, fprType, technicalDocumentationTaskListType, tasklistSetType } from './shared.types'
 
 import fprVersionSets from './fprVersionSets'
+import tasklistSets from './tasklist_sets'
 
 import { Question } from './question'
 
@@ -46,9 +47,13 @@ class Generator {
    * @alpha
    */
   getNextQuestion (): questionType {
-    const nextQuestionId = this.identifyNextQuestion()
-    const nextQuestion = new Question(this.locale, nextQuestionId.split('-')[0]).getQuestion()
-    return nextQuestion
+    if (!this.allQuestionsAnswered()) {
+      const nextQuestionId = this.identifyNextQuestion()
+      const nextQuestion = new Question(this.locale, nextQuestionId.split('-')[0]).getQuestion()
+      return nextQuestion
+    } else {
+      throw new Error('All questions have already been answered, no next question can be get')
+    }
   }
 
   /** Returns the tecnhical documentation
@@ -61,6 +66,33 @@ class Generator {
       fprVersion: this.fprVersion,
       pfcDesignation: this.pfcDesignation
     }
+  }
+
+  /**
+   * Check if all questions have been answered
+   * @returns true if all questions have been answered, else false
+   * @alpha
+   */
+  allQuestionsAnswered (): boolean {
+    let returnValue: boolean
+    if (this.pfcDesignation === 'PFC 7') { // this is a hard stop for the PFC 7, meaning that no further questions will be asked once the pfcDesignation is set to PFC 7
+      returnValue = true
+    } else if (this.generalQuestionsComplete()) {
+      if (this.allAnswers.has('Q3')) {
+        if (this.cmcAnswers.length === 0) {
+          returnValue = false
+        } else if (this.cmcAnswers.every(cmcAnswer => this.allAnswers.has(cmcAnswer))) {
+          returnValue = true
+        } else {
+          returnValue = false
+        }
+      } else {
+        throw new Error('General questions have been answered, the product is not a PFC 7 blend and yet, no component names have been given in Q3')
+      }
+    } else {
+      returnValue = false
+    }
+    return returnValue
   }
 
   /**
@@ -87,18 +119,17 @@ class Generator {
    *
    * A helper function to {@link identifyNextQuestion}
    *
-   * The general product questions include its name in Q1, PFC designation in Q2 and either a list of component names (Q3) or component product names (Q7)
-   * If Q3 or Q7 has been answered, this question returns true.
+   * If the general questions for a FPRversion have been answered, this function returns true.
    * @returns boolean
    * @internal
    * @alpha
    */
-  generalQuestionsIncommplete (): boolean {
+  generalQuestionsComplete (): boolean {
     let returnValue: boolean
-    if (this.allAnswers.has('Q3') || this.allAnswers.has('Q7')) {
-      returnValue = false
-    } else {
+    if (this.generalProductQuestions.every(questionId => this.allAnswers.has(questionId))) {
       returnValue = true
+    } else {
+      returnValue = false
     }
     return returnValue
   }
@@ -112,8 +143,13 @@ class Generator {
     /** setup variables and constants to be used in the function */
     let nextQId: idType
 
+    // check that that not all questions have been answered already
+    if (this.allQuestionsAnswered()) {
+      throw new Error('identifyNextQuestion is called whilst all questions have been answered.')
+    }
+
     /** actual question ID identifying */
-    if (!this.generalProductQuestions.every(questionId => this.allAnswers.has(questionId))) { /* Check whether all questions in generalProductQuestions have an answer in allAnswers */
+    if (!this.generalQuestionsComplete()) { /* Check whether all questions in generalProductQuestions have an answer in allAnswers */
       const generalProductQuestion = this.generalProductQuestions.find(questionId => !this.allAnswers.has(questionId))
       if (generalProductQuestion === undefined) {
         throw new Error('unable to identify generalProductQuestion, please contact the maintainers')
@@ -187,7 +223,89 @@ class Generator {
       }
     }
     this.allAnswers.set(this.identifyNextQuestion(), answer)
+    if (answer === 'PFC 7') {
+      this.pfcDesignation = 'PFC 7'
+    }
     return true
+  }
+
+  /** Returns the things that need to be included in the technical documentation of a product
+   * @returns The list of things that need to be included in the technical documentation of a product
+   * @internal
+   * @alpha
+   */
+  getTechnicalDocumentationTaskList (): technicalDocumentationTaskListType {
+    if (!this.allQuestionsAnswered()) {
+      throw new Error('All questions must be answered before getting the technical documentation task list which does not seem to be true.')
+    } else { // make the tasklist
+      // add all general tasks to the tasklist
+      const taskListGeneral = tasklistSets.filter(tasklistSet => tasklistSet.applicableTo.id === '').map(tasklistSet => {
+        const theTaskDetails = (tasklistSet.taskDetails === null) ? null : tasklistSet.taskDetails[this.locale]
+        const theTaskUrl = (tasklistSet.taskUrl === null) ? null : tasklistSet.taskUrl[this.locale]
+
+        return {
+          applicableElement: 'product',
+          taskName: tasklistSet.taskName[this.locale],
+          taskDetails: theTaskDetails,
+          taskUrl: theTaskUrl
+        }
+      })
+
+      const givenEachAnswerDoesThisTasklistSetApply = function (value: answerType, tasklistSet: tasklistSetType): boolean {
+        let returnValue: boolean
+
+        if (value === true) {
+          returnValue = true
+        } else if (value === false) {
+          returnValue = false
+        } else if (typeof value === 'string' || (Array.isArray(value) && value.every(element => typeof element === 'string'))) {
+          if (Array.isArray(tasklistSet.applicableTo.answer)) {
+            if (tasklistSet.applicableTo.answer.some(answer => value.includes(answer))) {
+              returnValue = true
+            } else {
+              returnValue = false
+            }
+          } else if (tasklistSet.applicableTo.answer === value) {
+            returnValue = true
+          } else {
+            returnValue = false
+          }
+        } else {
+          throw new Error('Could not assert whether task: ' + tasklistSet.taskId + ' applies')
+        }
+        return returnValue
+      }
+
+      // add non-general tasks to the tasklist
+      const taskListCmcs = Array.from(this.allAnswers.keys()).map(key => {
+        const questionId = key.split('-')[0]
+        const value = this.allAnswers.get(key)
+        if (value === undefined) {
+          throw new Error('The answer for question ' + questionId + ' is undefined.')
+        }
+
+        const taskListCmc = tasklistSets.filter(tasklistSet => tasklistSet.applicableTo.id === questionId)
+          .filter(tasklistSet => givenEachAnswerDoesThisTasklistSetApply(value, tasklistSet))
+          .map(tasklistSet => {
+            const cmcNr = key.split('-')[1]
+
+            const theTaskDetails = (tasklistSet.taskDetails === null) ? null : tasklistSet.taskDetails[this.locale]
+            const theTaskUrl = (tasklistSet.taskUrl === null) ? null : tasklistSet.taskUrl[this.locale]
+
+            return {
+              applicableElement: (cmcNr !== '') ? cmcNr : 'product', // if cmcNr is not undefined or empty string, applicalbeElement is cmcNr else product
+              taskName: tasklistSet.taskName[this.locale],
+              taskDetails: theTaskDetails,
+              taskUrl: theTaskUrl
+            }
+          })
+        return taskListCmc.flat()
+      }).flat()
+
+      // concatenate the two tasklists
+      const taskList = taskListGeneral.concat(taskListCmcs)
+      return taskList
+    }
   }
 }
 export default Generator

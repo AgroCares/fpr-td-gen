@@ -115,12 +115,37 @@ export interface questionSetType {
 }
 
 /**
+ * The items that need to be contained in the technical documentation
+ *
+ * @typeParam tasklistSetType - The question set that contains the details of a question
+ * @internal
+ */
+export interface tasklistSetType {
+  taskId: string
+  applicableTo: {
+    id: idType
+    answer: answerType | null // an answer value to a boolean or select question that decides whether a quesion is applicable
+  }
+  taskName: Record<localesType, string>
+  taskDetails: Record<localesType, string> | null
+  taskUrl: Record<localesType, string> | null
+}
+
+/**
  * A collection of various entries for questionsSet
  *
  * @typeParam questionSetsType - A collection of various entries for questionsSet {@link questionSetType}
  * @internal
  */
 export type questionSetsType = questionSetType[]
+
+/**
+ * A collection of various entries for tasklist
+ *
+ * @typeParam tasklistSetsType - A collection of various entries for questionsSet {@link questionSetType}
+ * @internal
+ */
+export type tasklistSetsType = tasklistSetType[]
 
 /**
  * The technical documentation of the FPR
@@ -224,3 +249,15 @@ export type answerSet = Map<idType, answerType>
  */
 
 export type answerType = string | string[] | boolean
+
+/**
+ * Type of the technicaldocumenatation task list
+ */
+export type technicalDocumentationTaskListType = technicalDocumentationTask[]
+
+export interface technicalDocumentationTask {
+  applicableElement: 'product' | string
+  taskName: string
+  taskDetails: string | null
+  taskUrl: string | null
+}
