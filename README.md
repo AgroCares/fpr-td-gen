@@ -1,4 +1,6 @@
 ![[License: EUPL](https://img.shields.io/badge/Licence-EUPL--1.2-333399)](https://joinup.ec.europa.eu/sites/default/files/custom-page/attachment/eupl_v1.2_en.pdf)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 # FPR-TD-GEN
 
 A package to determine what needs to be included in the Technical Documentation for a fertilising product.
