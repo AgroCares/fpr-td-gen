@@ -331,7 +331,7 @@ class Generator {
     const properties = {
       packageVersionversion: this.packageVersion,
       locale: this.locale,
-      FPRversion: this.fprVersion,
+      fprVersion: this.fprVersion,
       pfcDesignation: this.pfcDesignation,
       allAnswers: Object.fromEntries(this.allAnswers),
       nrOfComponents: this.nrOfComponents,
@@ -349,7 +349,7 @@ class Generator {
     }
 
     // Store the file
-    fs.writeFileSync(filePath, JSON.stringify(file))
+    fs.writeFileSync(filePath, JSON.stringify(file), 'utf8')
     return true
   }
 }

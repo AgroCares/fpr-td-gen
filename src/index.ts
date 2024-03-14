@@ -15,3 +15,6 @@
 
 /** {@inheritDoc Generator} */
 export { default as Generator } from './generator'
+
+/** {@inheritDoc loadFromDisk} */
+export { default as loadFromDisk } from './loadFromDisk'
