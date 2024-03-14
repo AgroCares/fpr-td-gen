@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto'
 import Generator from './generator'
 
 /** Load from JSON file to generator
-* @param filePath - The file path for where the JSON is stored. It can be generated using the saveToFile method {@link saveToFile}
+* @param filePath - The path to where the JSON file is stored, include the filename. It can be generated using the saveToFile method {@link saveToFile}
 * @returns A generator class with the specified properties {@link Generator}
 * @internal
 * @alpha
