@@ -32,6 +32,26 @@ function loadFromDisk (filePath: string): Generator {
   // Create generator with properties from file
   const generator = new Generator(properties.locale, properties.fprVersion)
 
+  // Set properties of file to generator
+  if (properties.pfcDesignation !== undefined) {
+    generator.pfcDesignation = properties.pfcDesignation
+  }
+  if (properties.allAnswers !== undefined) {
+    Object.keys(properties.allAnswers).forEach(key => {
+      const answer = properties.allAnswers[key]
+      generator.allAnswers.set(key, answer)
+    })
+  }
+  if (properties.nrOfComponents !== undefined) {
+    generator.nrOfComponents = properties.nrOfComponents
+  }
+  if (properties.lastKeyComponentNr !== undefined) {
+    generator.lastKeyComponentNr = properties.lastKeyComponentNr
+  }
+  if (properties.cmcAnswers !== undefined) {
+    generator.cmcAnswers = properties.cmcAnswers
+  }
+
   return generator
 }
 

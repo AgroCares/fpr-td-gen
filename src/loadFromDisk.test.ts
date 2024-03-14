@@ -19,8 +19,7 @@ describe('loadFromDisk', () => {
     const generator2 = loadFromDisk(filePath)
 
     expect(generator2).to.be.an.instanceof(Generator)
-    expect(generator2.locale).to.equal(generator1.locale)
-    expect(generator2.fprVersion).to.equal(generator1.fprVersion)
+    expect(generator1).toEqual(generator2)
 
     unlinkSync('generator1.json')
   })
