@@ -312,13 +312,13 @@ class Generator {
     }
   }
 
-  /** Store the generator as JSON file to disk
+  /** Store the generator as JSON file
    * @param filePath - The file path for where to store the properties of the generator. Should have the extension ".json".
    * @returns A boolean to indicate if the file has been stored successfully
    * @internal
    * @alpha
    */
-  saveToDisk (filePath: string): boolean {
+  saveToFile (filePath: string): boolean {
     // Check if filePath is actual json and can be stored
     if (!filePath.endsWith('.json')) {
       throw new Error('Filepath must be a json file.')
@@ -331,7 +331,7 @@ class Generator {
     const properties = {
       packageVersionversion: this.packageVersion,
       locale: this.locale,
-      FPRversion: this.fprVersion,
+      fprVersion: this.fprVersion,
       pfcDesignation: this.pfcDesignation,
       allAnswers: Object.fromEntries(this.allAnswers),
       nrOfComponents: this.nrOfComponents,
@@ -349,7 +349,7 @@ class Generator {
     }
 
     // Store the file
-    fs.writeFileSync(filePath, JSON.stringify(file))
+    fs.writeFileSync(filePath, JSON.stringify(file), 'utf8')
     return true
   }
 }
