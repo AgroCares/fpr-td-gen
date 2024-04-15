@@ -1,5 +1,5 @@
-import { readFileSync, existsSync } from 'node:fs'
-import { createHash } from 'node:crypto'
+import fs from 'node:fs'
+import crypto from 'node:crypto'
 
 import Generator from './generator'
 
@@ -14,17 +14,17 @@ function LoadFromFile (filePath: string): Generator {
   if (!filePath.endsWith('.json')) {
     throw new Error('Filepath must be a json file.')
   }
-  if (!existsSync(filePath)) {
+  if (!fs.existsSync(filePath)) {
     throw new Error('Filepath does not exist')
   }
 
   // Load from disk
-  const file = JSON.parse(readFileSync(filePath, 'utf8'))
+  const file = JSON.parse(fs.readFileSync(filePath, 'utf8'))
 
   // Check hash of properties
   const properties = file.properties
   const propertiesHashOrginal = file.propertiesHash
-  const propertiesHash = createHash('md5').update(JSON.stringify(properties)).digest('hex')
+  const propertiesHash = crypto.createHash('md5').update(JSON.stringify(properties)).digest('hex')
   if (propertiesHash !== propertiesHashOrginal) {
     throw new Error('Unable to load generator. The file has been modified after generation.')
   }
