@@ -1,4 +1,4 @@
 # Changelog
 
-## 0.1.0 2023-12-05
-Setup boilerplate with first question for the generator
+## v1.0.0 2024-04-15
+First stable release! From now on changes to the `fpr-td-gen` will be documented in this changelog and at [GitHub Releases](https://github.com/AgroCares/fpr-td-gen/releases)
