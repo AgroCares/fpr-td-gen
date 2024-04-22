@@ -1,7 +1,7 @@
 {
   "name": "@nmi-agro/fpr-td-gen",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A generator for the Technical Documentation of the EU Fertilizer Product Regulation",
   "keywords": [
     "EU",
