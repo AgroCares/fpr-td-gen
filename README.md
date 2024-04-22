@@ -15,7 +15,7 @@ Installation is done using the [`npm install` command](https://docs.npmjs.com/ge
 
 ```javascript
 
-npm install @nmi/fpr-td-gen
+npm install @nmi-agro/fpr-td-gen
 
 ```
 
