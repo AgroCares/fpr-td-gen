@@ -6,8 +6,7 @@ import Generator from './generator'
 /** Load from JSON file to generator
 * @param filePath - The path to where the JSON file is stored, include the filename. It can be generated using the saveToFile method {@link saveToFile}
 * @returns A generator class with the specified properties {@link Generator}
-* @internal
-* @alpha
+* @public
 */
 function LoadFromFile (filePath: string): Generator {
   // Check if filePath is actual json and can be stored
