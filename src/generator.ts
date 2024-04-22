@@ -14,9 +14,9 @@ class Generator {
   * @param locale - {@link localesType}
   * @param fprVersion - {@link fprVersionType}
   * @returns A Generator class with the functions {@link getNextQuestion} and {@link getTechnicalDocumentation}
-  * @alpha
+  * @public
   */
-  packageVersion = '1.0.0'
+  packageVersion = '1.1.0'
   locale: localesType
   fprVersion: fprVersionType
   pfcDesignation: pfcType = undefined
@@ -48,7 +48,7 @@ class Generator {
 
   /** Returns the next question
    * @returns The question object {@link questionType} for the next question
-   * @alpha
+   * @public
    */
   getNextQuestion (): questionType {
     if (!this.allQuestionsAnswered()) {
@@ -62,7 +62,7 @@ class Generator {
 
   /** Returns the tecnhical documentation
    * @returns The technical documentation {@link technicalDocumentationType} object for the EU fertilizing product
-   * @alpha
+   * @public
    */
   getTechnicalDocumentation (): technicalDocumentationType {
     return {
@@ -75,7 +75,7 @@ class Generator {
   /**
    * Check if all questions have been answered
    * @returns true if all questions have been answered, else false
-   * @alpha
+   * @public
    */
   allQuestionsAnswered (): boolean {
     let returnValue: boolean
@@ -126,7 +126,6 @@ class Generator {
    * If the general questions for a FPRversion have been answered, this function returns true.
    * @returns boolean
    * @internal
-   * @alpha
    */
   generalQuestionsComplete (): boolean {
     let returnValue: boolean
@@ -191,7 +190,7 @@ class Generator {
  *
  * @param answer - The answer to the question of type {@link answerType}.
  * @returns `true` if the answer was successfully saved, and `false` otherwise.
- * @alpha
+ * @public
  */
   saveAnswer (answer: answerType): boolean {
     /**
@@ -236,7 +235,6 @@ class Generator {
   /** Returns the things that need to be included in the technical documentation of a product
    * @returns The list of things that need to be included in the technical documentation of a product
    * @internal
-   * @alpha
    */
   getTechnicalDocumentationTaskList (): technicalDocumentationTaskListType {
     if (!this.allQuestionsAnswered()) {
@@ -315,8 +313,7 @@ class Generator {
   /** Store the generator as JSON file
    * @param filePath - The file path for where to store the properties of the generator. Should have the extension ".json".
    * @returns A boolean to indicate if the file has been stored successfully
-   * @internal
-   * @alpha
+   * @public
    */
   saveToFile (filePath: string): boolean {
     // Check if filePath is actual json and can be stored

@@ -7,7 +7,7 @@ export class Question {
 * @param locale - {@link localesType}
 * @param id - {@link idType}
 * @returns A Question class with the function {@link getQuestion}
-* @alpha
+* @public
 */
   locale: localesType
   id: idType
@@ -54,7 +54,7 @@ export class Question {
   /**
 * Returns a question object
 * @returns A question object {@link questionType}
-* @alpha
+* @public
 */
   getQuestion (): questionType {
     return this.question

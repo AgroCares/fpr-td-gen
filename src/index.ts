@@ -9,7 +9,7 @@
  * Source code available at https://github.com/AgroCares/fpr-td-gen
  * In case you find a bug, please report at https://github.com/AgroCares/fpr-td-gen/issues
  *
- * @alpha
+ * @public
  * @packageDocumentation
  */
 
