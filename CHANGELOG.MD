@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.1 2024-09-18
+### Security
+* Patch for CVE-2024-45811
+* Patch for CVE-2024-45812
+
 ## v1.1.0 2024-04-22
 ### Added
 * Adds GitHub Pages with documentation of the package
