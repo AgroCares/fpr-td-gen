@@ -187,7 +187,7 @@ const questionSets: questionSetsType =
         {
           value: 'PFC 7',
           locale: {
-            nl: 'PFC 7 Bemestingsprodcutenblend',
+            nl: 'PFC 7 Bemestingsproductenblend',
             en: 'PFC 7 Fertilising product blend'
           }
         }
