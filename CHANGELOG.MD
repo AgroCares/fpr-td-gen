@@ -1,4 +1,7 @@
 # Changelog
+## v1.1.2 2025-02-20
+### Fixed
+* Typo in Dutch name for PFC 7
 
 ## v1.1.1 2024-09-18
 ### Security
