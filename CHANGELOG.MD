@@ -1,4 +1,10 @@
 # Changelog
+## unreleased
+### Security
+* Patch for CVE-2025-24964
+* Patch for CVE-2024-47068
+* Patch for CVE-2025-24010
+
 ## v1.1.3 2025-02-21
 ### Security
 * Patch dependencies
