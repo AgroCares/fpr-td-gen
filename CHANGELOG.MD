@@ -1,4 +1,10 @@
 # Changelog
+
+## v1.1.5 2025-09-18
+### Security
+* Patch for CVE-2025-58751
+* Patch for CVE-2025-58752
+
 ## v1.1.4 2025-02-21
 ### Security
 * Patch for CVE-2025-24964
